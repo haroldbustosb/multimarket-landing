@@ -545,7 +545,7 @@
   // ─────────────────────────────────────────────
   // CONFIGURACIÓN — pega aquí tu URL de Apps Script
   // ─────────────────────────────────────────────
-  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxmKzehGHDB5pFSJyDIxjs_f8kfixXmAKniGyYA5kuKjZk44ih7Tyii4D20dpR8Am0NZw/exec";
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbziCG_PkAEXjPnZweZ4TX9Rw6wfDQlIUGfd0BG_PlIhKZp3yXUN7bOdbV1TD0pC5nRTDA/exec";
 
   // ── Scroll reveal ─────────────────────────────
   const ro = new IntersectionObserver(entries => {
@@ -614,12 +614,12 @@
     };
 
     try {
-      // no-cors: el dato llega a Google, pero no podemos leer la respuesta
-      // → mostramos éxito optimista (estándar para Apps Script público)
+      // text/plain es el único Content-Type permitido en no-cors mode.
+      // Apps Script igual recibe el cuerpo en e.postData.contents.
       await fetch(SCRIPT_URL, {
         method:  'POST',
         mode:    'no-cors',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
         body:    JSON.stringify(payload),
       });
 

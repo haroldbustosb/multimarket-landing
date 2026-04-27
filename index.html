@@ -205,6 +205,45 @@ a{text-decoration:none;color:inherit}
 .ap-card-desc{font-size:13px;color:var(--text-light);line-height:1.55}
 .ap-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.25);color:var(--green-dark);padding:10px 20px;border-radius:12px;font-size:14px;font-weight:700;margin-top:24px}
 
+/* ── MULTIMAKIA ── */
+.multimakia{padding:100px 24px;background:linear-gradient(160deg,#0D2137 0%,#1A3C5E 60%,#0d4f3c 100%);position:relative;overflow:hidden}
+.multimakia::before{content:'';position:absolute;top:-120px;right:-120px;width:500px;height:500px;border-radius:50%;background:rgba(16,185,129,.06)}
+.multimakia::after{content:'';position:absolute;bottom:-100px;left:-80px;width:360px;height:360px;border-radius:50%;background:rgba(16,185,129,.05)}
+.mm-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1}
+.mm-header{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:60px}
+.mm-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(16,185,129,.18);border:1px solid rgba(16,185,129,.35);color:#6EE7B7;padding:6px 16px;border-radius:100px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:18px}
+.mm-title{font-size:clamp(26px,3.5vw,44px);font-weight:900;color:#fff;letter-spacing:-1px;line-height:1.15;margin-bottom:16px}
+.mm-title em{color:var(--green);font-style:normal}
+.mm-sub{font-size:15px;color:rgba(255,255,255,.7);line-height:1.8;margin-bottom:24px}
+.mm-stats{display:flex;gap:28px;flex-wrap:wrap}
+.mm-stat{text-align:center}
+.mm-stat-val{font-size:28px;font-weight:900;color:var(--green);line-height:1}
+.mm-stat-label{font-size:12px;color:rgba(255,255,255,.5);margin-top:4px;font-weight:500}
+.mm-how{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:28px}
+.mm-how-title{font-size:12px;font-weight:700;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:20px}
+.mm-how-steps{display:flex;flex-direction:column;gap:14px}
+.mm-how-step{display:flex;align-items:flex-start;gap:14px}
+.mm-step-icon{width:38px;height:38px;min-width:38px;border-radius:10px;background:rgba(16,185,129,.18);border:1px solid rgba(16,185,129,.3);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.mm-step-title{font-size:14px;font-weight:700;color:#fff;margin-bottom:3px}
+.mm-step-desc{font-size:12px;color:rgba(255,255,255,.55);line-height:1.6}
+.mm-events{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.mm-event-card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:24px;backdrop-filter:blur(8px);transition:background .2s,transform .2s}
+.mm-event-card:hover{background:rgba(255,255,255,.11);transform:translateY(-4px)}
+.mm-event-cat{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,.5);margin-bottom:10px}
+.mm-event-name{font-size:16px;font-weight:800;color:#fff;margin-bottom:5px;line-height:1.35}
+.mm-event-bene{font-size:12px;color:rgba(255,255,255,.55);margin-bottom:16px}
+.mm-progress-wrap{margin-bottom:10px}
+.mm-progress-bar{height:6px;background:rgba(255,255,255,.12);border-radius:100px;overflow:hidden}
+.mm-progress-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--green),#34D399);transition:width .8s ease}
+.mm-progress-labels{display:flex;justify-content:space-between;margin-top:6px}
+.mm-progress-pct{font-size:13px;font-weight:800;color:var(--green)}
+.mm-progress-meta{font-size:11px;color:rgba(255,255,255,.45)}
+.mm-event-footer{display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.08)}
+.mm-donors{font-size:11px;color:rgba(255,255,255,.45)}
+.mm-donate-tag{font-size:11px;font-weight:700;color:var(--green);background:rgba(16,185,129,.12);padding:4px 10px;border-radius:100px}
+.mm-cta-row{text-align:center;margin-top:44px}
+.mm-cta-note{font-size:13px;color:rgba(255,255,255,.45);margin-top:14px}
+
 /* ── DROPI ── */
 .dropi{padding:100px 24px;background:var(--bg)}
 .dropi-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
@@ -348,12 +387,16 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
   .nav-links{display:none}
   .hamburger{display:flex}
   .form-card{padding:32px 24px}
+  .mm-header{grid-template-columns:1fr;gap:32px}
+  .mm-events{grid-template-columns:1fr 1fr}
 }
 @media(max-width:640px){
   .stats-inner{grid-template-columns:1fr}
   .perfiles-grid{grid-template-columns:1fr}
   .ap-grid{grid-template-columns:1fr}
   .red-grid{grid-template-columns:1fr}
+  .mm-events{grid-template-columns:1fr}
+  .mm-stats{gap:20px}
   .footer-grid{grid-template-columns:1fr}
   .hero{padding:90px 20px 60px}
   .phone{width:220px;height:440px}
@@ -375,6 +418,7 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
     <li><a href="#ml">Sistema ML</a></li>
     <li><a href="#red">La red</a></li>
     <li><a href="#dropshipping">Dropshipping</a></li>
+    <li><a href="#multimakia">MultiMakia</a></li>
     <li><a href="#registro" class="nav-cta">Registrarme →</a></li>
   </ul>
   <button class="hamburger" id="hbg" onclick="toggleNav()" aria-label="Menú">
@@ -386,6 +430,7 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
   <a href="#ml"          onclick="closeNav()">Sistema ML</a>
   <a href="#red"         onclick="closeNav()">La red</a>
   <a href="#dropshipping" onclick="closeNav()">Dropshipping</a>
+  <a href="#multimakia"  onclick="closeNav()">MultiMakia</a>
   <a href="#registro" class="nav-cta" onclick="closeNav()">Registrarme →</a>
 </div>
 
@@ -717,6 +762,129 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
     <div class="ap-badge reveal">
       ✓ &nbsp;Modelo basado en economía de consumo real, no en captación de personas
     </div>
+  </div>
+</section>
+
+<!-- ══ MULTIMAKIA ══════════════════════════════════════════ -->
+<section class="multimakia" id="multimakia">
+  <div class="mm-inner">
+
+    <!-- Header grid: texto izq + cómo funciona der -->
+    <div class="mm-header">
+      <div class="reveal">
+        <div class="mm-badge">❤️ Solidaridad activa</div>
+        <h2 class="mm-title">Multi<em>Makia</em> — El fondo social de la red</h2>
+        <p class="mm-sub">
+          Parte del valor que se genera en la red se destina voluntariamente a causas reales.
+          Los usuarios donan MLs a eventos sociales: familias, comunidades, emergencias.
+          La economía activa también tiene corazón.
+        </p>
+        <div class="mm-stats">
+          <div class="mm-stat">
+            <div class="mm-stat-val">MLs</div>
+            <div class="mm-stat-label">donados por<br/>la comunidad</div>
+          </div>
+          <div class="mm-stat">
+            <div class="mm-stat-val">100%</div>
+            <div class="mm-stat-label">llega al<br/>beneficiario</div>
+          </div>
+          <div class="mm-stat">
+            <div class="mm-stat-val">0</div>
+            <div class="mm-stat-label">intermediarios<br/>en el fondo</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mm-how reveal d2">
+        <div class="mm-how-title">¿Cómo funciona?</div>
+        <div class="mm-how-steps">
+          <div class="mm-how-step">
+            <div class="mm-step-icon">🛒</div>
+            <div>
+              <div class="mm-step-title">Tu actividad genera MLs</div>
+              <div class="mm-step-desc">Cada compra, venta o entrega produce MLs dentro de la red. Son tu valor acumulado.</div>
+            </div>
+          </div>
+          <div class="mm-how-step">
+            <div class="mm-step-icon">❤️</div>
+            <div>
+              <div class="mm-step-title">Eliges donar voluntariamente</div>
+              <div class="mm-step-desc">Desde la app seleccionas una causa activa y el monto de MLs que quieres aportar. Siempre voluntario.</div>
+            </div>
+          </div>
+          <div class="mm-how-step">
+            <div class="mm-step-icon">✅</div>
+            <div>
+              <div class="mm-step-title">El fondo llega a la causa</div>
+              <div class="mm-step-desc">Los MLs donados se acumulan en el evento hasta alcanzar la meta. Sin intermediarios, con trazabilidad completa.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ejemplos de causas activas -->
+    <div style="text-align:center;margin-bottom:28px" class="reveal">
+      <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:2px">Ejemplos de causas activas</div>
+    </div>
+    <div class="mm-events">
+      <div class="mm-event-card reveal d1">
+        <div class="mm-event-cat">🏫 Educación</div>
+        <div class="mm-event-name">Útiles escolares para 50 niños en Buenaventura</div>
+        <div class="mm-event-bene">Fundación Semillas del Pacífico</div>
+        <div class="mm-progress-wrap">
+          <div class="mm-progress-bar"><div class="mm-progress-fill" style="width:72%"></div></div>
+          <div class="mm-progress-labels">
+            <span class="mm-progress-pct">72%</span>
+            <span class="mm-progress-meta">720,000 / 1,000,000 ML</span>
+          </div>
+        </div>
+        <div class="mm-event-footer">
+          <span class="mm-donors">🤝 38 donantes</span>
+          <span class="mm-donate-tag">Activa</span>
+        </div>
+      </div>
+      <div class="mm-event-card reveal d2" style="border-color:rgba(16,185,129,.3);background:rgba(16,185,129,.08)">
+        <div class="mm-event-cat" style="color:#6EE7B7">⭐ Destacada · 🏥 Salud</div>
+        <div class="mm-event-name">Kit médico para comunidad rural en Chocó</div>
+        <div class="mm-event-bene">Cruz Roja Seccional Chocó</div>
+        <div class="mm-progress-wrap">
+          <div class="mm-progress-bar"><div class="mm-progress-fill" style="width:45%"></div></div>
+          <div class="mm-progress-labels">
+            <span class="mm-progress-pct">45%</span>
+            <span class="mm-progress-meta">900,000 / 2,000,000 ML</span>
+          </div>
+        </div>
+        <div class="mm-event-footer">
+          <span class="mm-donors">🤝 61 donantes</span>
+          <span class="mm-donate-tag" style="background:rgba(16,185,129,.2);color:#34D399">Urgente</span>
+        </div>
+      </div>
+      <div class="mm-event-card reveal d3">
+        <div class="mm-event-cat">🌾 Alimentación</div>
+        <div class="mm-event-name">Mercados solidarios para adultos mayores en Cali</div>
+        <div class="mm-event-bene">Red de Abuelos Cali</div>
+        <div class="mm-progress-wrap">
+          <div class="mm-progress-bar"><div class="mm-progress-fill" style="width:91%"></div></div>
+          <div class="mm-progress-labels">
+            <span class="mm-progress-pct">91%</span>
+            <span class="mm-progress-meta">455,000 / 500,000 ML</span>
+          </div>
+        </div>
+        <div class="mm-event-footer">
+          <span class="mm-donors">🤝 112 donantes</span>
+          <span class="mm-donate-tag">Por cerrar</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mm-cta-row reveal">
+      <a href="#registro" class="btn-primary" style="display:inline-block">
+        Únete y participa en MultiMakia →
+      </a>
+      <p class="mm-cta-note">Las causas son reales. Las donaciones son voluntarias. El impacto es tuyo.</p>
+    </div>
+
   </div>
 </section>
 

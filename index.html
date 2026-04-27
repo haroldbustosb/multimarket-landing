@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <meta name="description" content="Multimarket — La red de economía activa de Colombia. Regístrate y sé de los primeros en acceder."/>
+  <title>Multimarket — Activa tu cuenta antes del lanzamiento</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy:  { DEFAULT:'#1A3C5E', dark:'#0D2137', mid:'#1e4a74' },
+            brand: { DEFAULT:'#10B981', dark:'#059669' },
+          },
+          fontFamily: { sans: ['Inter','system-ui','sans-serif'] },
+          animation: {
+            'float': 'float 4s ease-in-out infinite',
+            'blink': 'blink 2s ease-in-out infinite',
+            'fade-up': 'fadeUp .6s ease forwards',
+          },
+          keyframes: {
+            float:   { '0%,100%':{ transform:'translateY(0)' }, '50%':{ transform:'translateY(-8px)' } },
+            blink:   { '0%,100%':{ opacity:'1' }, '50%':{ opacity:'.3' } },
+            fadeUp:  { from:{ opacity:'0', transform:'translateY(20px)' }, to:{ opacity:'1', transform:'translateY(0)' } },
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    html { scroll-behavior: smooth; }
+    .gradient-hero { background: linear-gradient(135deg, #0D2137 0%, #1A3C5E 55%, #1a5276 100%); }
+    .gradient-glow  { background: radial-gradient(ellipse at 70% 50%, rgba(16,185,129,.14) 0%, transparent 60%); }
+    .card-hover { transition: transform .2s, box-shadow .2s; }
+    .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 60px rgba(26,60,94,.18); }
+    .input-field { transition: border-color .2s, box-shadow .2s; }
+    .input-field:focus { outline: none; border-color: #10B981; box-shadow: 0 0 0 3px rgba(16,185,129,.15); }
+    .btn-submit { transition: background .2s, transform .1s, box-shadow .2s; }
+    .btn-submit:hover:not(:disabled) { background: #059669; transform: translateY(-1px); box-shadow: 0 8px 24px rgba(16,185,129,.4); }
+    .btn-submit:disabled { opacity: .6; cursor: not-allowed; }
+    #modal { transition: opacity .2s; }
+    .reveal { opacity:0; transform:translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.in { opacity:1; transform:translateY(0); }
+    @media (max-width: 640px) {
+      .hero-float { display: none; }
+    }
+  </style>
+</head>
+<body class="font-sans bg-white text-gray-900 overflow-x-hidden">
+
+<!-- ══════════════════════════════════════════════
+     NAV
+══════════════════════════════════════════════ -->
+<nav class="fixed top-0 left-0 right-0 z-50 h-16 flex items-center justify-between px-6
+            bg-navy-dark/90 backdrop-blur-xl border-b border-white/10">
+  <div class="text-xl font-black text-white tracking-tight">
+    Multi<span class="text-brand">market</span>
+  </div>
+  <a href="#registro"
+     class="bg-brand hover:bg-brand-dark text-white text-sm font-bold px-5 py-2.5 rounded-xl transition-colors">
+    Registrarme →
+  </a>
+</nav>
+
+<!-- FOMO BAR -->
+<div class="mt-16 bg-gradient-to-r from-brand-dark to-navy-mid px-4 py-2.5 text-center text-sm font-semibold text-white">
+  🔥 <span class="text-yellow-300">Los primeros usuarios tienen mayor ventaja de posición.</span>
+  <a href="#registro" class="underline underline-offset-2 ml-2 font-bold">Reservar mi lugar →</a>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════ -->
+<section class="gradient-hero relative overflow-hidden min-h-[92vh] flex items-center px-6 py-20">
+  <!-- Glow overlay -->
+  <div class="gradient-glow absolute inset-0 pointer-events-none"></div>
+  <!-- Bottom fade -->
+  <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent pointer-events-none"></div>
+
+  <div class="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+
+    <!-- Text -->
+    <div class="animate-fade-up">
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 bg-brand/15 border border-brand/30 text-emerald-300
+                  text-xs font-semibold px-4 py-1.5 rounded-full mb-6">
+        <span class="w-2 h-2 rounded-full bg-brand animate-blink"></span>
+        Red de economía activa · Colombia
+      </div>
+
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight mb-5">
+        Compra, vende y<br/>
+        <em class="not-italic text-brand">genera valor</em><br/>
+        dentro de una red<br/>
+        que trabaja para ti
+      </h1>
+
+      <p class="text-white/70 text-lg leading-relaxed max-w-xl mb-6">
+        Multimarket conecta personas, negocios y mensajeros en una economía
+        donde <strong class="text-white">cada compra genera valor real.</strong>
+        El dinero entra por consumo y se mueve como oportunidades.
+      </p>
+
+      <!-- Bullets -->
+      <ul class="space-y-3 mb-8">
+        <li class="flex items-center gap-3 text-white/90 text-sm font-medium">
+          <span class="w-6 h-6 rounded-full bg-brand/25 text-brand flex items-center justify-center text-xs font-black flex-shrink-0">✓</span>
+          Gana por consumir y conectar personas a la red
+        </li>
+        <li class="flex items-center gap-3 text-white/90 text-sm font-medium">
+          <span class="w-6 h-6 rounded-full bg-brand/25 text-brand flex items-center justify-center text-xs font-black flex-shrink-0">✓</span>
+          Vende sin inventario con dropshipping integrado (Dropi)
+        </li>
+        <li class="flex items-center gap-3 text-white/90 text-sm font-medium">
+          <span class="w-6 h-6 rounded-full bg-brand/25 text-brand flex items-center justify-center text-xs font-black flex-shrink-0">✓</span>
+          Mueve valor con Multimarket Libres — 1 ML = 1 COP
+        </li>
+      </ul>
+
+      <div class="flex gap-4 flex-wrap">
+        <a href="#registro"
+           class="bg-brand hover:bg-brand-dark text-white font-bold text-base px-8 py-4 rounded-xl
+                  shadow-[0_4px_20px_rgba(16,185,129,.4)] hover:shadow-[0_8px_30px_rgba(16,185,129,.5)]
+                  transition-all hover:-translate-y-0.5">
+          Activar mi cuenta gratis
+        </a>
+        <a href="#perfiles"
+           class="text-white/80 hover:text-white border border-white/20 hover:border-white/40
+                  hover:bg-white/10 font-semibold text-base px-7 py-4 rounded-xl transition-all">
+          ¿Cómo gano? →
+        </a>
+      </div>
+    </div>
+
+    <!-- Stats / Visual -->
+    <div class="flex flex-col gap-5 relative">
+      <!-- Floating cards -->
+      <div class="hero-float absolute -top-6 -right-4 animate-float bg-white/10 backdrop-blur-md
+                  border border-white/15 rounded-2xl px-4 py-3 text-white text-sm font-bold z-10">
+        <div class="text-brand text-2xl font-black">+1,200</div>productos activos
+      </div>
+      <div class="hero-float absolute -bottom-4 -right-6 animate-float [animation-delay:1.5s] bg-white/10
+                  backdrop-blur-md border border-white/15 rounded-2xl px-4 py-3 text-white text-sm font-bold z-10">
+        <div class="text-brand text-2xl font-black">1 ML</div>= 1 COP siempre
+      </div>
+
+      <!-- Main card -->
+      <div class="bg-white/10 backdrop-blur-md border border-white/15 rounded-3xl p-6 text-white">
+        <div class="text-xs uppercase tracking-widest text-white/50 mb-5">Tu dashboard Multimarket</div>
+        <!-- Balance -->
+        <div class="bg-white/10 rounded-2xl p-4 mb-4 border border-white/10">
+          <div class="text-xs text-white/50 uppercase tracking-wide mb-1">Saldo ML</div>
+          <div class="text-3xl font-black">2,400 <span class="text-brand text-base font-semibold">ML</span></div>
+        </div>
+        <!-- Items -->
+        <div class="space-y-2.5">
+          <div class="flex items-center gap-3 bg-white/5 rounded-xl px-3.5 py-2.5 border border-white/8">
+            <div class="w-9 h-9 rounded-lg bg-brand/20 flex items-center justify-center text-base flex-shrink-0">👟</div>
+            <div><div class="text-xs font-semibold text-white/80">Zapatillas Sport</div>
+                 <div class="text-xs text-brand font-bold">89,000 ML</div></div>
+          </div>
+          <div class="flex items-center gap-3 bg-white/5 rounded-xl px-3.5 py-2.5 border border-white/8">
+            <div class="w-9 h-9 rounded-lg bg-brand/20 flex items-center justify-center text-base flex-shrink-0">⌚</div>
+            <div><div class="text-xs font-semibold text-white/80">Smartwatch Pro</div>
+                 <div class="text-xs text-brand font-bold">120,000 ML</div></div>
+          </div>
+          <div class="flex items-center gap-3 bg-white/5 rounded-xl px-3.5 py-2.5 border border-white/8">
+            <div class="w-9 h-9 rounded-lg bg-brand/20 flex items-center justify-center text-base flex-shrink-0">💄</div>
+            <div><div class="text-xs font-semibold text-white/80">Kit Belleza</div>
+                 <div class="text-xs text-brand font-bold">45,000 ML</div></div>
+          </div>
+        </div>
+        <!-- App badge -->
+        <div class="mt-4 pt-4 border-t border-white/10 text-center">
+          <div class="text-xs text-white/40 uppercase tracking-wider mb-2">App móvil — Próximamente</div>
+          <div class="flex gap-2 justify-center">
+            <div class="bg-white/10 border border-white/15 rounded-lg px-3 py-1.5 text-white/50 text-xs font-bold">App Store</div>
+            <div class="bg-white/10 border border-white/15 rounded-lg px-3 py-1.5 text-white/50 text-xs font-bold">Google Play</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     PERFILES
+══════════════════════════════════════════════ -->
+<section id="perfiles" class="py-24 px-6 bg-slate-50">
+  <div class="max-w-6xl mx-auto">
+    <div class="text-center mb-14 reveal">
+      <span class="inline-block bg-emerald-100 text-emerald-800 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest mb-3">Tu perfil en la red</span>
+      <h2 class="text-3xl sm:text-4xl font-black text-navy tracking-tight mb-3">¿Cómo generas valor en Multimarket?</h2>
+      <p class="text-gray-500 text-lg max-w-xl mx-auto leading-relaxed">No hay un solo camino. Cada persona entra según su rol y genera valor de forma diferente.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      <!-- Cliente -->
+      <div class="card-hover bg-white rounded-2xl p-7 border border-slate-200 flex flex-col gap-4 reveal">
+        <div class="w-14 h-14 rounded-2xl bg-emerald-50 flex items-center justify-center text-3xl">🛒</div>
+        <div>
+          <div class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Perfil</div>
+          <div class="text-lg font-black text-navy">Cliente Activo</div>
+        </div>
+        <ul class="space-y-2 flex-1">
+          <li class="flex gap-2 text-sm text-gray-500 leading-snug"><span class="text-brand font-bold mt-0.5 flex-shrink-0">→</span>Compra y acumula MLs</li>
+          <li class="flex gap-2 text-sm text-gray-500 leading-snug"><span class="text-brand font-bold mt-0.5 flex-shrink-0">→</span>Vende sin inventario</li>
+          <li class="flex gap-2 text-sm text-gray-500 leading-snug"><span class="text-brand font-bold mt-0.5 flex-shrink-0">→</span>Crece por actividad real</li>
+        </ul>
+        <a href="#registro" class="text-center bg-brand text-white text-sm font-bold px-4 py-2.5 rounded-xl hover:bg-brand-dark transition-colors">Soy Cliente</a>
+      </div>
+      <!-- Negocio -->
+      <div class="card-hover bg-white rounded-2xl p-7 border border-slate-200 flex flex-col gap-4 reveal" style="transition-delay:.1s">
+        <div class="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center text-3xl">🏪</div>
+        <div>
+          <div class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Perfil</div>
+          <div class="text-lg font-black text-navy">Negocio o Tienda</div>
+        </div>
+        <ul class="space-y-2 flex-1">
+          <li class="flex gap-2 text-sm text-gray-500 leading-snug"><span class="text-brand font-bold mt-0.5 flex-shrink-0">→</span>Recibe clientes de la red</li>
+          <li class="flex gap-2 text-sm text-gray-500 leading-snug"><span class="text-brand font-bold mt-0.5 flex-shrink-0">→</span>Acepta MLs como pago</li>
+          <li class="flex gap-2 text-sm text-gray-500 leading-snug"><span class="text-brand font-bold mt-0.5 flex-shrink-0">→</span>Publica sin costo de pauta</li>
+        </ul>
+        <a href="#registro" class="text-center bg-navy text-white text-sm font-bold px-4 py-2.5 rounded-xl hover:bg-navy-dark transition-colors">Soy Negocio</a>
+      </div>
+      <!-- Mensajero -->
+      <div class="card-hover bg-white rounded-2xl p-7 border border-slate-200 flex flex-col gap-4 reveal" style="transition-delay:.2s">
+        <div class="w-14 h-14 rounded-2xl bg-amber-50 flex items-center justify-center text-3xl">🚚</div>
+        <div>
+          <div class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Perfil</div>
+          <div class="text-lg font-black text-navy">Mensajero</div>
+        </div>
+        <ul class="space-y-2 flex-1">
+          <li class="flex gap-2 text-sm text-gray-500 leading-snug"><span class="text-brand font-bold mt-0.5 flex-shrink-0">→</span>Gana por cada entrega</li>
+          <li class="flex gap-2 text-sm text-gray-500 leading-snug"><span class="text-brand font-bold mt-0.5 flex-shrink-0">→</span>Pagos en MLs o COP</li>
+          <li class="flex gap-2 text-sm text-gray-500 leading-snug"><span class="text-brand font-bold mt-0.5 flex-shrink-0">→</span>Crece con reputación</li>
+        </ul>
+        <a href="#registro" class="text-center bg-amber-500 text-white text-sm font-bold px-4 py-2.5 rounded-xl hover:bg-amber-600 transition-colors">Soy Mensajero</a>
+      </div>
+      <!-- Vendedor Drop -->
+      <div class="card-hover bg-white rounded-2xl p-7 border border-slate-200 flex flex-col gap-4 reveal" style="transition-delay:.3s">
+        <div class="w-14 h-14 rounded-2xl bg-purple-50 flex items-center justify-center text-3xl">💼</div>
+        <div>
+          <div class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Perfil</div>
+          <div class="text-lg font-black text-navy">Vendedor Dropshipper</div>
+        </div>
+        <ul class="space-y-2 flex-1">
+          <li class="flex gap-2 text-sm text-gray-500 leading-snug"><span class="text-brand font-bold mt-0.5 flex-shrink-0">→</span>Comparte y vende con link</li>
+          <li class="flex gap-2 text-sm text-gray-500 leading-snug"><span class="text-brand font-bold mt-0.5 flex-shrink-0">→</span>Gana comisión por venta</li>
+          <li class="flex gap-2 text-sm text-gray-500 leading-snug"><span class="text-brand font-bold mt-0.5 flex-shrink-0">→</span>Sin bodega ni envíos</li>
+        </ul>
+        <a href="#registro" class="text-center bg-purple-600 text-white text-sm font-bold px-4 py-2.5 rounded-xl hover:bg-purple-700 transition-colors">Soy Vendedor</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     ANTI-PIRÁMIDE
+══════════════════════════════════════════════ -->
+<section class="py-16 px-6 bg-red-50 border-y border-red-100">
+  <div class="max-w-4xl mx-auto reveal">
+    <div class="flex items-center gap-3 mb-5 flex-wrap">
+      <span class="text-4xl">🔍</span>
+      <h2 class="text-2xl sm:text-3xl font-black text-red-800">Multimarket NO es un sistema piramidal</h2>
+    </div>
+    <p class="text-red-700/80 text-base leading-relaxed mb-7 max-w-2xl">
+      Respuesta directa: nadie gana por reclutar. Todo beneficio está atado a actividad económica real — compras, ventas, entregas.
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div class="bg-white rounded-xl p-5 border border-red-100 flex gap-3">
+        <div class="w-7 h-7 rounded-full bg-red-100 text-red-700 flex items-center justify-center text-xs font-black flex-shrink-0 mt-0.5">✗</div>
+        <div><div class="text-sm font-bold text-navy mb-1">No se gana por invitar personas</div>
+             <div class="text-xs text-gray-500 leading-relaxed">No hay bonos de reclutamiento. Traer usuarios no genera ingresos directos.</div></div>
+      </div>
+      <div class="bg-white rounded-xl p-5 border border-red-100 flex gap-3">
+        <div class="w-7 h-7 rounded-full bg-emerald-100 text-brand flex items-center justify-center text-xs font-black flex-shrink-0 mt-0.5">✓</div>
+        <div><div class="text-sm font-bold text-navy mb-1">Se gana por actividad real</div>
+             <div class="text-xs text-gray-500 leading-relaxed">Compras, ventas, entregas. Cada peso que circula es dinero real por consumo.</div></div>
+      </div>
+      <div class="bg-white rounded-xl p-5 border border-red-100 flex gap-3">
+        <div class="w-7 h-7 rounded-full bg-red-100 text-red-700 flex items-center justify-center text-xs font-black flex-shrink-0 mt-0.5">✗</div>
+        <div><div class="text-sm font-bold text-navy mb-1">No hay retiros mágicos ni rendimientos</div>
+             <div class="text-xs text-gray-500 leading-relaxed">Los MLs se usan, no se retiran como efectivo. Sin promesas de retorno pasivo.</div></div>
+      </div>
+      <div class="bg-white rounded-xl p-5 border border-red-100 flex gap-3">
+        <div class="w-7 h-7 rounded-full bg-emerald-100 text-brand flex items-center justify-center text-xs font-black flex-shrink-0 mt-0.5">✓</div>
+        <div><div class="text-sm font-bold text-navy mb-1">Todo ligado al consumo</div>
+             <div class="text-xs text-gray-500 leading-relaxed">Sin actividad económica no hay MLs nuevos. Esa es la base del modelo.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     FORMULARIO DE REGISTRO
+══════════════════════════════════════════════ -->
+<section id="registro" class="py-24 px-6 bg-white">
+  <div class="max-w-2xl mx-auto">
+
+    <!-- Header -->
+    <div class="text-center mb-10 reveal">
+      <span class="inline-block bg-emerald-100 text-emerald-800 text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest mb-3">Acceso anticipado</span>
+      <h2 class="text-3xl sm:text-4xl font-black text-navy tracking-tight mb-3">Activa tu cuenta antes del lanzamiento</h2>
+      <p class="text-gray-500 text-base leading-relaxed">
+        Sé de los primeros. Los usuarios con cuenta activa desde ahora tendrán mayor posición en la red y acceso prioritario a nuevas funciones.
+      </p>
+    </div>
+
+    <!-- Form card -->
+    <div class="bg-white rounded-3xl border border-slate-200 shadow-[0_4px_40px_rgba(26,60,94,.1)] p-8 sm:p-10 reveal">
+
+      <!-- Trust badges -->
+      <div class="flex flex-wrap gap-3 mb-7">
+        <div class="flex items-center gap-1.5 text-xs text-gray-500 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-full">
+          <span class="text-brand">🔒</span> Datos protegidos — Ley 1581
+        </div>
+        <div class="flex items-center gap-1.5 text-xs text-gray-500 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-full">
+          <span class="text-brand">✓</span> Sin spam, sin costos
+        </div>
+        <div class="flex items-center gap-1.5 text-xs text-gray-500 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-full">
+          <span class="text-yellow-400">🔥</span> Cupos limitados
+        </div>
+      </div>
+
+      <form id="leadForm" novalidate class="space-y-5">
+
+        <!-- Nombre -->
+        <div>
+          <label class="block text-sm font-700 text-navy mb-1.5 font-bold">
+            Nombre completo <span class="text-red-500">*</span>
+          </label>
+          <input type="text" id="nombre" name="nombre" required placeholder="Ej: Juan Pérez"
+                 class="input-field w-full border border-slate-300 rounded-xl px-4 py-3 text-sm text-gray-900 bg-white placeholder-gray-400"/>
+          <p class="text-red-500 text-xs mt-1 hidden" id="err-nombre">Por favor ingresa tu nombre.</p>
+        </div>
+
+        <!-- Correo -->
+        <div>
+          <label class="block text-sm font-bold text-navy mb-1.5">
+            Correo electrónico <span class="text-red-500">*</span>
+          </label>
+          <input type="email" id="correo" name="correo" required placeholder="tucorreo@email.com"
+                 class="input-field w-full border border-slate-300 rounded-xl px-4 py-3 text-sm text-gray-900 bg-white placeholder-gray-400"/>
+          <p class="text-red-500 text-xs mt-1 hidden" id="err-correo">Ingresa un correo válido.</p>
+        </div>
+
+        <!-- Celular -->
+        <div>
+          <label class="block text-sm font-bold text-navy mb-1.5">
+            Número de celular <span class="text-red-500">*</span>
+          </label>
+          <div class="flex gap-2">
+            <span class="flex items-center px-3 py-3 bg-slate-50 border border-slate-300 rounded-xl text-sm text-gray-600 font-medium whitespace-nowrap">🇨🇴 +57</span>
+            <input type="tel" id="celular" name="celular" required placeholder="3XX XXX XXXX"
+                   maxlength="12"
+                   class="input-field flex-1 border border-slate-300 rounded-xl px-4 py-3 text-sm text-gray-900 bg-white placeholder-gray-400"/>
+          </div>
+          <p class="text-red-500 text-xs mt-1 hidden" id="err-celular">Ingresa un celular válido (10 dígitos).</p>
+        </div>
+
+        <!-- Perfil -->
+        <div>
+          <label class="block text-sm font-bold text-navy mb-1.5">
+            ¿Cuál es tu perfil de interés?
+          </label>
+          <select id="perfil" name="perfil"
+                  class="input-field w-full border border-slate-300 rounded-xl px-4 py-3 text-sm text-gray-900 bg-white">
+            <option value="">Selecciona tu perfil...</option>
+            <option value="Cliente Activo">🛒 Cliente Activo — Compro y acumulo MLs</option>
+            <option value="Negocio">🏪 Negocio o Tienda — Tengo mi propio negocio</option>
+            <option value="Mensajero">🚚 Mensajero — Quiero hacer entregas</option>
+            <option value="Vendedor Dropshipper">💼 Vendedor Dropshipper — Vendo sin inventario</option>
+          </select>
+        </div>
+
+        <!-- Checkbox Ley 1581 -->
+        <div class="bg-slate-50 rounded-2xl p-4 border border-slate-200">
+          <label class="flex items-start gap-3 cursor-pointer">
+            <input type="checkbox" id="politicas" name="politicas" required
+                   class="w-5 h-5 mt-0.5 rounded border-slate-300 text-brand accent-brand flex-shrink-0"/>
+            <span class="text-sm text-gray-600 leading-relaxed">
+              Acepto el tratamiento de mis datos personales conforme a la
+              <button type="button" onclick="openModal()"
+                      class="text-brand font-semibold underline underline-offset-2 hover:text-brand-dark transition-colors">
+                Política de Tratamiento de Datos Personales
+              </button>
+              de Multimarket S.A.S., en cumplimiento de la
+              <strong class="text-navy">Ley 1581 de 2012</strong> y el Decreto 1377 de 2013.
+              <span class="text-red-500">*</span>
+            </span>
+          </label>
+          <p class="text-red-500 text-xs mt-2 ml-8 hidden" id="err-politicas">Debes aceptar la política para continuar.</p>
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" id="submitBtn"
+                class="btn-submit w-full bg-brand text-white font-bold text-base py-4 rounded-xl
+                       shadow-[0_4px_20px_rgba(16,185,129,.35)]">
+          <span id="btnText">Activar mi cuenta gratis →</span>
+          <span id="btnLoading" class="hidden">Registrando...</span>
+        </button>
+
+      </form>
+
+      <!-- Success message -->
+      <div id="successMsg" class="hidden text-center py-6">
+        <div class="text-5xl mb-4">🎉</div>
+        <h3 class="text-xl font-black text-navy mb-2">¡Ya estás en la lista!</h3>
+        <p class="text-gray-500 text-sm leading-relaxed max-w-sm mx-auto">
+          Te avisaremos cuando Multimarket esté listo para ti. Los primeros en registrarse tendrán acceso prioritario y mayor posición en la red.
+        </p>
+        <div class="mt-5 inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 text-emerald-800 px-4 py-2 rounded-xl text-sm font-semibold">
+          ✓ Registro completado · Cuenta <span id="userEmail" class="font-black"></span>
+        </div>
+      </div>
+
+      <!-- Error message -->
+      <div id="errorMsg" class="hidden mt-4 bg-red-50 border border-red-200 text-red-700 rounded-xl px-4 py-3 text-sm text-center"></div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════ -->
+<footer class="bg-navy-dark px-6 py-12">
+  <div class="max-w-5xl mx-auto">
+    <div class="flex flex-col sm:flex-row justify-between items-start gap-8 mb-8">
+      <div>
+        <div class="text-xl font-black text-white mb-2">Multi<span class="text-brand">market</span></div>
+        <p class="text-white/50 text-sm max-w-xs leading-relaxed">
+          La red de economía activa de Colombia.<br/>Modelo basado en consumo real — no en captación de personas.
+        </p>
+      </div>
+      <div class="text-right text-white/40 text-xs space-y-1">
+        <p>© 2026 Multimarket S.A.S.</p>
+        <p>NIT: [En proceso de constitución]</p>
+        <p>Colombia</p>
+        <button onclick="openModal()" class="underline hover:text-white/70 transition-colors">Política de datos</button>
+      </div>
+    </div>
+    <div class="border-t border-white/10 pt-6 text-center text-white/25 text-xs">
+      Multimarket NO es un sistema piramidal. Todos los beneficios están ligados a actividad económica real.
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════════
+     MODAL — POLÍTICA DE TRATAMIENTO DE DATOS
+══════════════════════════════════════════════ -->
+<div id="modal"
+     class="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm hidden"
+     onclick="if(event.target===this)closeModal()">
+  <div class="bg-white rounded-3xl shadow-2xl max-w-2xl w-full max-h-[85vh] flex flex-col">
+
+    <!-- Header -->
+    <div class="flex items-center justify-between px-7 py-5 border-b border-slate-200 flex-shrink-0">
+      <div>
+        <div class="text-xs font-bold text-brand uppercase tracking-widest mb-0.5">Multimarket S.A.S.</div>
+        <h3 class="text-lg font-black text-navy">Política de Tratamiento de Datos Personales</h3>
+      </div>
+      <button onclick="closeModal()"
+              class="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 text-gray-600 flex items-center justify-center text-lg font-bold transition-colors flex-shrink-0">×</button>
+    </div>
+
+    <!-- Content -->
+    <div class="px-7 py-6 overflow-y-auto text-sm text-gray-600 leading-relaxed space-y-4">
+
+      <p><strong class="text-navy">Fecha de vigencia:</strong> 2026. En cumplimiento de la Ley Estatutaria 1581 de 2012 y el Decreto 1377 de 2013.</p>
+
+      <div>
+        <h4 class="font-bold text-navy mb-1">1. Responsable del Tratamiento</h4>
+        <p>Multimarket S.A.S. (en proceso de constitución), con domicilio en Colombia, es responsable del tratamiento de los datos personales recolectados a través de esta plataforma. Contacto: <span class="text-brand">contacto@multimarket.com.co</span></p>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-navy mb-1">2. Finalidad del Tratamiento</h4>
+        <p>Los datos personales recolectados (nombre, correo electrónico y número de celular) serán utilizados exclusivamente para:</p>
+        <ul class="list-disc ml-5 mt-2 space-y-1">
+          <li>Notificarle sobre el lanzamiento oficial de la plataforma Multimarket.</li>
+          <li>Gestionar su proceso de registro y creación de cuenta de usuario.</li>
+          <li>Enviar comunicaciones relacionadas con actualizaciones del servicio.</li>
+          <li>Dar cumplimiento a obligaciones legales aplicables.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-navy mb-1">3. Datos Recolectados</h4>
+        <p>Nombre completo, correo electrónico, número de celular y perfil de interés dentro de la plataforma. No se recolectan datos sensibles según el artículo 5 de la Ley 1581 de 2012.</p>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-navy mb-1">4. Derechos del Titular</h4>
+        <p>Como titular de sus datos personales, usted tiene derecho a: <strong>Conocer, actualizar, rectificar y suprimir</strong> sus datos; <strong>revocar</strong> la autorización otorgada; <strong>acceder gratuitamente</strong> a sus datos tratados; y <strong>presentar quejas</strong> ante la Superintendencia de Industria y Comercio (SIC).</p>
+        <p class="mt-2">Para ejercer estos derechos, comuníquese a: <span class="text-brand">contacto@multimarket.com.co</span>. El plazo de respuesta es de 15 días hábiles.</p>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-navy mb-1">5. Transferencia y Transmisión</h4>
+        <p>Multimarket S.A.S. no venderá, cederá ni transferirá sus datos personales a terceros con fines comerciales. Los datos podrán ser transmitidos a proveedores tecnológicos que presten servicios de infraestructura (como Google LLC, bajo sus propias políticas de privacidad) únicamente para la operación del servicio.</p>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-navy mb-1">6. Seguridad</h4>
+        <p>Adoptamos medidas técnicas, administrativas y físicas para proteger su información contra acceso no autorizado, pérdida o alteración, de conformidad con los estándares exigidos por la normativa colombiana.</p>
+      </div>
+
+      <div>
+        <h4 class="font-bold text-navy mb-1">7. Vigencia</h4>
+        <p>Sus datos serán tratados durante el tiempo en que exista la relación comercial o hasta que usted solicite su eliminación. Una vez cumplida la finalidad, procederemos a su supresión segura.</p>
+      </div>
+
+      <div class="bg-slate-50 rounded-xl p-4 border border-slate-200">
+        <p class="text-xs text-gray-500">
+          <strong class="text-navy">Autoridad de control:</strong> Superintendencia de Industria y Comercio (SIC) —
+          <span class="text-brand">www.sic.gov.co</span> — Línea nacional: 01 8000 910 165
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="px-7 py-4 border-t border-slate-200 flex-shrink-0">
+      <button onclick="acceptPolicy()"
+              class="w-full bg-brand hover:bg-brand-dark text-white font-bold py-3 rounded-xl text-sm transition-colors">
+        Entendido — Acepto la política
+      </button>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════
+     JAVASCRIPT
+══════════════════════════════════════════════ -->
+<script>
+  // ─────────────────────────────────────────────
+  // CONFIGURACIÓN — pega aquí tu URL de Apps Script
+  // ─────────────────────────────────────────────
+  const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxmKzehGHDB5pFSJyDIxjs_f8kfixXmAKniGyYA5kuKjZk44ih7Tyii4D20dpR8Am0NZw/exec";
+
+  // ── Scroll reveal ─────────────────────────────
+  const ro = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+
+  // ── Nav scroll ────────────────────────────────
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').style.background =
+      window.scrollY > 50 ? 'rgba(13,33,55,.98)' : 'rgba(13,33,55,.9)';
+  });
+
+  // ── Modal ─────────────────────────────────────
+  function openModal()  { document.getElementById('modal').classList.remove('hidden'); document.body.style.overflow = 'hidden'; }
+  function closeModal() { document.getElementById('modal').classList.add('hidden'); document.body.style.overflow = ''; }
+  function acceptPolicy() {
+    document.getElementById('politicas').checked = true;
+    document.getElementById('err-politicas').classList.add('hidden');
+    closeModal();
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+  // ── Form validation ────────────────────────────
+  function validateForm() {
+    let valid = true;
+    const nombre   = document.getElementById('nombre').value.trim();
+    const correo   = document.getElementById('correo').value.trim();
+    const celular  = document.getElementById('celular').value.replace(/\s/g,'');
+    const politicas = document.getElementById('politicas').checked;
+
+    const show = (id) => document.getElementById(id).classList.remove('hidden');
+    const hide = (id) => document.getElementById(id).classList.add('hidden');
+
+    if (nombre.length < 3)                               { show('err-nombre');    valid = false; } else hide('err-nombre');
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo))     { show('err-correo');    valid = false; } else hide('err-correo');
+    if (!/^[0-9]{10}$/.test(celular))                    { show('err-celular');   valid = false; } else hide('err-celular');
+    if (!politicas)                                       { show('err-politicas'); valid = false; } else hide('err-politicas');
+
+    return valid;
+  }
+
+  // ── Form submit ────────────────────────────────
+  document.getElementById('leadForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    if (!validateForm()) return;
+
+    const btn      = document.getElementById('submitBtn');
+    const btnText  = document.getElementById('btnText');
+    const btnLoad  = document.getElementById('btnLoading');
+    const errorMsg = document.getElementById('errorMsg');
+
+    btn.disabled = true;
+    btnText.classList.add('hidden');
+    btnLoad.classList.remove('hidden');
+    errorMsg.classList.add('hidden');
+
+    const payload = {
+      nombre:          document.getElementById('nombre').value.trim(),
+      correo:          document.getElementById('correo').value.trim().toLowerCase(),
+      celular:         document.getElementById('celular').value.replace(/\s/g,''),
+      perfil:          document.getElementById('perfil').value || 'No especificado',
+      aceptaPoliticas: true,
+      fuente:          'Landing Page Estática',
+      userAgent:       navigator.userAgent.substring(0, 200),
+    };
+
+    try {
+      // no-cors: el dato llega a Google, pero no podemos leer la respuesta
+      // → mostramos éxito optimista (estándar para Apps Script público)
+      await fetch(SCRIPT_URL, {
+        method:  'POST',
+        mode:    'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body:    JSON.stringify(payload),
+      });
+
+      // Mostrar éxito
+      document.getElementById('leadForm').classList.add('hidden');
+      document.getElementById('userEmail').textContent = payload.correo;
+      document.getElementById('successMsg').classList.remove('hidden');
+
+    } catch (err) {
+      btn.disabled = false;
+      btnText.classList.remove('hidden');
+      btnLoad.classList.add('hidden');
+      errorMsg.textContent = 'Error de conexión. Verifica tu internet e inténtalo de nuevo.';
+      errorMsg.classList.remove('hidden');
+      console.error('Error enviando formulario:', err);
+    }
+  });
+
+  // Solo números en celular
+  document.getElementById('celular').addEventListener('input', function() {
+    this.value = this.value.replace(/[^0-9]/g, '');
+  });
+</script>
+
+</body>
+</html>

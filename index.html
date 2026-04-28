@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<meta name="description" content="Multimarket — Compra, vende y genera valor dentro de una red activa. No es una pirámide: es economía real ligada al consumo."/>
-<title>Multimarket — La red que trabaja contigo</title>
+<meta name="description" content="Multimarket — La red colombiana que te paga por consumir, vender y crecer. 1% de comisión real sobre actividad real. Sin inversión, sin pirámides."/>
+<title>Multimarket — La red que te paga por consumir, vender y crecer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
@@ -111,6 +111,33 @@ a{text-decoration:none;color:inherit}
 .sec-center{text-align:center;margin-bottom:56px}
 .sec-center .sec-sub{max-width:580px;margin:0 auto}
 
+/* ── COMO GANAS ── */
+.ganas{padding:100px 24px;background:var(--white)}
+.ganas-inner{max-width:1100px;margin:0 auto}
+.ganas-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:56px}
+.gana-card{background:var(--bg);border-radius:20px;padding:32px 24px;border:1px solid var(--border);transition:transform .2s,box-shadow .2s;display:flex;flex-direction:column}
+.gana-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.gana-icon{font-size:40px;margin-bottom:18px}
+.gana-title{font-size:18px;font-weight:800;color:var(--navy);margin-bottom:10px}
+.gana-desc{font-size:13px;color:var(--text-light);line-height:1.75;flex:1;margin-bottom:16px}
+.gana-tag{display:inline-block;background:var(--green-pale);color:var(--green-dark);font-size:11px;font-weight:700;padding:5px 14px;border-radius:100px;letter-spacing:.5px}
+
+/* ── NIVELES DE RED ── */
+.niveles{background:linear-gradient(90deg,var(--navy-dark),var(--navy));padding:56px 24px}
+.niveles-inner{max-width:1000px;margin:0 auto}
+.niveles-label{text-align:center;font-size:11px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:2px;margin-bottom:32px}
+.niveles-track{display:flex;align-items:center}
+.nivel{flex:1;text-align:center}
+.nivel-dot{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;margin:0 auto 10px;border:2px solid rgba(255,255,255,.18);background:rgba(255,255,255,.05)}
+.nivel.activo .nivel-dot{border-color:var(--green);background:rgba(16,185,129,.18)}
+.nivel-name{font-size:12px;font-weight:800;color:rgba(255,255,255,.7);margin-bottom:3px;text-transform:uppercase;letter-spacing:.5px}
+.nivel.activo .nivel-name{color:var(--green)}
+.nivel-count{font-size:11px;color:rgba(255,255,255,.4)}
+.nivel-line{flex:1;height:2px;background:rgba(255,255,255,.1)}
+.nivel-line.done{background:var(--green);opacity:.5}
+.niveles-note{text-align:center;font-size:13px;color:rgba(255,255,255,.45);margin-top:28px;line-height:1.7}
+.niveles-note strong{color:rgba(255,255,255,.75)}
+
 /* ── PERFILES ── */
 .perfiles{padding:100px 24px;background:var(--bg)}
 .perfiles-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
@@ -189,15 +216,15 @@ a{text-decoration:none;color:inherit}
 .step-title{font-size:19px;font-weight:800;color:var(--navy);margin-bottom:9px}
 .step-desc{color:var(--text-light);font-size:14px;line-height:1.8}
 
-/* ── ANTI-PIRÁMIDE ── */
-.antipyramid{padding:80px 24px;background:#FFF8F8;border-top:1px solid #FEE2E2;border-bottom:1px solid #FEE2E2}
+/* ── DIFERENTE ── */
+.antipyramid{padding:80px 24px;background:#F8FAFF;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .ap-inner{max-width:960px;margin:0 auto}
 .ap-header{display:flex;align-items:center;gap:16px;margin-bottom:36px;flex-wrap:wrap}
 .ap-icon{font-size:36px}
-.ap-title{font-size:clamp(20px,3vw,30px);font-weight:900;color:#991B1B}
-.ap-sub{font-size:15px;color:#7F1D1D;max-width:600px;margin-bottom:32px;line-height:1.75}
+.ap-title{font-size:clamp(20px,3vw,30px);font-weight:900;color:var(--navy)}
+.ap-sub{font-size:15px;color:var(--text-light);max-width:600px;margin-bottom:32px;line-height:1.75}
 .ap-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-.ap-card{background:var(--white);border-radius:14px;padding:20px 22px;border:1px solid #FEE2E2;display:flex;gap:14px;align-items:flex-start}
+.ap-card{background:var(--white);border-radius:14px;padding:20px 22px;border:1px solid var(--border);display:flex;gap:14px;align-items:flex-start}
 .ap-check{width:28px;height:28px;min-width:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;flex-shrink:0;margin-top:1px}
 .ap-check.no{background:#FEE2E2;color:#B91C1C}
 .ap-check.yes{background:rgba(16,185,129,.12);color:var(--green-dark)}
@@ -370,6 +397,7 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){
   .perfiles-grid{grid-template-columns:repeat(2,1fr)}
+  .ganas-grid{grid-template-columns:repeat(2,1fr)}
 }
 @media(max-width:960px){
   .hero-inner{grid-template-columns:1fr;gap:44px;text-align:center}
@@ -393,6 +421,7 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
 @media(max-width:640px){
   .stats-inner{grid-template-columns:1fr}
   .perfiles-grid{grid-template-columns:1fr}
+  .ganas-grid{grid-template-columns:1fr}
   .ap-grid{grid-template-columns:1fr}
   .red-grid{grid-template-columns:1fr}
   .mm-events{grid-template-columns:1fr}
@@ -405,6 +434,8 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
   .notify-form button{border-radius:12px;width:100%}
   .footer-bottom{flex-direction:column;text-align:center}
   .trust-badges{justify-content:flex-start}
+  .niveles-track{flex-direction:column;align-items:center;gap:4px}
+  .nivel-line{width:2px;height:20px}
 }
 </style>
 </head>
@@ -414,7 +445,7 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
 <nav class="nav" id="nav">
   <div class="nav-logo">Multi<span>market</span></div>
   <ul class="nav-links">
-    <li><a href="#perfiles">¿Cómo gano?</a></li>
+    <li><a href="#ganas">¿Cómo gano?</a></li>
     <li><a href="#ml">Sistema ML</a></li>
     <li><a href="#red">La red</a></li>
     <li><a href="#dropshipping">Dropshipping</a></li>
@@ -426,18 +457,18 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
   </button>
 </nav>
 <div class="nav-mobile" id="navMobile">
-  <a href="#perfiles"    onclick="closeNav()">¿Cómo gano?</a>
-  <a href="#ml"          onclick="closeNav()">Sistema ML</a>
-  <a href="#red"         onclick="closeNav()">La red</a>
+  <a href="#ganas"        onclick="closeNav()">¿Cómo gano?</a>
+  <a href="#ml"           onclick="closeNav()">Sistema ML</a>
+  <a href="#red"          onclick="closeNav()">La red</a>
   <a href="#dropshipping" onclick="closeNav()">Dropshipping</a>
-  <a href="#multimakia"  onclick="closeNav()">MultiMakia</a>
+  <a href="#multimakia"   onclick="closeNav()">MultiMakia</a>
   <a href="#registro" class="nav-cta" onclick="closeNav()">Registrarme →</a>
 </div>
 
 <!-- FOMO BAR -->
 <div class="fomo-bar">
-  🔥 Red en crecimiento — <span>Los primeros usuarios tienen mayor ventaja de posición.</span>
-  <a href="#registro">Unirme ahora →</a>
+  🔥 Pre-lanzamiento activo — <span>Los primeros 32 usuarios construyen la base de la red. Tu posición importa.</span>
+  <a href="#registro">Reservar mi lugar →</a>
 </div>
 
 <!-- ══ HERO ══════════════════════════════════════════ -->
@@ -445,16 +476,16 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
   <div class="hero-inner">
     <div>
       <div class="hero-badge">Economía activa · Colombia</div>
-      <h1>Compra, vende y <em>genera valor</em> dentro de una red que trabaja para ti</h1>
-      <p class="hero-sub">Multimarket conecta personas, negocios y mensajeros en una economía donde <strong style="color:#fff">cada compra genera valor real</strong>. El dinero entra por consumo y se mueve como oportunidades.</p>
+      <h1>La red colombiana que te paga por <em>consumir, vender y crecer</em></h1>
+      <p class="hero-sub">Multimarket es un ecosistema económico real donde cada compra, venta y entrega genera valor. <strong style="color:#fff">1% de la actividad de tu red, directo a ti</strong> — sin inversión, sin ingresos mágicos, sin pirámides.</p>
       <ul class="hero-bullets">
-        <li>Gana por consumir y conectar personas a la red</li>
-        <li>Vende sin inventario con dropshipping integrado</li>
-        <li>Mueve valor con Multimarket Libres — tu moneda interna</li>
+        <li>1% automático sobre la actividad real de tu red</li>
+        <li>Vende sin inventario — cobras solo al confirmar entrega</li>
+        <li>1 ML = 1 COP siempre — no es cripto, no se multiplica, circula</li>
       </ul>
       <div class="hero-actions">
         <a href="#registro" class="btn-primary">Activar mi cuenta gratis</a>
-        <a href="#perfiles" class="btn-ghost">¿Cómo gano? →</a>
+        <a href="#ganas" class="btn-ghost">¿Cómo gano? →</a>
       </div>
     </div>
     <div class="hero-phone">
@@ -490,7 +521,7 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
           </div>
         </div>
       </div>
-      <div class="hero-float hero-float-1"><span class="fv">+1,200</span>productos activos</div>
+      <div class="hero-float hero-float-1"><span class="fv">+1%</span>por actividad real</div>
       <div class="hero-float hero-float-2"><span class="fv">1 ML</span>= 1 COP siempre</div>
       <div class="hero-float hero-float-3"><span class="fv">✓</span>Dropi conectado</div>
     </div>
@@ -501,26 +532,105 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
 <section class="stats">
   <div class="stats-inner">
     <div class="stat reveal d1">
-      <div class="stat-val">1 <em>ML</em></div>
-      <div class="stat-label">= 1 Peso colombiano<br/>ligado siempre al consumo real</div>
+      <div class="stat-val"><em>1%</em></div>
+      <div class="stat-label">Comisión sobre actividad real<br/>de tu red — automática, siempre</div>
     </div>
     <div class="stat reveal d2">
       <div class="stat-val">+<em id="cnt">0</em></div>
-      <div class="stat-label">Productos disponibles<br/>para vender sin inventario</div>
+      <div class="stat-label">Productos para vender<br/>sin tener uno solo en tu poder</div>
     </div>
     <div class="stat reveal d3">
-      <div class="stat-val"><em>4</em></div>
-      <div class="stat-label">Formas de generar valor<br/>según tu perfil en la red</div>
+      <div class="stat-val"><em>32</em></div>
+      <div class="stat-label">Usuarios activos para<br/>activar tu primer nivel de red</div>
     </div>
   </div>
 </section>
+
+<!-- ══ COMO GANAS ══════════════════════════════════════════ -->
+<section class="ganas" id="ganas">
+  <div class="ganas-inner">
+    <div class="sec-center reveal">
+      <div class="sec-tag">Ingresos reales</div>
+      <h2 class="sec-title">4 formas de generar valor en la red</h2>
+      <p class="sec-sub">No hay un solo camino. Cada actividad económica real genera valor — el tuyo y el de toda tu red. Aquí el dinero no se queda: circula.</p>
+    </div>
+    <div class="ganas-grid">
+      <div class="gana-card reveal d1">
+        <div class="gana-icon">🛒</div>
+        <div class="gana-title">Comprando</div>
+        <p class="gana-desc">El 1% de cada compra dentro de tu red activa se convierte en MLs para ti. Sin hacer nada extra — solo consumo real de las personas que conectaste a la red.</p>
+        <span class="gana-tag">Automático</span>
+      </div>
+      <div class="gana-card reveal d2">
+        <div class="gana-icon">💼</div>
+        <div class="gana-title">Vendiendo</div>
+        <p class="gana-desc">Importa productos de Dropi, define tu margen y ganas la diferencia entre el precio del proveedor y tu precio de venta. El proveedor despacha — tú solo cobras.</p>
+        <span class="gana-tag">Sin inventario</span>
+      </div>
+      <div class="gana-card reveal d1">
+        <div class="gana-icon">👥</div>
+        <div class="gana-title">Conectando</div>
+        <p class="gana-desc">Invita negocios, clientes o mensajeros activos. Mientras estén activos (mínimo una compra o venta mensual), su actividad genera tu comisión del 1% mes a mes.</p>
+        <span class="gana-tag">Red activa</span>
+      </div>
+      <div class="gana-card reveal d2">
+        <div class="gana-icon">🚚</div>
+        <div class="gana-title">Entregando</div>
+        <p class="gana-desc">Los mensajeros reciben MLs o COP por cada entrega confirmada. Tu reputación crece con cada envío exitoso y con ella, la cantidad de pedidos que recibes automáticamente.</p>
+        <span class="gana-tag">Por entrega</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ NIVELES DE RED ══════════════════════════════════════════ -->
+<div class="niveles">
+  <div class="niveles-inner">
+    <div class="niveles-label">Tu red crece contigo — niveles de actividad</div>
+    <div class="niveles-track">
+      <div class="nivel activo">
+        <div class="nivel-dot">🌱</div>
+        <div class="nivel-name">Base</div>
+        <div class="nivel-count">32 usuarios</div>
+      </div>
+      <div class="nivel-line done"></div>
+      <div class="nivel">
+        <div class="nivel-dot">🥉</div>
+        <div class="nivel-name">Bronce</div>
+        <div class="nivel-count">64 usuarios</div>
+      </div>
+      <div class="nivel-line"></div>
+      <div class="nivel">
+        <div class="nivel-dot">🥈</div>
+        <div class="nivel-name">Plata</div>
+        <div class="nivel-count">128 usuarios</div>
+      </div>
+      <div class="nivel-line"></div>
+      <div class="nivel">
+        <div class="nivel-dot">🥇</div>
+        <div class="nivel-name">Oro</div>
+        <div class="nivel-count">256 usuarios</div>
+      </div>
+      <div class="nivel-line"></div>
+      <div class="nivel">
+        <div class="nivel-dot">💎</div>
+        <div class="nivel-name">Diamante</div>
+        <div class="nivel-count">Expansión</div>
+      </div>
+    </div>
+    <p class="niveles-note">
+      <strong>Condición única:</strong> cada usuario de tu red debe estar activo — mínimo una compra o venta por mes.<br/>
+      Sin actividad real, no hay comisión. Así el sistema se mantiene sano y sostenible.
+    </p>
+  </div>
+</div>
 
 <!-- ══ PERFILES ══════════════════════════════════════════ -->
 <section class="perfiles" id="perfiles">
   <div class="sec-center reveal">
     <div class="sec-tag">Tu perfil en la red</div>
-    <h2 class="sec-title">¿Cómo generas valor en Multimarket?</h2>
-    <p class="sec-sub">No hay un solo camino. Cada persona entra según su rol y genera valor de forma diferente. Elige el tuyo.</p>
+    <h2 class="sec-title">¿Cuál es tu rol en el ecosistema?</h2>
+    <p class="sec-sub">Cada persona entra con un perfil diferente y genera valor de forma diferente. Todos participan, todos ganan — cada uno a su manera.</p>
   </div>
   <div class="perfiles-grid">
     <div class="perfil-card c1 reveal d1">
@@ -528,10 +638,10 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
       <div class="perfil-role">Perfil</div>
       <div class="perfil-title">Cliente Activo</div>
       <ul class="perfil-gains">
-        <li>Compra productos del catálogo y acumula MLs</li>
-        <li>Vende sin tener inventario propio (dropshipping)</li>
-        <li>Crece dentro de la red por actividad real</li>
-        <li>Accede a precios especiales por volumen</li>
+        <li>Acumulas MLs por cada compra propia en el catálogo</li>
+        <li>El 1% de la actividad de tu red te llega automáticamente</li>
+        <li>Puedes vender por dropshipping sin dejar de ser cliente</li>
+        <li>A mayor red activa, mayor nivel (Base → Diamante)</li>
       </ul>
       <a href="#registro" class="perfil-cta pc-green">Empezar a comprar</a>
     </div>
@@ -540,10 +650,10 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
       <div class="perfil-role">Perfil</div>
       <div class="perfil-title">Negocio o Tienda</div>
       <ul class="perfil-gains">
-        <li>Recibe clientes de toda la red Multimarket</li>
-        <li>Acepta MLs como método de pago interno</li>
-        <li>Publica tu catálogo sin costos de pauta</li>
-        <li>Gestiona pedidos y entregas desde la plataforma</li>
+        <li>Publica tu catálogo visible para toda la red activa</li>
+        <li>Recibe pedidos sin gastar en pauta ni publicidad</li>
+        <li>Acepta MLs como pago — circula el valor en la red</li>
+        <li>Recibe comisiones operativas por cada venta procesada</li>
       </ul>
       <a href="#registro" class="perfil-cta pc-navy">Registrar mi negocio</a>
     </div>
@@ -552,10 +662,10 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
       <div class="perfil-role">Perfil</div>
       <div class="perfil-title">Mensajero</div>
       <ul class="perfil-gains">
-        <li>Gana por cada entrega completada en la red</li>
-        <li>Recibe pagos en MLs o COP según acuerdo</li>
-        <li>Crece con reputación dentro del sistema</li>
-        <li>Acceso a más pedidos a medida que creces</li>
+        <li>Cobras MLs o COP por cada entrega confirmada y validada</li>
+        <li>Tu reputación en la red te trae más pedidos automáticamente</li>
+        <li>Puedes pertenecer a la red de un negocio o actuar libre</li>
+        <li>Sin mínimos obligatorios — trabajas a tu propio ritmo</li>
       </ul>
       <a href="#registro" class="perfil-cta pc-gold">Unirme como mensajero</a>
     </div>
@@ -564,10 +674,10 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
       <div class="perfil-role">Perfil</div>
       <div class="perfil-title">Vendedor Dropshipper</div>
       <ul class="perfil-gains">
-        <li>Comparte productos con tu enlace personalizado</li>
-        <li>Gana comisión por cada venta generada</li>
-        <li>Sin bodega, sin envíos, sin atención al cliente</li>
-        <li>Los proveedores de Dropi despachan por ti</li>
+        <li>Importa del catálogo Dropi con un clic — sin bodega ni costos fijos</li>
+        <li>Define tu margen y publica — el proveedor despacha al cliente</li>
+        <li>Tu comisión llega SOLO al confirmar entrega — anti-fraude real</li>
+        <li>Todo tu catálogo es visible para la red Multimarket completa</li>
       </ul>
       <a href="#registro" class="perfil-cta pc-purple">Empezar a vender</a>
     </div>
@@ -580,27 +690,27 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
     <div class="reveal">
       <div class="sec-tag gold">Sistema de valor</div>
       <h2 class="sec-title">¿Qué son los Multimarket Libres (ML)?</h2>
-      <p class="sec-sub" style="margin-bottom:28px">Los MLs son la unidad de valor interna de Multimarket. No son criptomonedas, no son puntos: son valor real generado por actividad real dentro de la red.</p>
+      <p class="sec-sub" style="margin-bottom:28px">No son puntos, no son criptomonedas y no se multiplican. Son la unidad real de valor del ecosistema — y nacen únicamente cuando entra dinero real al sistema.</p>
       <div class="ml-visual">
         <div class="ml-card">
           <div class="ml-card-icon" style="background:rgba(16,185,129,.1)">💵</div>
           <div>
-            <div class="ml-card-title">Solo se genera con dinero real</div>
-            <div class="ml-card-desc">Los MLs nacen ÚNICAMENTE cuando entra dinero real al sistema — por compras, ventas o servicios. No se crean de la nada.</div>
+            <div class="ml-card-title">Solo nacen con dinero real</div>
+            <div class="ml-card-desc">Cada ML existe porque alguien compró, vendió o pagó con pesos colombianos reales. No se crean de la nada — no hay inflación posible por diseño.</div>
           </div>
         </div>
         <div class="ml-card">
           <div class="ml-card-icon" style="background:rgba(26,60,94,.08)">🔄</div>
           <div>
-            <div class="ml-card-title">Circulan dentro de la red</div>
-            <div class="ml-card-desc">Los MLs se usan para comprar, pagar servicios, compensar mensajeros y mover valor entre participantes de la red.</div>
+            <div class="ml-card-title">Circulan — no se acumulan</div>
+            <div class="ml-card-desc">Los MLs se mueven: pagan productos, cubren logística, acreditan comisiones. Su poder está en circular dentro de la red, no en guardarse indefinidamente.</div>
           </div>
         </div>
         <div class="ml-card">
-          <div class="ml-card-icon" style="background:rgba(245,158,11,.1)">⚡</div>
+          <div class="ml-card-icon" style="background:rgba(245,158,11,.1)">🔥</div>
           <div>
-            <div class="ml-card-title">Se transforman, no se "retiran"</div>
-            <div class="ml-card-desc">Los MLs se convierten en valor al usarlos: productos, servicios, entregas. Su poder crece con la actividad de la red.</div>
+            <div class="ml-card-title">Se transforman en valor real</div>
+            <div class="ml-card-desc">Cada ML gastado se convierte en un producto, un servicio o una entrega real. El valor no desaparece — se transforma. Anti-inflación por diseño.</div>
           </div>
         </div>
       </div>
@@ -608,10 +718,10 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
     <div class="reveal d2">
       <div class="ml-key">
         <div class="ml-key-label">Principio fundamental</div>
-        <div class="ml-key-msg">"El ML no se retira como efectivo.<br/><em>Se transforma en valor real</em><br/>dentro del sistema."</div>
+        <div class="ml-key-msg">"El ML no se retira como efectivo.<br/><em>Se transforma en valor real</em><br/>dentro del ecosistema."</div>
       </div>
       <div style="margin-top:20px;background:var(--bg);border-radius:16px;padding:24px;border:1px solid var(--border)">
-        <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:14px;text-transform:uppercase;letter-spacing:1px">1 ML siempre equivale a:</div>
+        <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:14px;text-transform:uppercase;letter-spacing:1px">1 ML equivale exactamente a:</div>
         <div style="display:flex;flex-direction:column;gap:10px">
           <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--white);border-radius:10px;border:1px solid var(--border)">
             <span style="font-size:13px;color:var(--text-light)">1 peso en compras del catálogo</span>
@@ -636,28 +746,28 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
   <div class="red-inner">
     <div class="red-header reveal">
       <div class="sec-tag">La red</div>
-      <h2 class="sec-title">No creces solo. La red también trabaja para ti.</h2>
-      <p class="sec-sub">Cada participante activo fortalece la red completa. Cuanto más activa sea la comunidad, más valor tiene tu participación.</p>
+      <h2 class="sec-title">Tu red trabaja para ti — incluso cuando no estás.</h2>
+      <p class="sec-sub">Cada persona activa que conectaste genera el 1% de su actividad para ti, mes a mes. La red crece colectivamente y cada nodo fortalece al siguiente.</p>
     </div>
     <div class="red-grid">
       <div class="red-card reveal d1">
         <div class="red-card-icon">🔗</div>
-        <div class="red-card-title">Crecimiento automático</div>
-        <div class="red-card-desc">Tu actividad en la red suma al sistema completo. No necesitas hacer nada especial — solo participar ya genera valor colectivo.</div>
+        <div class="red-card-title">Tu red = tu crecimiento</div>
+        <div class="red-card-desc">Cada usuario activo que conectas suma al sistema. Su consumo real genera tu 1% automático — sin intermediarios, sin demoras, sin condiciones ocultas.</div>
       </div>
       <div class="red-card reveal d2">
         <div class="red-card-icon">📊</div>
-        <div class="red-card-title">Dashboard transparente</div>
-        <div class="red-card-desc">Métricas reales en tiempo real. Ves exactamente cuánto entra, cómo se mueve y dónde está tu valor generado en la red.</div>
+        <div class="red-card-title">Transparencia total</div>
+        <div class="red-card-desc">Dashboard en tiempo real: ves exactamente cuánto se mueve en tu red, qué genera cada actividad y dónde está tu valor acumulado. Sin cajas negras.</div>
       </div>
       <div class="red-card reveal d3">
         <div class="red-card-icon">🛡️</div>
-        <div class="red-card-title">Sistema antifraude OTP</div>
-        <div class="red-card-desc">Cada transacción requiere validación con código OTP de un solo uso. Sin fraudes, sin movimientos no autorizados, sin sorpresas.</div>
+        <div class="red-card-title">Ganas solo con valor real</div>
+        <div class="red-card-desc">OTP en cada transacción. Sin entrega confirmada, no hay comisión. Sin pago real, no hay MLs. El sistema es anti-fraude por diseño — no por política.</div>
       </div>
     </div>
     <div class="red-quote reveal">
-      "Los primeros en unirse tienen mayor ventaja de posición. <em>La red está en crecimiento activo.</em>"
+      "Aquí el dinero no se queda — <em>circula y genera valor para toda la red.</em>"
     </div>
   </div>
 </section>
@@ -666,29 +776,29 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
 <section class="features" id="features">
   <div class="sec-center reveal">
     <div class="sec-tag">Plataforma</div>
-    <h2 class="sec-title">Herramientas para cada participante</h2>
-    <p class="sec-sub">Todo lo que necesitas para operar dentro de la economía activa Multimarket, desde el primer día.</p>
+    <h2 class="sec-title">Herramientas con impacto económico real</h2>
+    <p class="sec-sub">Cada función de Multimarket existe para que generes valor — no para que navegues. Todo está diseñado para mover la economía activa.</p>
   </div>
   <div class="feat-grid">
     <div class="feat-card reveal d1">
       <div class="feat-icon">🛍️</div>
-      <h3 class="feat-title">Catálogo activo</h3>
-      <p class="feat-desc">Miles de productos en moda, tecnología, hogar y belleza. Explora, compra para ti o vende a otros — sin necesidad de tener inventario propio.</p>
+      <h3 class="feat-title">Convierte cualquier producto en ingreso</h3>
+      <p class="feat-desc">Miles de productos en moda, tecnología, hogar y belleza. Véndelos sin tenerlos: publicas en tu catálogo, el proveedor despacha, tú cobras al confirmar entrega. Sin bodega, sin riesgo.</p>
     </div>
     <div class="feat-card reveal d2">
       <div class="feat-icon">💰</div>
-      <h3 class="feat-title">MLs — Valor que circula</h3>
-      <p class="feat-desc">Tus Multimarket Libres no duermen. Se usan para comprar, pagar mensajeros, acceder a servicios y mover valor real dentro de toda la red.</p>
+      <h3 class="feat-title">1% automático — sin hacer nada extra</h3>
+      <p class="feat-desc">Cada compra, venta o entrega dentro de tu red activa te acredita el 1% en MLs. No necesitas gestionar nada: el sistema lo calcula, lo valida y lo acredita en tiempo real.</p>
     </div>
     <div class="feat-card reveal d1">
       <div class="feat-icon">🚀</div>
-      <h3 class="feat-title">Dropshipping sin inventario</h3>
-      <p class="feat-desc">Vende productos sin tenerlos. Conéctate con Dropi, importa al catálogo y los proveedores despachan directamente a tus clientes. Tú solo cobras.</p>
+      <h3 class="feat-title">Tu negocio sin inventario, sin local</h3>
+      <p class="feat-desc">Conecta con Dropi, importa al catálogo y define tu margen. Los proveedores despachan directo a tus clientes. Tú solo publicas, gestionas pedidos y recibes la comisión al entregar.</p>
     </div>
     <div class="feat-card reveal d2">
       <div class="feat-icon">🔒</div>
-      <h3 class="feat-title">Seguridad con OTP</h3>
-      <p class="feat-desc">Cada transacción se valida con un código de un solo uso. Control antifraude en tiempo real, sin excepciones, para todos los participantes.</p>
+      <h3 class="feat-title">Ganas solo cuando hay valor real</h3>
+      <p class="feat-desc">Sin entrega confirmada, no hay comisión. Sin pago real, no hay MLs. Sin actividad mensual, no hay crecimiento. OTP en cada transacción. El sistema protege a todos por igual.</p>
     </div>
   </div>
 </section>
@@ -698,69 +808,69 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
   <div class="how-inner">
     <div class="sec-center reveal">
       <div class="sec-tag">Proceso</div>
-      <h2 class="sec-title">Activa tu cuenta en 3 pasos</h2>
-      <p class="sec-sub">Sin formularios interminables. En menos de 10 minutos ya estás participando en la red.</p>
+      <h2 class="sec-title">Activa tu economía en 3 pasos</h2>
+      <p class="sec-sub">Sin formularios interminables ni barreras de entrada. En menos de 10 minutos ya estás participando en la red activa.</p>
     </div>
     <div class="how-steps">
       <div class="how-step reveal d1">
         <div class="step-num">1</div>
-        <h3 class="step-title">Regístrate gratis</h3>
-        <p class="step-desc">Llena el formulario de acceso anticipado, elige tu perfil y reserva tu lugar en la red antes del lanzamiento oficial.</p>
+        <h3 class="step-title">Entras</h3>
+        <p class="step-desc">Registras tu cuenta gratis, eliges tu perfil y reservas tu posición en la red. Los primeros en entrar construyen la base — y esa posición no vuelve a ofrecerse.</p>
       </div>
       <div class="how-step reveal d2">
         <div class="step-num">2</div>
-        <h3 class="step-title">Explora y conecta</h3>
-        <p class="step-desc">Navega el catálogo, importa productos desde Dropi o publica los tuyos. Empieza a interactuar con la red desde el primer día.</p>
+        <h3 class="step-title">Activas tu economía</h3>
+        <p class="step-desc">Compras, invitas negocios, clientes o mensajeros activos. Cada uno que se mantiene activo suma a tu red y genera automáticamente el 1% de su actividad para ti.</p>
       </div>
       <div class="how-step reveal d3">
         <div class="step-num">3</div>
-        <h3 class="step-title">Genera y mueve valor</h3>
-        <p class="step-desc">Cada compra, venta o entrega genera MLs. Úsalos dentro de la red para hacer crecer tu participación de forma sostenida.</p>
+        <h3 class="step-title">Creces con la red</h3>
+        <p class="step-desc">Conforme tu red crece y permanece activa, tus comisiones crecen con ella. De Base a Diamante — sin techo, con un solo límite: la actividad real de tu comunidad.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ══ ANTI-PIRÁMIDE ══════════════════════════════════════════ -->
+<!-- ══ ESTO ES DIFERENTE ══════════════════════════════════════════ -->
 <section class="antipyramid" id="transparencia">
   <div class="ap-inner">
     <div class="ap-header reveal">
       <div class="ap-icon">🔍</div>
-      <h2 class="ap-title">Multimarket NO es un sistema piramidal</h2>
+      <h2 class="ap-title">¿Es esto una pirámide? La respuesta directa.</h2>
     </div>
-    <p class="ap-sub reveal">Esta es la pregunta más importante. Aquí la respuesta clara: en Multimarket nadie gana por reclutar. Todo beneficio está atado a actividad económica real.</p>
+    <p class="ap-sub reveal">Entendemos la pregunta y la respetamos. La respuesta es no — y te lo explicamos con hechos. En Multimarket nadie gana por reclutar. Todo valor viene de actividad económica real.</p>
     <div class="ap-grid">
       <div class="ap-card reveal d1">
         <div class="ap-check no">✗</div>
         <div>
           <div class="ap-card-title">No se gana por invitar personas</div>
-          <div class="ap-card-desc">No hay bonos de reclutamiento. Traer nuevos usuarios no te genera ingresos directos — solo la actividad real lo hace.</div>
+          <div class="ap-card-desc">Traer alguien a la red no te genera un peso. Lo que genera valor es la actividad de esa persona — sus compras, ventas y entregas reales mes a mes.</div>
         </div>
       </div>
       <div class="ap-card reveal d2">
         <div class="ap-check yes">✓</div>
         <div>
-          <div class="ap-card-title">Se gana por actividad real</div>
-          <div class="ap-card-desc">Compras, ventas, entregas, servicios. Cada peso que circula en la red es un peso real generado por consumo activo.</div>
+          <div class="ap-card-title">Se gana por actividad real, siempre</div>
+          <div class="ap-card-desc">El 1% que recibes nace de transacciones reales: alguien compró, alguien vendió, alguien entregó. Cada peso que circula en la red es un peso real verificado.</div>
         </div>
       </div>
       <div class="ap-card reveal d1">
         <div class="ap-check no">✗</div>
         <div>
-          <div class="ap-card-title">No hay retiros mágicos ni rendimientos</div>
-          <div class="ap-card-desc">Los MLs no se convierten en efectivo directo. Se transforman en valor al usarlos — sin promesas de retorno pasivo.</div>
+          <div class="ap-card-title">No hay retornos sobre inversión</div>
+          <div class="ap-card-desc">No existe "invierte X y gana Y". Los MLs no se retiran como efectivo. No hay rendimientos pasivos garantizados. Sin actividad, no hay comisión — punto.</div>
         </div>
       </div>
       <div class="ap-card reveal d2">
         <div class="ap-check yes">✓</div>
         <div>
-          <div class="ap-card-title">Todo ligado al consumo</div>
-          <div class="ap-card-desc">El sistema solo crece cuando hay consumo real. Sin actividad económica no hay MLs nuevos — es la base del modelo.</div>
+          <div class="ap-card-title">Todo ligado al consumo real</div>
+          <div class="ap-card-desc">El sistema solo crece cuando hay consumo real. Sin actividad económica no se generan MLs nuevos. Es la base del modelo — y lo que lo hace sostenible a largo plazo.</div>
         </div>
       </div>
     </div>
     <div class="ap-badge reveal">
-      ✓ &nbsp;Modelo basado en economía de consumo real, no en captación de personas
+      ✓ &nbsp;Comisiones del 1% sobre consumo real — no sobre captación de personas
     </div>
   </div>
 </section>
@@ -768,17 +878,11 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
 <!-- ══ MULTIMAKIA ══════════════════════════════════════════ -->
 <section class="multimakia" id="multimakia">
   <div class="mm-inner">
-
-    <!-- Header grid: texto izq + cómo funciona der -->
     <div class="mm-header">
       <div class="reveal">
         <div class="mm-badge">❤️ Solidaridad activa</div>
         <h2 class="mm-title">Multi<em>Makia</em> — El fondo social de la red</h2>
-        <p class="mm-sub">
-          Parte del valor que se genera en la red se destina voluntariamente a causas reales.
-          Los usuarios donan MLs a eventos sociales: familias, comunidades, emergencias.
-          La economía activa también tiene corazón.
-        </p>
+        <p class="mm-sub">Parte del valor que genera la red se destina voluntariamente a causas reales. Los usuarios donan MLs a eventos sociales: familias, comunidades, emergencias. La economía activa también tiene corazón.</p>
         <div class="mm-stats">
           <div class="mm-stat">
             <div class="mm-stat-val">MLs</div>
@@ -794,7 +898,6 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
           </div>
         </div>
       </div>
-
       <div class="mm-how reveal d2">
         <div class="mm-how-title">¿Cómo funciona?</div>
         <div class="mm-how-steps">
@@ -802,28 +905,26 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
             <div class="mm-step-icon">🛒</div>
             <div>
               <div class="mm-step-title">Tu actividad genera MLs</div>
-              <div class="mm-step-desc">Cada compra, venta o entrega produce MLs dentro de la red. Son tu valor acumulado.</div>
+              <div class="mm-step-desc">Cada compra, venta o entrega produce MLs dentro de la red. Son tu valor acumulado por actividad real.</div>
             </div>
           </div>
           <div class="mm-how-step">
             <div class="mm-step-icon">❤️</div>
             <div>
               <div class="mm-step-title">Eliges donar voluntariamente</div>
-              <div class="mm-step-desc">Desde la app seleccionas una causa activa y el monto de MLs que quieres aportar. Siempre voluntario.</div>
+              <div class="mm-step-desc">Desde la app seleccionas una causa activa y el monto de MLs que quieres aportar. Siempre voluntario, siempre transparente.</div>
             </div>
           </div>
           <div class="mm-how-step">
             <div class="mm-step-icon">✅</div>
             <div>
               <div class="mm-step-title">El fondo llega a la causa</div>
-              <div class="mm-step-desc">Los MLs donados se acumulan en el evento hasta alcanzar la meta. Sin intermediarios, con trazabilidad completa.</div>
+              <div class="mm-step-desc">Los MLs se acumulan hasta la meta del evento. Sin intermediarios, con trazabilidad completa para todos los donantes.</div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Ejemplos de causas activas -->
     <div style="text-align:center;margin-bottom:28px" class="reveal">
       <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:2px">Ejemplos de causas activas</div>
     </div>
@@ -877,14 +978,10 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
         </div>
       </div>
     </div>
-
     <div class="mm-cta-row reveal">
-      <a href="#registro" class="btn-primary" style="display:inline-block">
-        Únete y participa en MultiMakia →
-      </a>
+      <a href="#registro" class="btn-primary" style="display:inline-block">Únete y participa en MultiMakia →</a>
       <p class="mm-cta-note">Las causas son reales. Las donaciones son voluntarias. El impacto es tuyo.</p>
     </div>
-
   </div>
 </section>
 
@@ -893,17 +990,17 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
   <div class="dropi-inner">
     <div class="dropi-text reveal">
       <div class="sec-tag">Dropshipping</div>
-      <h2 class="sec-title">Integrado con Dropi</h2>
-      <p class="sec-sub">Vende sin inventario, sin bodega y sin logística. Multimarket se conecta con Dropi para que importes productos y gestiones pedidos de forma automática.</p>
+      <h2 class="sec-title">Tu negocio sin inventario, sin local, sin excusas</h2>
+      <p class="sec-sub">Multimarket se conecta con Dropi para que cualquier persona pueda vender productos sin tener uno solo. Solo necesitas publicar y gestionar — el resto lo hace la red.</p>
       <ul class="dropi-list">
-        <li>Importa productos del catálogo Dropi con un clic</li>
-        <li>Los pedidos se sincronizan automáticamente</li>
-        <li>Pago validado antes de generar la comisión</li>
-        <li>Protección contra devoluciones y fraudes</li>
-        <li>Márgenes definidos por ti, proveedor despacha</li>
+        <li>Importa el catálogo Dropi con un clic — miles de productos disponibles</li>
+        <li>Tú defines el margen — decides exactamente cuánto ganas por producto</li>
+        <li>El proveedor despacha cuando el cliente compra — tú no tocas nada</li>
+        <li>Tu comisión se acredita SOLO al confirmar la entrega — cero riesgo</li>
+        <li>Los pedidos se sincronizan automáticamente entre Dropi y Multimarket</li>
       </ul>
       <div class="dropi-note">
-        💡 <strong>Flujo de valor real:</strong> El proveedor despacha → el cliente recibe → se confirma la entrega → <strong>entonces</strong> se genera el valor en MLs para el vendedor.
+        💡 <strong>Regla de oro:</strong> tu comisión nace con la entrega confirmada, no con el pago. Sin entrega real, no hay valor generado. Así protegemos a compradores y vendedores por igual.
       </div>
     </div>
     <div class="dropi-card reveal">
@@ -926,7 +1023,7 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
         <div class="flow-arrow">↓</div>
         <div class="flow-node">
           <div class="flow-icon" style="background:rgba(139,92,246,.1)">💰</div>
-          <div><div class="flow-label">Entrega confirmada → valor generado</div><div class="flow-sub">MLs acreditados al vendedor por actividad real</div></div>
+          <div><div class="flow-label">Entrega confirmada → comisión acreditada</div><div class="flow-sub">MLs al vendedor solo por actividad real — sin excepciones</div></div>
         </div>
       </div>
     </div>
@@ -938,7 +1035,7 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
   <div class="app-inner reveal">
     <div class="app-badge">🚀 Próximamente</div>
     <h2 class="app-title">La app Multimarket está en camino</h2>
-    <p class="app-sub">Lleva toda la economía activa en tu bolsillo. Gestiona tus MLs, explora el catálogo, rastrea pedidos y cobra desde Android e iOS dondequiera que estés.</p>
+    <p class="app-sub">Todo el ecosistema en tu bolsillo. Gestiona tus MLs, explora el catálogo, rastrea pedidos, revisa las comisiones de tu red y cobra desde Android e iOS — dondequiera que estés.</p>
     <div class="app-stores">
       <div class="store-btn">
         <div class="store-icon">🍎</div>
@@ -953,45 +1050,35 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
       <input type="email" id="notifyEmail" placeholder="tucorreo@email.com"/>
       <button onclick="notifyMe()">Avísame cuando esté lista</button>
     </div>
-    <p class="notify-ok" id="notifyOk">✓ ¡Listo! Escríbete abajo para asegurar tu lugar.</p>
+    <p class="notify-ok" id="notifyOk">✓ ¡Listo! Escríbete abajo para asegurar tu lugar en la red.</p>
   </div>
 </section>
 
 <!-- ══ REGISTRO ══════════════════════════════════════════ -->
 <section class="registro" id="registro">
   <div class="registro-inner">
-
     <div class="sec-center reveal">
       <div class="sec-tag">Acceso anticipado</div>
-      <h2 class="sec-title">Activa tu cuenta antes del lanzamiento</h2>
-      <p class="sec-sub">Sé de los primeros. Los usuarios registrados ahora tienen mayor posición en la red y acceso prioritario a nuevas funciones.</p>
+      <h2 class="sec-title">Reserva tu lugar en la red</h2>
+      <p class="sec-sub">El acceso es gratuito. La posición no es eterna. Los primeros usuarios activos construyen la base de la red y tienen ventaja de posición permanente.</p>
     </div>
-
     <div class="trust-badges reveal">
       <div class="trust-badge">🔒 Datos protegidos — Ley 1581</div>
       <div class="trust-badge">✓ Sin spam, sin costos ocultos</div>
       <div class="trust-badge">🔥 Cupos limitados — acceso anticipado</div>
     </div>
-
     <div class="form-card reveal">
-
       <form id="leadForm" novalidate>
-
-        <!-- Nombre -->
         <div class="form-group">
           <label class="form-label" for="nombre">Nombre completo <span class="req">*</span></label>
           <input class="form-input" type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" autocomplete="name"/>
           <p class="form-err" id="err-nombre">Por favor ingresa tu nombre completo.</p>
         </div>
-
-        <!-- Correo -->
         <div class="form-group">
           <label class="form-label" for="correo">Correo electrónico <span class="req">*</span></label>
           <input class="form-input" type="email" id="correo" name="correo" placeholder="tucorreo@email.com" autocomplete="email"/>
           <p class="form-err" id="err-correo">Ingresa un correo electrónico válido.</p>
         </div>
-
-        <!-- Celular -->
         <div class="form-group">
           <label class="form-label" for="celular">Número de celular <span class="req">*</span></label>
           <div class="phone-row">
@@ -1000,8 +1087,6 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
           </div>
           <p class="form-err" id="err-celular">Ingresa un número de celular válido (10 dígitos).</p>
         </div>
-
-        <!-- Perfil -->
         <div class="form-group">
           <label class="form-label" for="perfil">¿Cuál es tu perfil de interés?</label>
           <select class="form-input form-select" id="perfil" name="perfil">
@@ -1012,8 +1097,6 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
             <option value="Vendedor Dropshipper">💼 Vendedor Dropshipper — Vendo sin inventario</option>
           </select>
         </div>
-
-        <!-- Política de datos -->
         <div class="form-group">
           <div class="policy-box">
             <label class="policy-label">
@@ -1027,28 +1110,23 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
             <p class="form-err" id="err-politicas" style="margin-left:30px">Debes aceptar la política para continuar.</p>
           </div>
         </div>
-
         <button type="submit" class="btn-submit" id="submitBtn">
-          <span id="btnText">Activar mi cuenta gratis →</span>
+          <span id="btnText">Reservar mi lugar gratis →</span>
           <span id="btnLoading" style="display:none">Registrando...</span>
         </button>
-
       </form>
-
       <!-- Éxito -->
       <div class="success-box" id="successMsg">
         <div class="success-icon">🎉</div>
-        <div class="success-title">¡Ya estás en la lista!</div>
-        <p class="success-sub">Te avisaremos cuando Multimarket esté listo para ti. Los primeros registrados tienen acceso prioritario y mayor posición en la red.</p>
+        <div class="success-title">¡Tu lugar está reservado!</div>
+        <p class="success-sub">Eres parte de los primeros. Te avisaremos cuando Multimarket abra — y tendrás ventaja de posición en la red desde el primer día.</p>
         <div class="success-email">✓ Registro completado · <span id="userEmail"></span></div>
         <button onclick="resetForm()" style="margin-top:20px;background:none;border:1px solid rgba(16,185,129,.4);color:var(--green);padding:10px 24px;border-radius:10px;font-size:13px;font-weight:700;cursor:pointer;font-family:inherit">
           + Registrar otro contacto
         </button>
       </div>
-
       <!-- Error -->
       <div class="error-bar" id="errorMsg"></div>
-
     </div>
   </div>
 </section>
@@ -1057,12 +1135,12 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
 <section class="cta">
   <div class="cta-inner reveal">
     <div class="sec-tag">Empieza hoy</div>
-    <h2 class="sec-title">¿Listo para entrar a la red?</h2>
-    <p class="cta-msg">"No es solo comprar. Es participar en una economía que te devuelve valor."</p>
-    <p class="sec-sub">Elige tu perfil, activa tu cuenta gratis y empieza a mover valor desde el primer día. La red crece — y los primeros tienen ventaja.</p>
+    <h2 class="sec-title">Estás entrando antes del lanzamiento</h2>
+    <p class="cta-msg">"Los primeros 32 usuarios activos construyen la base de la red. Su posición no se vuelve a ofrecer."</p>
+    <p class="sec-sub">Elige tu perfil, activa tu cuenta gratis y reserva tu lugar en la economía activa. La red crece — y los primeros tienen ventaja estructural permanente.</p>
     <div class="cta-btns" style="margin-top:32px">
-      <a href="#registro" class="btn-primary">Entrar a la red ahora</a>
-      <a href="#perfiles" class="btn-dark">Ver perfiles →</a>
+      <a href="#registro" class="btn-primary">Reservar mi lugar ahora</a>
+      <a href="#ganas" class="btn-dark">¿Cómo gano? →</a>
     </div>
   </div>
 </section>
@@ -1072,7 +1150,7 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
   <div class="footer-grid">
     <div>
       <div class="footer-brand">Multi<span>market</span></div>
-      <p class="footer-desc">La red de economía activa de Colombia. Compra, vende y mueve valor real con toda la comunidad. No es una pirámide — es economía ligada al consumo.</p>
+      <p class="footer-desc">La red de economía activa de Colombia. Comisiones reales del 1% sobre consumo real — no sobre captación. Sin inversión, sin pirámides.</p>
       <div class="footer-social">
         <a href="#" class="soc">📘</a>
         <a href="#" class="soc">📸</a>
@@ -1083,7 +1161,7 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
     <div>
       <div class="footer-col-title">Plataforma</div>
       <ul class="footer-links">
-        <li><a href="#perfiles">¿Cómo gano?</a></li>
+        <li><a href="#ganas">¿Cómo gano?</a></li>
         <li><a href="#ml">Sistema ML</a></li>
         <li><a href="#red">La red</a></li>
         <li><a href="https://multimarket.com.co/web">Ingresar →</a></li>
@@ -1109,7 +1187,7 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2026 Multimarket S.A.S. — Red de economía activa. Colombia. Modelo basado en consumo real.</p>
+    <p>© 2026 Multimarket S.A.S. — Red de economía activa. Colombia. Modelo basado en consumo real, no en captación.</p>
     <a href="https://multimarket.com.co/web">Admin ↗</a>
   </div>
 </footer>
@@ -1159,17 +1237,13 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
 
 <!-- ══ JAVASCRIPT ══════════════════════════════════════════ -->
 <script>
-  // ── CONFIGURACIÓN ─────────────────────────────────────────
   const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbziCG_PkAEXjPnZweZ4TX9Rw6wfDQlIUGfd0BG_PlIhKZp3yXUN7bOdbV1TD0pC5nRTDA/exec";
 
-  // ── Nav ────────────────────────────────────────────────────
   function toggleNav() {
     var m = document.getElementById('navMobile');
     m.style.display = m.style.display === 'flex' ? 'none' : 'flex';
   }
-  function closeNav() {
-    document.getElementById('navMobile').style.display = 'none';
-  }
+  function closeNav() { document.getElementById('navMobile').style.display = 'none'; }
   document.addEventListener('click', function(e) {
     var m = document.getElementById('navMobile');
     var h = document.getElementById('hbg');
@@ -1181,7 +1255,6 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
       window.scrollY > 50 ? 'rgba(13,33,55,.98)' : 'rgba(13,33,55,.9)';
   });
 
-  // ── Scroll reveal ──────────────────────────────────────────
   var ro = new IntersectionObserver(function(entries) {
     entries.forEach(function(e) {
       if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); }
@@ -1189,7 +1262,6 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(function(el) { ro.observe(el); });
 
-  // ── Counter animado ────────────────────────────────────────
   var countDone = false;
   var co = new IntersectionObserver(function(entries) {
     if (entries[0].isIntersecting && !countDone) {
@@ -1205,7 +1277,6 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
   var statsEl = document.querySelector('.stats');
   if (statsEl) co.observe(statsEl);
 
-  // ── App notify — pre-llena el formulario y baja ────────────
   function notifyMe() {
     var emailVal = document.getElementById('notifyEmail').value.trim();
     if (emailVal && emailVal.includes('@')) {
@@ -1219,15 +1290,8 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
     }
   }
 
-  // ── Modal ──────────────────────────────────────────────────
-  function openModal()  {
-    document.getElementById('modal').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-  function closeModal() {
-    document.getElementById('modal').classList.remove('open');
-    document.body.style.overflow = '';
-  }
+  function openModal()  { document.getElementById('modal').classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeModal() { document.getElementById('modal').classList.remove('open'); document.body.style.overflow = ''; }
   function acceptPolicy() {
     document.getElementById('politicas').checked = true;
     document.getElementById('err-politicas').classList.remove('show');
@@ -1235,22 +1299,19 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
   }
   document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeModal(); });
 
-  // ── Solo dígitos en celular ────────────────────────────────
   document.getElementById('celular').addEventListener('input', function() {
     this.value = this.value.replace(/[^0-9]/g, '');
   });
 
-  // ── Validación ─────────────────────────────────────────────
   function showErr(id) { document.getElementById(id).classList.add('show'); }
   function hideErr(id) { document.getElementById(id).classList.remove('show'); }
 
   function validateForm() {
     var ok = true;
-    var nombre   = document.getElementById('nombre').value.trim();
-    var correo   = document.getElementById('correo').value.trim();
-    var celular  = document.getElementById('celular').value.replace(/\s/g,'');
+    var nombre    = document.getElementById('nombre').value.trim();
+    var correo    = document.getElementById('correo').value.trim();
+    var celular   = document.getElementById('celular').value.replace(/\s/g,'');
     var politicas = document.getElementById('politicas').checked;
-
     if (nombre.length < 3)                            { showErr('err-nombre');    ok = false; } else hideErr('err-nombre');
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo))  { showErr('err-correo');    ok = false; } else hideErr('err-correo');
     if (!/^[0-9]{10}$/.test(celular))                 { showErr('err-celular');   ok = false; } else hideErr('err-celular');
@@ -1258,21 +1319,17 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
     return ok;
   }
 
-  // ── Submit ─────────────────────────────────────────────────
   document.getElementById('leadForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     if (!validateForm()) return;
-
     var btn     = document.getElementById('submitBtn');
     var btnText = document.getElementById('btnText');
     var btnLoad = document.getElementById('btnLoading');
     var errBar  = document.getElementById('errorMsg');
-
     btn.disabled = true;
     btnText.style.display = 'none';
     btnLoad.style.display = 'inline';
     errBar.style.display  = 'none';
-
     var payload = {
       nombre:          document.getElementById('nombre').value.trim(),
       correo:          document.getElementById('correo').value.trim().toLowerCase(),
@@ -1282,20 +1339,16 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
       fuente:          'Landing Page Estática',
       userAgent:       navigator.userAgent.substring(0, 200),
     };
-
     try {
-      // text/plain es el único Content-Type compatible con no-cors + Apps Script
       await fetch(SCRIPT_URL, {
         method:  'POST',
         mode:    'no-cors',
         headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
         body:    JSON.stringify(payload),
       });
-
       document.getElementById('leadForm').style.display = 'none';
       document.getElementById('userEmail').textContent = payload.correo;
       document.getElementById('successMsg').style.display = 'block';
-
     } catch (err) {
       btn.disabled = false;
       btnText.style.display = 'inline';
@@ -1315,8 +1368,7 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
     btn.disabled = false;
     document.getElementById('btnText').style.display    = 'inline';
     document.getElementById('btnLoading').style.display = 'none';
-    // limpiar mensajes de error inline
-    document.querySelectorAll('.field-error').forEach(function(el){ el.style.display = 'none'; });
+    document.querySelectorAll('.form-err').forEach(function(el){ el.classList.remove('show'); });
   }
 </script>
 

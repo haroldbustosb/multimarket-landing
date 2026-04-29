@@ -25,7 +25,7 @@
 const SPREADSHEET_ID   = "1lpDEsT_z5hHwA1u8d8hSE3vQ3tSPeeAZpATmk6zFoAA";
 const SHEET_NAME       = "Leads";
 const NOTIFY_EMAIL     = "jhabmc@gmail.com";       // notificación interna (deja "" para desactivar)
-const TURNSTILE_SECRET = "PEGA_TU_SECRET_KEY_AQUI"; // Secret Key de Cloudflare Turnstile
+const TURNSTILE_SECRET = "0x4AAAAAADFVV5HXysHr7UWah-LZ78tCDnQ"; // Secret Key de Cloudflare Turnstile
 const SEND_CLIENT_MAIL = true;                      // false para desactivar email al registrado
 // ──────────────────────────────────────────────────────────────────────────────
 

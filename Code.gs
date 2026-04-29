@@ -236,9 +236,9 @@ function sendClientEmail(data) {
 
         '<p style="font-size:13px;color:#94A3B8;text-align:center;line-height:1.7;margin:0">' +
           '¿Tienes preguntas? Escríbenos a<br/>' +
-          '<a href="mailto:contact@multimarket.com.co" ' +
+          '<a href="mailto:contacto@multimarket.com.co" ' +
              'style="color:#10B981;font-weight:700;text-decoration:none">' +
-            'contact@multimarket.com.co' +
+            'contacto@multimarket.com.co' +
           '</a>' +
         '</p>' +
       '</div>' +
@@ -260,7 +260,7 @@ function sendClientEmail(data) {
     subject:  "¡Tu lugar en Multimarket está reservado, " + nombre + "!",
     htmlBody: html,
     name:     "Multimarket",
-    replyTo:  "contact@multimarket.com.co",
+    replyTo:  "contacto@multimarket.com.co",
   });
 }
 

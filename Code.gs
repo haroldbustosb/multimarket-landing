@@ -24,7 +24,7 @@
 // ─── CONFIGURACIÓN ────────────────────────────────────────────────────────────
 const SPREADSHEET_ID   = "1lpDEsT_z5hHwA1u8d8hSE3vQ3tSPeeAZpATmk6zFoAA";
 const SHEET_NAME       = "Leads";
-const NOTIFY_EMAIL     = "jhabmc@gmail.com";       // notificación interna (deja "" para desactivar)
+const NOTIFY_EMAIL     = "mlmultimarketcompany@gmail.com"; // notificación interna (deja "" para desactivar)
 const TURNSTILE_SECRET = "0x4AAAAAADFVV5HXysHr7UWah-LZ78tCDnQ"; // Secret Key de Cloudflare Turnstile
 const SEND_CLIENT_MAIL = true;                      // false para desactivar email al registrado
 // ──────────────────────────────────────────────────────────────────────────────
@@ -236,9 +236,9 @@ function sendClientEmail(data) {
 
         '<p style="font-size:13px;color:#94A3B8;text-align:center;line-height:1.7;margin:0">' +
           '¿Tienes preguntas? Escríbenos a<br/>' +
-          '<a href="mailto:contacto@multimarket.com.co" ' +
+          '<a href="mailto:contact@multimarket.com.co" ' +
              'style="color:#10B981;font-weight:700;text-decoration:none">' +
-            'contacto@multimarket.com.co' +
+            'contact@multimarket.com.co' +
           '</a>' +
         '</p>' +
       '</div>' +
@@ -260,7 +260,7 @@ function sendClientEmail(data) {
     subject:  "¡Tu lugar en Multimarket está reservado, " + nombre + "!",
     htmlBody: html,
     name:     "Multimarket",
-    replyTo:  "contacto@multimarket.com.co",
+    replyTo:  "contact@multimarket.com.co",
   });
 }
 

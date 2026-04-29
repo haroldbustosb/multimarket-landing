@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <meta name="description" content="Multimarket — La red colombiana que te paga por consumir, vender y crecer. 1% de comisión real sobre actividad real. Sin inversión, sin pirámides."/>
 <title>Multimarket — La red que te paga por consumir, vender y crecer</title>
+<!-- Cloudflare Turnstile -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
@@ -564,7 +566,7 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
       <div class="gana-card reveal d2">
         <div class="gana-icon">💼</div>
         <div class="gana-title">Vendiendo</div>
-        <p class="gana-desc">Importa productos de proveedores externos, define tu margen y ganas la diferencia entre el precio del proveedor y tu precio de venta. El proveedor despacha — tú solo cobras.</p>
+        <p class="gana-desc">Importa productos, vende y ganas una comision de venta. El proveedor despacha — tú solo cobras.</p>
         <span class="gana-tag">Sin inventario</span>
       </div>
       <div class="gana-card reveal d1">
@@ -586,30 +588,30 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
 <!-- ══ NIVELES DE RED ══════════════════════════════════════════ -->
 <div class="niveles">
   <div class="niveles-inner">
-    <div class="niveles-label">Tu red crece contigo — niveles de actividad</div>
+    <div class="niveles-label">Tu red crece contigo — Recibe el 1% de la actividad de tu red</div>
     <div class="niveles-track">
       <div class="nivel activo">
         <div class="nivel-dot">🌱</div>
         <div class="nivel-name">Base</div>
-        <div class="nivel-count">32 usuarios</div>
+        <div class="nivel-count">Hasta 32 usuarios</div>
       </div>
       <div class="nivel-line done"></div>
       <div class="nivel">
         <div class="nivel-dot">🥉</div>
         <div class="nivel-name">Bronce</div>
-        <div class="nivel-count">64 usuarios</div>
+        <div class="nivel-count">Hasta 64 usuarios</div>
       </div>
       <div class="nivel-line"></div>
       <div class="nivel">
         <div class="nivel-dot">🥈</div>
         <div class="nivel-name">Plata</div>
-        <div class="nivel-count">128 usuarios</div>
+        <div class="nivel-count">Hasta 128 usuarios</div>
       </div>
       <div class="nivel-line"></div>
       <div class="nivel">
         <div class="nivel-dot">🥇</div>
         <div class="nivel-name">Oro</div>
-        <div class="nivel-count">256 usuarios</div>
+        <div class="nivel-count">Hasta 256 usuarios</div>
       </div>
       <div class="nivel-line"></div>
       <div class="nivel">
@@ -687,57 +689,119 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
 <!-- ══ ML SYSTEM ══════════════════════════════════════════ -->
 <section class="ml-section" id="ml">
   <div class="ml-inner">
+
+    <!-- BLOQUE 1: EXPLICACIÓN SIMPLE -->
     <div class="reveal">
       <div class="sec-tag gold">Sistema de valor</div>
+      
       <h2 class="sec-title">¿Qué son los Multimarket Libres (ML)?</h2>
-      <p class="sec-sub" style="margin-bottom:28px">No son puntos, no son criptomonedas y no se multiplican. Son la unidad real de valor del ecosistema — y nacen únicamente cuando entra dinero real al sistema.</p>
+      
+      <p class="sec-sub" style="margin-bottom:28px">
+        Son la <strong style="color:var(--navy)">ñapa digital</strong> que recibes cuando compras dentro de la red.<br><br>
+        
+        La diferencia es simple:<br>
+        <em>no se quedan en un solo negocio… los puedes usar en todos.</em>
+      </p>
+
       <div class="ml-visual">
+
         <div class="ml-card">
-          <div class="ml-card-icon" style="background:rgba(16,185,129,.1)">💵</div>
+          <div class="ml-card-icon" style="background:rgba(16,185,129,.1)">🎁</div>
           <div>
-            <div class="ml-card-title">Solo nacen con dinero real</div>
-            <div class="ml-card-desc">Cada ML existe porque alguien compró, vendió o pagó con pesos colombianos reales. No se crean de la nada — no hay inflación posible por diseño.</div>
+            <div class="ml-card-title">Recibes ML como beneficio</div>
+            <div class="ml-card-desc">
+              Cada compra puede devolverte valor en ML. Es como la ñapa… pero digital y acumulable.
+            </div>
           </div>
         </div>
+
         <div class="ml-card">
-          <div class="ml-card-icon" style="background:rgba(26,60,94,.08)">🔄</div>
+          <div class="ml-card-icon" style="background:rgba(26,60,94,.08)">🌐</div>
           <div>
-            <div class="ml-card-title">Circulan — no se acumulan</div>
-            <div class="ml-card-desc">Los MLs se mueven: pagan productos, cubren logística, acreditan comisiones. Su poder está en circular dentro de la red, no en guardarse indefinidamente.</div>
+            <div class="ml-card-title">Sirven en toda la red</div>
+            <div class="ml-card-desc">
+              No estás limitado a un solo negocio. Puedes usar tus MLs en cualquier tienda, servicio o entrega dentro de Multimarket.
+            </div>
           </div>
         </div>
+
         <div class="ml-card">
-          <div class="ml-card-icon" style="background:rgba(245,158,11,.1)">🔥</div>
+          <div class="ml-card-icon" style="background:rgba(245,158,11,.1)">⚡</div>
           <div>
-            <div class="ml-card-title">Se transforman en valor real</div>
-            <div class="ml-card-desc">Cada ML gastado se convierte en un producto, un servicio o una entrega real. El valor no desaparece — se transforma. Anti-inflación por diseño.</div>
+            <div class="ml-card-title">Se convierten en valor real</div>
+            <div class="ml-card-desc">
+              Los MLs no se quedan quietos: los usas para pagar productos, domicilios o servicios dentro del ecosistema.
+            </div>
           </div>
         </div>
+
       </div>
     </div>
+
+    <!-- BLOQUE 2: PRINCIPIO Y USO -->
     <div class="reveal d2">
+
       <div class="ml-key">
-        <div class="ml-key-label">Principio fundamental</div>
-        <div class="ml-key-msg">"El ML no se retira como efectivo.<br/><em>Se transforma en valor real</em><br/>dentro del ecosistema."</div>
-      </div>
-      <div style="margin-top:20px;background:var(--bg);border-radius:16px;padding:24px;border:1px solid var(--border)">
-        <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:14px;text-transform:uppercase;letter-spacing:1px">1 ML equivale exactamente a:</div>
-        <div style="display:flex;flex-direction:column;gap:10px">
-          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--white);border-radius:10px;border:1px solid var(--border)">
-            <span style="font-size:13px;color:var(--text-light)">1 peso en compras del catálogo</span>
-            <span style="font-size:14px;font-weight:800;color:var(--green)">1 COP</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--white);border-radius:10px;border:1px solid var(--border)">
-            <span style="font-size:13px;color:var(--text-light)">1 peso en pago a mensajeros</span>
-            <span style="font-size:14px;font-weight:800;color:var(--green)">1 COP</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:var(--white);border-radius:10px;border:1px solid var(--border)">
-            <span style="font-size:13px;color:var(--text-light)">1 peso en servicios de la red</span>
-            <span style="font-size:14px;font-weight:800;color:var(--green)">1 COP</span>
-          </div>
+        <div class="ml-key-label">
+          Cómo funciona en pocas palabras
+        </div>
+        <div class="ml-key-msg">
+          Los MLs no son para retirar…<br/>
+          <em>son para usarlos, moverlos y aprovecharlos dentro de la red.</em>
         </div>
       </div>
+
+      <div style="margin-top:20px;background:var(--bg);border-radius:16px;padding:24px;border:1px solid var(--border)">
+        
+        <div style="font-size:13px;font-weight:700;color:var(--navy);margin-bottom:10px;text-transform:uppercase;letter-spacing:1px">
+          Siempre valen lo mismo
+        </div>
+
+        <div style="font-size:15px;color:var(--text-light);margin-bottom:18px">
+          Dentro de Multimarket, <strong style="color:var(--navy)">1 ML = 1 peso colombiano</strong> en todo momento.
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:10px">
+
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:var(--white);border-radius:10px;border:1px solid var(--border)">
+            <span style="font-size:13px;color:var(--text-light)">
+              Comprar productos del catálogo
+            </span>
+            <span style="font-size:14px;font-weight:800;color:var(--green)">
+              $1 COP
+            </span>
+          </div>
+
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:var(--white);border-radius:10px;border:1px solid var(--border)">
+            <span style="font-size:13px;color:var(--text-light)">
+              Pagar entregas o mensajeros
+            </span>
+            <span style="font-size:14px;font-weight:800;color:var(--green)">
+              $1 COP
+            </span>
+          </div>
+
+          <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:var(--white);border-radius:10px;border:1px solid var(--border)">
+            <span style="font-size:13px;color:var(--text-light)">
+              Usar servicios dentro de la red
+            </span>
+            <span style="font-size:14px;font-weight:800;color:var(--green)">
+              $1 COP
+            </span>
+          </div>
+
+        </div>
+
+        <div style="margin-top:18px;font-size:13px;color:var(--text-light);line-height:1.6">
+          👉 Los MLs nacen cuando hay compras reales.<br/>
+          👉 Se mueven dentro de la red generando valor para todos.<br/>
+          👉 Y cuando los usas, ese valor vuelve a circular.
+        </div>
+
+      </div>
+
     </div>
+
   </div>
 </section>
 
@@ -777,7 +841,11 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
   <div class="sec-center reveal">
     <div class="sec-tag">Plataforma</div>
     <h2 class="sec-title">Herramientas con impacto económico real</h2>
-    <p class="sec-sub">Cada función de Multimarket existe para que generes valor — no para que navegues. Todo está diseñado para mover la economía activa.</p>
+    <p class="sec-sub">Cada función de Multimarket existe para que generes valor
+     <br><b>Multimarket no es una app más.</b> <br/>
+      Aquí cada movimiento cuenta: 
+      <br><b>compras, vendes, conectas y haces crecer tu red.</b> <br/>
+      Todo está diseñado para mover la economía activa.</p>
   </div>
   <div class="feat-grid">
     <div class="feat-card reveal d1">
@@ -880,121 +948,178 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
   <div class="mm-inner">
     <div class="mm-header">
       <div class="reveal">
-        <div class="mm-badge">❤️ Solidaridad activa</div>
-        <h2 class="mm-title">Multi<em>Makia</em> — El fondo social de la red</h2>
-        <p class="mm-sub">Parte del valor que genera la red se destina voluntariamente a causas reales. Los usuarios donan MLs a eventos sociales: familias, comunidades, emergencias. La economía activa también tiene corazón.</p>
+        <div class="mm-badge">🔥 Impacto real de la red</div>
+        
+        <h2 class="mm-title">
+          Multi<em>Makia</em> — Donde la red también responde
+        </h2>
+
+        <p class="mm-sub">
+          Aquí no solo se compra y se vende… aquí también se ayuda.<br><br>
+          
+          Cada movimiento en Multimarket activa un <strong>1% automático</strong> que va directo a causas reales.<br>
+          Y si quieres ir más allá, tú decides cuándo y cuánto aportar con tus MLs.<br><br>
+          
+          <b>Empieza a ser alguien MAKIA.</b><br>
+          Porque cuando la red crece, también responde.
+        </p>
+
         <div class="mm-stats">
           <div class="mm-stat">
             <div class="mm-stat-val">MLs</div>
-            <div class="mm-stat-label">donados por<br/>la comunidad</div>
+            <div class="mm-stat-label">movidos por<br/>la comunidad</div>
           </div>
           <div class="mm-stat">
             <div class="mm-stat-val">100%</div>
-            <div class="mm-stat-label">llega al<br/>beneficiario</div>
+            <div class="mm-stat-label">llega directo<br/>a la causa</div>
           </div>
           <div class="mm-stat">
             <div class="mm-stat-val">0</div>
-            <div class="mm-stat-label">intermediarios<br/>en el fondo</div>
+            <div class="mm-stat-label">intermediarios<br/>ni filtros</div>
           </div>
         </div>
       </div>
+
       <div class="mm-how reveal d2">
-        <div class="mm-how-title">¿Cómo funciona?</div>
+        <div class="mm-how-title">¿Cómo se activa el Makia?</div>
+
         <div class="mm-how-steps">
+
           <div class="mm-how-step">
-            <div class="mm-step-icon">🛒</div>
+            <div class="mm-step-icon">⚡</div>
             <div>
-              <div class="mm-step-title">Tu actividad genera MLs</div>
-              <div class="mm-step-desc">Cada compra, venta o entrega produce MLs dentro de la red. Son tu valor acumulado por actividad real.</div>
+              <div class="mm-step-title">La red se mueve</div>
+              <div class="mm-step-desc">
+                Cada compra, venta o entrega genera movimiento real… y activa automáticamente impacto.
+              </div>
             </div>
           </div>
+
           <div class="mm-how-step">
             <div class="mm-step-icon">❤️</div>
             <div>
-              <div class="mm-step-title">Eliges donar voluntariamente</div>
-              <div class="mm-step-desc">Desde la app seleccionas una causa activa y el monto de MLs que quieres aportar. Siempre voluntario, siempre transparente.</div>
+              <div class="mm-step-title">Tú decides sumar más</div>
+              <div class="mm-step-desc">
+                Puedes aportar tus MLs a causas activas cuando quieras. Sin presión. Sin mínimos. Solo decisión.
+              </div>
             </div>
           </div>
+
           <div class="mm-how-step">
-            <div class="mm-step-icon">✅</div>
+            <div class="mm-step-icon">🚀</div>
             <div>
-              <div class="mm-step-title">El fondo llega a la causa</div>
-              <div class="mm-step-desc">Los MLs se acumulan hasta la meta del evento. Sin intermediarios, con trazabilidad completa para todos los donantes.</div>
+              <div class="mm-step-title">Impacto directo</div>
+              <div class="mm-step-desc">
+                Lo que se reúne llega completo. Sin comisiones ocultas. Todo visible dentro de la red.
+              </div>
             </div>
           </div>
+
         </div>
       </div>
     </div>
+
     <div style="text-align:center;margin-bottom:28px" class="reveal">
-      <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:2px">Ejemplos de causas activas</div>
+      <div style="font-size:11px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:2px">
+        Esto es lo que ya está pasando en la red
+      </div>
     </div>
+
     <div class="mm-events">
+
       <div class="mm-event-card reveal d1">
-        <div class="mm-event-cat"style="color:#6EE7B7">⭐ Destacada 🐶 Mls De Garritas</div>
-        <div class="mm-event-name">Alimento y refugio seguro para 80 mascotas rescatadas</div>
-        <div class="mm-event-bene">Refugio Huellas con Esperanza</div>
+        <div class="mm-event-cat" style="color:#6EE7B7">
+          ⭐ Activa · 🐶 MLs De Garritas
+        </div>
+        <div class="mm-event-name">
+          Alimento y refugio para 80 mascotas rescatadas
+        </div>
+        <div class="mm-event-bene">
+          Refugio Huellas con Esperanza
+        </div>
         <div class="mm-progress-wrap">
-          <div class="mm-progress-bar"><div class="mm-progress-fill" style="width:72%"></div></div>
+          <div class="mm-progress-bar">
+            <div class="mm-progress-fill" style="width:72%"></div>
+          </div>
           <div class="mm-progress-labels">
             <span class="mm-progress-pct">72%</span>
             <span class="mm-progress-meta">720,000 / 1,000,000 ML</span>
           </div>
         </div>
         <div class="mm-event-footer">
-          <span class="mm-donors">🤝 38 donantes</span>
-          <span class="mm-donate-tag">Activa</span>
+          <span class="mm-donors">🔥 38 personas ya sumaron</span>
+          <span class="mm-donate-tag">En curso</span>
         </div>
       </div>
+
       <div class="mm-event-card reveal d2" style="border-color:rgba(16,185,129,.3);background:rgba(16,185,129,.08)">
-        <div class="mm-event-cat" style="color:#6EE7B7">⭐ Destacada · 🏥 Salud</div>
-        <div class="mm-event-name">Kit médico urgente para proteger a familias de una comunidad rural</div>
+        <div class="mm-event-cat" style="color:#6EE7B7">
+          ⭐ Prioritaria · 🏥 Salud
+        </div>
+        <div class="mm-event-name">
+          Kit médico urgente para proteger familias rurales
+        </div>
         <div class="mm-event-bene">Cruz Roja</div>
         <div class="mm-progress-wrap">
-          <div class="mm-progress-bar"><div class="mm-progress-fill" style="width:45%"></div></div>
+          <div class="mm-progress-bar">
+            <div class="mm-progress-fill" style="width:45%"></div>
+          </div>
           <div class="mm-progress-labels">
             <span class="mm-progress-pct">45%</span>
             <span class="mm-progress-meta">900,000 / 2,000,000 ML</span>
           </div>
         </div>
         <div class="mm-event-footer">
-          <span class="mm-donors">🤝 61 donantes</span>
-          <span class="mm-donate-tag" style="background:rgba(16,185,129,.2);color:#34D399">Urgente</span>
+          <span class="mm-donors">🔥 61 personas ya sumaron</span>
+          <span class="mm-donate-tag" style="background:rgba(16,185,129,.2);color:#34D399">
+            Urgente
+          </span>
         </div>
       </div>
+
       <div class="mm-event-card reveal d3">
-        <div class="mm-event-cat">🌾 Alimentación</div>
-        <div class="mm-event-name">Mercados solidarios para que adultos mayores no pasen hambre</div>
+        <div class="mm-event-cat">🌾 Comunidad</div>
+        <div class="mm-event-name">
+          Mercados solidarios para adultos mayores
+        </div>
         <div class="mm-event-bene">Red de Abuelos</div>
         <div class="mm-progress-wrap">
-          <div class="mm-progress-bar"><div class="mm-progress-fill" style="width:91%"></div></div>
+          <div class="mm-progress-bar">
+            <div class="mm-progress-fill" style="width:91%"></div>
+          </div>
           <div class="mm-progress-labels">
             <span class="mm-progress-pct">91%</span>
             <span class="mm-progress-meta">455,000 / 500,000 ML</span>
           </div>
         </div>
         <div class="mm-event-footer">
-          <span class="mm-donors">🤝 112 donantes</span>
+          <span class="mm-donors">🔥 112 personas ya sumaron</span>
           <span class="mm-donate-tag">Por cerrar</span>
         </div>
       </div>
+
     </div>
+
     <div class="mm-cta-row reveal">
-      <a href="#registro" class="btn-primary" style="display:inline-block">Únete y participa en MultiMakia →</a>
-      <p class="mm-cta-note">Las causas son reales. Las donaciones son voluntarias. El impacto es tuyo.</p>
+      <a href="#registro" class="btn-primary" style="display:inline-block">
+        Ser parte de la red →
+      </a>
+      <p class="mm-cta-note">
+        Desde que entras, ya haces parte del impacto.<br/>
+        Y si quieres, siempre puedes aportar un poco más.
+      </p>
     </div>
   </div>
 </section>
-
 <!-- ══ PROVEEDORES EXTERNOS ══════════════════════════════════════════ -->
 <section class="dropi" id="dropshipping">
   <div class="dropi-inner">
     <div class="dropi-text reveal">
       <div class="sec-tag">Dropshipping</div>
       <h2 class="sec-title">Tu negocio sin inventario, sin local, sin excusas</h2>
-      <p class="sec-sub">Multimarket se conecta con una red de proveedores externos para que cualquier persona pueda vender productos sin tener uno solo. Solo necesitas publicar y gestionar — el resto lo hace la red.</p>
+      <p class="sec-sub">Multimarket se conecta con una red de proveedores externos para que cualquier persona pueda vender productos sin tener uno inventario. Solo necesitas publicar y gestionar — el resto lo hace la red.</p>
       <ul class="dropi-list">
-        <li>Importa el catálogo de proveedores externos con un clic — miles de productos disponibles</li>
-        <li>Tú defines el margen — decides exactamente cuánto ganas por producto</li>
+        <li>Accede a productos de miles de proveedores externos con un clic — sin inventario</li>
         <li>El proveedor despacha cuando el cliente compra — tú no tocas nada</li>
         <li>Tu comisión se acredita SOLO al confirmar la entrega — cero riesgo</li>
         <li>Los pedidos se sincronizan automáticamente entre los proveedores externos y Multimarket</li>
@@ -1036,21 +1161,33 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
     <div class="app-badge">🚀 Próximamente</div>
     <h2 class="app-title">La app Multimarket está en camino</h2>
     <p class="app-sub">Todo el ecosistema en tu bolsillo. Gestiona tus MLs, explora el catálogo, rastrea pedidos, revisa las comisiones de tu red y cobra desde Android e iOS — dondequiera que estés.</p>
-    <div class="app-stores">
-      <div class="store-btn">
-        <div class="store-icon">🍎</div>
-        <div class="store-text"><span class="store-label">Próximamente en</span><span class="store-name">App Store</span></div>
+
+    
+    <div class="app-stores" style="display: flex; gap: 12px; font-family: sans-serif;">
+  
+      <!-- Botón App Store -->
+      <div class="store-btn" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; padding: 6px 14px; display: flex; align-items: center; gap: 10px; color: white; min-width: 140px;">
+        <svg width="22" height="26" viewBox="0 0 384 512" fill="white">
+          <path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/>
+        </svg>
+        <div style="display: flex; flex-direction: column; line-height: 1.2;">
+          <span style="font-size: 9px; font-weight: 300;">Próximamente en</span>
+          <span style="font-size: 15px; font-weight: 600;">App Store</span>
+        </div>
       </div>
-      <div class="store-btn">
-        <div class="store-icon">▶️</div>
-        <div class="store-text"><span class="store-label">Próximamente en</span><span class="store-name">Google Play</span></div>
+    
+      <!-- Botón Google Play -->
+      <div class="store-btn" style="background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 8px; padding: 6px 14px; display: flex; align-items: center; gap: 10px; color: white; min-width: 140px;">
+        <svg width="22" height="24" viewBox="0 0 512 512" fill="white">
+          <path d="M325.3 234.3L104.6 13l280.8 161.2-60.1 60.1zM47 0C34 6.8 25.3 19.2 25.3 35.3v441.3c0 16.1 8.7 28.5 21.7 35.3l256.6-256L47 0zm189.2 267.1L47 512h31.7c15.8 0 31.2-8.5 39.6-23.2l219.1-125.4-63.2-64.3zm210.4-12.3l-55.7-31.9-63.1 63.1 63.1 63.1 55.7-31.9c16.7-9.6 25.2-22.3 25.2-36.3 0-14.1-8.5-26.8-25.2-36.1z"/>
+        </svg>
+        <div style="display: flex; flex-direction: column; line-height: 1.2;">
+          <span style="font-size: 9px; font-weight: 300;">Próximamente en</span>
+          <span style="font-size: 15px; font-weight: 600;">Google Play</span>
+        </div>
       </div>
+    
     </div>
-    <div class="notify-form">
-      <input type="email" id="notifyEmail" placeholder="tucorreo@email.com"/>
-      <button onclick="notifyMe()">Avísame cuando esté lista</button>
-    </div>
-    <p class="notify-ok" id="notifyOk">✓ ¡Listo! Escríbete abajo para asegurar tu lugar en la red.</p>
   </div>
 </section>
 
@@ -1110,6 +1247,15 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
             <p class="form-err" id="err-politicas" style="margin-left:30px">Debes aceptar la política para continuar.</p>
           </div>
         </div>
+        <!-- Cloudflare Turnstile -->
+        <div class="form-group" style="margin-bottom:16px">
+          <div class="cf-turnstile"
+               data-sitekey="PEGA_TU_SITE_KEY_AQUI"
+               data-theme="light"
+               data-language="es"></div>
+          <p class="form-err" id="err-captcha">Completa la verificación de seguridad.</p>
+        </div>
+
         <button type="submit" class="btn-submit" id="submitBtn">
           <span id="btnText">Reservar mi lugar gratis →</span>
           <span id="btnLoading" style="display:none">Registrando...</span>
@@ -1312,10 +1458,13 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
     var correo    = document.getElementById('correo').value.trim();
     var celular   = document.getElementById('celular').value.replace(/\s/g,'');
     var politicas = document.getElementById('politicas').checked;
+    var cfInput = document.querySelector('[name="cf-turnstile-response"]');
+    var cfToken = cfInput ? cfInput.value : '';
     if (nombre.length < 3)                            { showErr('err-nombre');    ok = false; } else hideErr('err-nombre');
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo))  { showErr('err-correo');    ok = false; } else hideErr('err-correo');
     if (!/^[0-9]{10}$/.test(celular))                 { showErr('err-celular');   ok = false; } else hideErr('err-celular');
     if (!politicas)                                    { showErr('err-politicas'); ok = false; } else hideErr('err-politicas');
+    if (!cfToken)                                      { showErr('err-captcha');   ok = false; } else hideErr('err-captcha');
     return ok;
   }
 
@@ -1338,6 +1487,7 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
       aceptaPoliticas: true,
       fuente:          'Landing Page Estática',
       userAgent:       navigator.userAgent.substring(0, 200),
+      cfToken:         (document.querySelector('[name="cf-turnstile-response"]') || {value:''}).value,
     };
     try {
       await fetch(SCRIPT_URL, {
@@ -1369,6 +1519,7 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
     document.getElementById('btnText').style.display    = 'inline';
     document.getElementById('btnLoading').style.display = 'none';
     document.querySelectorAll('.form-err').forEach(function(el){ el.classList.remove('show'); });
+    if (typeof turnstile !== 'undefined') turnstile.reset();
   }
 </script>
 

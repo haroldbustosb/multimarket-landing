@@ -7,26 +7,32 @@
  * 2. Copia el ID de la hoja desde la URL:
  *    https://docs.google.com/spreadsheets/d/[ESTE_ID]/edit  ← solo la parte entre /d/ y /edit
  * 3. Pégalo en SPREADSHEET_ID abajo
- * 4. Abre Extensiones > Apps Script, borra el contenido y pega este código
+ * 4. Configura TURNSTILE_SECRET con tu Secret Key de Cloudflare Turnstile
  * 5. Guarda (Ctrl+S)
- * 6. Clic en "Implementar" > "Administrar implementaciones" > editar (lápiz) > "Nueva versión" > Implementar
- *    (la URL permanece igual)
+ * 6. Implementar → Administrar implementaciones → lápiz → Nueva versión → Implementar
+ *
+ * CLOUDFLARE TURNSTILE:
+ * 1. Ve a dash.cloudflare.com → Turnstile → Add site
+ * 2. Nombre: "Multimarket Landing", dominio: haroldbustosb.github.io
+ * 3. Copia el Site Key → pégalo en index.html (data-sitekey)
+ * 4. Copia el Secret Key → pégalo en TURNSTILE_SECRET abajo
  *
  * ESTRUCTURA DE LA HOJA:
  * Columnas: Fecha | Nombre | Correo | Celular | Perfil | Acepta Política | Fuente | User Agent
  */
 
 // ─── CONFIGURACIÓN ────────────────────────────────────────────────────────────
-const SPREADSHEET_ID = "1lpDEsT_z5hHwA1u8d8hSE3vQ3tSPeeAZpATmk6zFoAA";
-const SHEET_NAME     = "Leads";
-const NOTIFY_EMAIL   = "jhabmc@gmail.com";  // deja "" para desactivar notificaciones
+const SPREADSHEET_ID   = "1lpDEsT_z5hHwA1u8d8hSE3vQ3tSPeeAZpATmk6zFoAA";
+const SHEET_NAME       = "Leads";
+const NOTIFY_EMAIL     = "jhabmc@gmail.com";       // notificación interna (deja "" para desactivar)
+const TURNSTILE_SECRET = "PEGA_TU_SECRET_KEY_AQUI"; // Secret Key de Cloudflare Turnstile
+const SEND_CLIENT_MAIL = true;                      // false para desactivar email al registrado
 // ──────────────────────────────────────────────────────────────────────────────
 
 function doPost(e) {
-  // Lock de escritura: evita duplicados si llegan dos peticiones simultáneas
   const lock = LockService.getScriptLock();
   try {
-    lock.waitLock(10000);  // espera hasta 10 s para obtener el lock
+    lock.waitLock(10000);
   } catch (lockErr) {
     return buildResponse(false, "Servidor ocupado, reintenta en unos segundos");
   }
@@ -43,6 +49,11 @@ function doPost(e) {
     }
     if (!data.aceptaPoliticas) {
       return buildResponse(false, "Debe aceptar la política de tratamiento de datos");
+    }
+
+    // Verificación Cloudflare Turnstile
+    if (!verifyTurnstile(data.cfToken || "")) {
+      return buildResponse(false, "Verificación de seguridad fallida");
     }
 
     // Abrir hoja por ID (obligatorio en Web App standalone)
@@ -74,17 +85,25 @@ function doPost(e) {
       sanitize(data.userAgent || "")
     ]);
 
-    // ── Notificar por email (no-fatal) ────────────────────────
+    // ── Email de bienvenida al cliente (no-fatal) ─────────────
+    if (SEND_CLIENT_MAIL) {
+      try {
+        sendClientEmail(data);
+      } catch (mailErr) {
+        console.warn("Email cliente no enviado:", mailErr.message);
+      }
+    }
+
+    // ── Notificación interna (no-fatal) ───────────────────────
     if (NOTIFY_EMAIL) {
       try {
         MailApp.sendEmail({
           to:      NOTIFY_EMAIL,
           subject: "Nuevo lead Multimarket: " + data.nombre,
-          body:    buildEmailBody(data, ss.getUrl()),
+          body:    buildAdminEmailBody(data, ss.getUrl()),
         });
       } catch (mailErr) {
-        // El email falló pero el lead ya fue guardado — no rompemos la respuesta
-        console.warn("Email no enviado:", mailErr.message);
+        console.warn("Email admin no enviado:", mailErr.message);
       }
     }
 
@@ -109,6 +128,142 @@ function doGet(e) {
     .setMimeType(ContentService.MimeType.JSON);
 }
 
+// ── Cloudflare Turnstile verification ─────────────────────────────────────────
+function verifyTurnstile(token) {
+  // Si el secret no está configurado aún, pasar (modo desarrollo)
+  if (!token || !TURNSTILE_SECRET || TURNSTILE_SECRET === "PEGA_TU_SECRET_KEY_AQUI") {
+    return true;
+  }
+  try {
+    const resp = UrlFetchApp.fetch(
+      "https://challenges.cloudflare.com/turnstile/v0/siteverify",
+      {
+        method:           "post",
+        contentType:      "application/x-www-form-urlencoded",
+        payload:          "secret="   + encodeURIComponent(TURNSTILE_SECRET) +
+                          "&response=" + encodeURIComponent(token),
+        muteHttpExceptions: true,
+      }
+    );
+    const result = JSON.parse(resp.getContentText());
+    if (!result.success) {
+      console.warn("Turnstile falló:", JSON.stringify(result["error-codes"]));
+    }
+    return result.success === true;
+  } catch (err) {
+    // Falla abierta: si el servicio no responde, no bloqueamos al usuario
+    console.warn("Turnstile error de red:", err.message);
+    return true;
+  }
+}
+
+// ── Email de bienvenida al cliente ────────────────────────────────────────────
+function sendClientEmail(data) {
+  const nombre = sanitize(data.nombre);
+  const perfil = sanitize(data.perfil || "No especificado");
+
+  const html = '<!DOCTYPE html>' +
+    '<html><head><meta charset="UTF-8"/></head>' +
+    '<body style="font-family:-apple-system,BlinkMacSystemFont,\'Segoe UI\',sans-serif;' +
+           'background:#F0F4F8;margin:0;padding:24px">' +
+    '<div style="max-width:560px;margin:0 auto;background:#fff;border-radius:16px;' +
+         'overflow:hidden;box-shadow:0 4px 24px rgba(26,60,94,.12)">' +
+
+      // Header
+      '<div style="background:linear-gradient(135deg,#0D2137,#1A3C5E);padding:32px 36px;text-align:center">' +
+        '<div style="font-size:26px;font-weight:900;color:#fff;letter-spacing:-.5px">' +
+          'Multi<span style="color:#10B981">market</span>' +
+        '</div>' +
+        '<div style="font-size:12px;color:rgba(255,255,255,.55);margin-top:5px;letter-spacing:.5px">' +
+          'Red de economía activa · Colombia' +
+        '</div>' +
+      '</div>' +
+
+      // Body
+      '<div style="padding:36px 40px">' +
+        '<h1 style="font-size:22px;font-weight:900;color:#1A3C5E;margin:0 0 12px">' +
+          '¡Hola, ' + nombre + '!' +
+        '</h1>' +
+        '<p style="font-size:15px;color:#64748B;line-height:1.75;margin:0 0 28px">' +
+          'Tu lugar en la red está reservado. Eres parte de los primeros usuarios que ' +
+          'construyen la base de Multimarket — y esa posición tiene <strong style="color:#1A3C5E">' +
+          'ventaja permanente.</strong>' +
+        '</p>' +
+
+        // Info box
+        '<div style="background:#F8FAFC;border-radius:12px;padding:20px 24px;' +
+             'border:1px solid #E2E8F0;margin-bottom:24px">' +
+          '<div style="font-size:10px;font-weight:700;color:#94A3B8;' +
+               'text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px">Tu registro</div>' +
+          '<table style="width:100%;border-collapse:collapse">' +
+            '<tr>' +
+              '<td style="font-size:13px;color:#64748B;padding:6px 0">Perfil de interés</td>' +
+              '<td style="font-size:13px;font-weight:700;color:#1A3C5E;text-align:right">' + perfil + '</td>' +
+            '</tr>' +
+            '<tr>' +
+              '<td style="font-size:13px;color:#64748B;padding:6px 0;border-top:1px solid #E2E8F0">Estado</td>' +
+              '<td style="font-size:13px;font-weight:700;color:#10B981;text-align:right;border-top:1px solid #E2E8F0">' +
+                '✓ Confirmado' +
+              '</td>' +
+            '</tr>' +
+          '</table>' +
+        '</div>' +
+
+        // Next steps
+        '<div style="background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.2);' +
+             'border-radius:12px;padding:20px 24px;margin-bottom:28px">' +
+          '<div style="font-size:13px;font-weight:700;color:#059669;margin-bottom:10px">' +
+            '¿Qué pasa ahora?' +
+          '</div>' +
+          '<ul style="margin:0;padding-left:18px;color:#475569;font-size:13px;line-height:1.9">' +
+            '<li>Te notificamos cuando la plataforma abra oficialmente</li>' +
+            '<li>Acceso anticipado antes del lanzamiento público</li>' +
+            '<li>Tu posición en la red queda fija desde hoy</li>' +
+          '</ul>' +
+        '</div>' +
+
+        // ML reminder
+        '<div style="background:#1A3C5E;border-radius:12px;padding:18px 22px;' +
+             'margin-bottom:28px;text-align:center">' +
+          '<div style="font-size:13px;color:rgba(255,255,255,.6);margin-bottom:6px">' +
+            'Recuerda: en Multimarket' +
+          '</div>' +
+          '<div style="font-size:16px;font-weight:800;color:#fff;line-height:1.4">' +
+            '1 ML = 1 COP · ' +
+            '<span style="color:#10B981">1% de tu red, automático</span>' +
+          '</div>' +
+        '</div>' +
+
+        '<p style="font-size:13px;color:#94A3B8;text-align:center;line-height:1.7;margin:0">' +
+          '¿Tienes preguntas? Escríbenos a<br/>' +
+          '<a href="mailto:contacto@multimarket.com.co" ' +
+             'style="color:#10B981;font-weight:700;text-decoration:none">' +
+            'contacto@multimarket.com.co' +
+          '</a>' +
+        '</p>' +
+      '</div>' +
+
+      // Footer
+      '<div style="background:#F8FAFC;padding:16px 40px;text-align:center;' +
+           'border-top:1px solid #E2E8F0">' +
+        '<p style="font-size:11px;color:#94A3B8;margin:0;line-height:1.7">' +
+          '© 2026 Multimarket S.A.S. · Colombia · Economía activa<br/>' +
+          'Este correo confirma tu registro anticipado.' +
+        '</p>' +
+      '</div>' +
+
+    '</div>' +
+    '</body></html>';
+
+  MailApp.sendEmail({
+    to:       sanitize(data.correo).toLowerCase(),
+    subject:  "¡Tu lugar en Multimarket está reservado, " + nombre + "!",
+    htmlBody: html,
+    name:     "Multimarket",
+    replyTo:  "contacto@multimarket.com.co",
+  });
+}
+
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
 function buildResponse(success, message) {
@@ -126,7 +281,7 @@ function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email).toLowerCase());
 }
 
-function buildEmailBody(data, sheetUrl) {
+function buildAdminEmailBody(data, sheetUrl) {
   return [
     "Nuevo lead registrado en Multimarket",
     "─────────────────────────────",

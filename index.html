@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
-<meta name="description" content="Multimakia — Aquí no solo compras… siempre te queda liga. La ñapa digital que se convierte en impacto. Del barrio colombiano pa'l mundo."/>
-<title>Multimakia — Del barrio pa'l mundo 🇨🇴</title>
+<meta name="description" content="MultiMakia — Aquí no solo compras… siempre te queda liga. La ñapa digital que se convierte en impacto. Del barrio colombiano pa'l mundo."/>
+<title>MultiMakia — Del barrio pa'l mundo 🇨🇴</title>
 <!-- Cloudflare Turnstile -->
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -49,9 +49,9 @@ a{text-decoration:none;color:inherit}
 
 /* ── HERO ── */
 .hero{min-height:calc(100vh - 36px);background:linear-gradient(135deg,var(--navy-dark) 0%,var(--navy) 55%,#1a5276 100%);display:flex;align-items:center;padding:80px 24px 90px;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(16,185,129,.13) 0%,transparent 60%)}
-.hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:80px;background:linear-gradient(to top,var(--white),transparent)}
-.hero-inner{max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(16,185,129,.13) 0%,transparent 60%);pointer-events:none}
+.hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:80px;background:linear-gradient(to top,var(--white),transparent);pointer-events:none}
+.hero-inner{max-width:1200px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;position:relative;z-index:1}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(16,185,129,.15);border:1px solid rgba(16,185,129,.3);color:#6EE7B7;padding:6px 14px;border-radius:100px;font-size:13px;font-weight:600;margin-bottom:20px}
 .hero-badge::before{content:'●';font-size:8px;animation:blink 2s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
@@ -89,6 +89,7 @@ a{text-decoration:none;color:inherit}
 .phone-store-row{display:flex;gap:5px;justify-content:center}
 .phone-store{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:4px 9px;color:rgba(255,255,255,.55);font-size:9px;font-weight:700}
 .hero-float{position:absolute;background:rgba(255,255,255,.09);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:10px 15px;color:#fff;font-size:13px;font-weight:600;animation:floaty 4s ease-in-out infinite}
+.hero-float{pointer-events:none}
 .hero-float-1{top:14%;right:-12px;animation-delay:0s}
 .hero-float-2{bottom:24%;right:-20px;animation-delay:1.6s}
 .hero-float-3{top:42%;left:-20px;animation-delay:.9s}
@@ -234,10 +235,10 @@ a{text-decoration:none;color:inherit}
 .ap-card-desc{font-size:13px;color:var(--text-light);line-height:1.55}
 .ap-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.25);color:var(--green-dark);padding:10px 20px;border-radius:12px;font-size:14px;font-weight:700;margin-top:24px}
 
-/* ── MULTIMAKIA ── */
-.multimakia{padding:100px 24px;background:linear-gradient(160deg,#0D2137 0%,#1A3C5E 60%,#0d4f3c 100%);position:relative;overflow:hidden}
-.multimakia::before{content:'';position:absolute;top:-120px;right:-120px;width:500px;height:500px;border-radius:50%;background:rgba(16,185,129,.06)}
-.multimakia::after{content:'';position:absolute;bottom:-100px;left:-80px;width:360px;height:360px;border-radius:50%;background:rgba(16,185,129,.05)}
+/* ── ReMakia ── */
+.ReMakia{padding:100px 24px;background:linear-gradient(160deg,#0D2137 0%,#1A3C5E 60%,#0d4f3c 100%);position:relative;overflow:hidden;scroll-margin-top:96px}
+.ReMakia::before{content:'';position:absolute;top:-120px;right:-120px;width:500px;height:500px;border-radius:50%;background:rgba(16,185,129,.06)}
+.ReMakia::after{content:'';position:absolute;bottom:-100px;left:-80px;width:360px;height:360px;border-radius:50%;background:rgba(16,185,129,.05)}
 .mm-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1}
 .mm-header{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;margin-bottom:60px}
 .mm-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(16,185,129,.18);border:1px solid rgba(16,185,129,.35);color:#6EE7B7;padding:6px 16px;border-radius:100px;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:18px}
@@ -407,7 +408,20 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
   .hero-bullets{align-items:center}
   .hero-actions{justify-content:center}
   .hero-phone{order:-1}
-  .hero-float-1,.hero-float-2,.hero-float-3{display:none}
+  .hero-phone{padding:20px 12px}
+  .hero-float{
+    display:block;
+    font-size:11px;
+    padding:8px 10px;
+    border-radius:12px;
+    z-index:3;
+    max-width:120px;
+    line-height:1.35;
+  }
+  .hero-float .fv{font-size:14px}
+  .hero-float-1{top:12%;right:-8px}
+  .hero-float-2{bottom:20%;right:-10px}
+  .hero-float-3{top:44%;left:-10px}
   .ml-inner,.dropi-inner{grid-template-columns:1fr}
   .feat-grid{grid-template-columns:1fr}
   .how-steps{grid-template-columns:1fr;gap:28px}
@@ -431,6 +445,17 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
   .footer-grid{grid-template-columns:1fr}
   .hero{padding:90px 20px 60px}
   .phone{width:220px;height:440px}
+  .hero-phone{padding:14px 8px}
+  .hero-float{
+    font-size:10px;
+    padding:7px 9px;
+    max-width:108px;
+    border-radius:10px;
+  }
+  .hero-float .fv{font-size:13px}
+  .hero-float-1{top:10%;right:-4px}
+  .hero-float-2{bottom:16%;right:-4px}
+  .hero-float-3{top:46%;left:-4px}
   .notify-form{flex-direction:column}
   .notify-form input{border-right:1px solid rgba(255,255,255,.2);border-radius:12px;margin-bottom:8px}
   .notify-form button{border-radius:12px;width:100%}
@@ -445,12 +470,12 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
 
 <!-- ══ NAV ══════════════════════════════════════════ -->
 <nav class="nav" id="nav">
-  <div class="nav-logo">Multi<span>makia</span></div>
+  <div class="nav-logo">Multi<span>Makia</span></div>
   <ul class="nav-links">
     <li><a href="#ml">Tu ñapa digital</a></li>
     <li><a href="#red">Cómo ganas dinero</a></li>
     <li><a href="#dropshipping">Empieza a vender</a></li>
-    <li><a href="#multimakia">Ayudar +</a></li>
+    <li><a href="#ReMakia">ReMakia</a></li>
     <li><a href="#registro" class="nav-cta">Crear cuenta →</a></li>
   </ul>
   <button class="hamburger" id="hbg" onclick="toggleNav()" aria-label="Menú">
@@ -461,13 +486,13 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
 <a href="#ml"           onclick="closeNav()">Tu ñapa digital</a>
   <a href="#red"          onclick="closeNav()">Cómo ganas dinero</a>
   <a href="#dropshipping" onclick="closeNav()">Empieza a vender</a>
-  <a href="#multimakia"   onclick="closeNav()">Ayudar +</a>
+  <a href="#ReMakia"   onclick="closeNav()">ReMakia</a>
   <a href="#registro" class="nav-cta" onclick="closeNav()">Crear cuenta →</a>
 </div>
 
 <!-- FOMO BAR -->
 <div class="fomo-bar">
-  🇨🇴 <strong>Multimakia</strong> — Aquí no solo compras… <span>siempre te queda la liga (tu ñapa digital).</span>
+  🇨🇴 <strong>MultiMakia</strong> —  Aquí no solo compras… <br> <span>Aquí siempre recibes tu ñapa, pero ahora es digital).</span>
   <a href="#registro">Reservar mi lugar →</a>
 </div>
 
@@ -483,7 +508,7 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
       </h1>
 
       <p class="hero-sub">
-        En Multimakia cada movimiento te deja algo.
+        En MultiMakia cada movimiento te deja algo.
         Esa liga es valor real que puedes usar, ahorrar o mover dentro de la red.
       </p>
 
@@ -504,9 +529,9 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
         <div class="phone-notch"></div>
         <div class="phone-screen">
           <div class="phone-status"><span>9:41</span><span>●●●</span></div>
-          <div class="phone-logo">Multi<span>makia</span></div>
+          <div class="phone-logo">Multi<span>Makia</span></div>
           <div class="phone-card">
-            <div class="phone-card-label">Tu liga disponible</div>
+            <div class="phone-card-label">Tus ML's disponibles</div>
             <div class="phone-card-value">2,400 <span>ML</span></div>
           </div>
           <div class="phone-items">
@@ -544,7 +569,7 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
   <div class="stats-inner">
     <div class="stat reveal d1">
       <div class="stat-val"><em>1%</em></div>
-      <div class="stat-label">De la actividad de tus referidos<br/>te queda liga — sola y automática</div>
+      <div class="stat-label">De la actividad de tus referidos<br/>te queda esa ñapa digital — automática, sin enredos ni presiones</div>
     </div>
     <div class="stat reveal d2">
       <div class="stat-val">+<em id="cnt">0</em></div>
@@ -552,7 +577,7 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
     </div>
     <div class="stat reveal d3">
       <div class="stat-val"><em>32</em></div>
-      <div class="stat-label">Personas activas que Multimakia<br/>te garantiza al arrancar — gratis</div>
+      <div class="stat-label">Usuarios activos que MultiMakia<br/>te asignara conforme la red de afiliados crece.</div>
     </div>
   </div>
 </section>
@@ -561,7 +586,8 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
 <!-- ══ NIVELES DE RED ══════════════════════════════════════════ -->
 <div class="niveles">
   <div class="niveles-inner">
-    <div class="niveles-label">Tu Nivel Makia — crece a tu ritmo. Multimakia te arranca con 32, tú decides hasta dónde llegar</div>
+    <div class="niveles-label">Tu Nivel Makia — crece a tu ritmo. MultiMakia te brinda tu primer nivel con 32, tú decides a que ritmo Y
+       hasta dónde quieres crecer.</div>
     <div class="niveles-track">
       <div class="nivel activo">
         <div class="nivel-dot">🌱</div>
@@ -571,30 +597,24 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
       <div class="nivel-line done"></div>
       <div class="nivel">
         <div class="nivel-dot">🔥</div>
-        <div class="nivel-name">Makia Activo</div>
+        <div class="nivel-name">Makia PLATA</div>
         <div class="nivel-count">Hasta 64 Makias</div>
       </div>
       <div class="nivel-line"></div>
       <div class="nivel">
         <div class="nivel-dot">⚡</div>
-        <div class="nivel-name">Makia Fuerte</div>
+        <div class="nivel-name">Makia ORO</div>
         <div class="nivel-count">Hasta 128 Makias</div>
       </div>
       <div class="nivel-line"></div>
       <div class="nivel">
         <div class="nivel-dot">🌟</div>
-        <div class="nivel-name">Makia Mayor</div>
+        <div class="nivel-name">Makia DIAMANTE</div>
         <div class="nivel-count">Hasta 256 Makias</div>
-      </div>
-      <div class="nivel-line"></div>
-      <div class="nivel">
-        <div class="nivel-dot">👑</div>
-        <div class="nivel-name">Makia Élite</div>
-        <div class="nivel-count">Sin límite</div>
-      </div>
+      </div>      
     </div>
     <p class="niveles-note">
-      <strong>Tu Nivel Makia sube con cada acción real:</strong> compras, te queda liga, sumas Makias activos y aportas a Multi+.<br/>
+      <strong>Tu Nivel Makia sube con cada acción real:</strong> compras, te queda liga, sumas Makias activos y aportas a ReMakia.<br/>
       Sin trampa, sin atajos. Como en el barrio: el que se mueve, siempre le queda algo.
     </p>
   </div>
@@ -613,10 +633,10 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
       <div class="perfil-role">Eres Makia como</div>
       <div class="perfil-title">Comprador Activo</div>
       <ul class="perfil-gains">
-        <li>Cada compra te deja Mi Liga — la ñapa digital que se acumula sola</li>
-        <li>Lo que tus Makias muevan también te deja liga — el 1%, automático</li>
+        <li>Cada compra te deja ML's  — la ñapa digital que se acumula sola</li>
+        <li>Lo que tus Makias muevan también te deja ML's — el 1%, automático</li>
         <li>También puedes vender sin bodega — desde el mismo perfil, sin plata por adelantado</li>
-        <li>Entre más Makias activos tengas, más liga te queda — así de simple</li>
+        <li>Entre más Makias activos tengas, más ñapa te queda — así de simple</li>
       </ul>
       <a href="#registro" class="perfil-cta pc-green">Entrar como Comprador →</a>
     </div>
@@ -625,9 +645,9 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
       <div class="perfil-role">Eres Makia como</div>
       <div class="perfil-title">Negocio del Barrio</div>
       <ul class="perfil-gains">
-        <li>Tus productos visibles ante toda la red Multimakia — sin pagar publicidad</li>
+        <li>Tus productos visibles ante toda la red MultiMakia — sin pagar publicidad</li>
         <li>Recibes pedidos directo — tú produces o consigues, Multimarket te mueve</li>
-        <li>Acepta Mi Liga como pago — la liga sigue circulando pa' todos</li>
+        <li>Acepta ML's como pago —  los ML's generados desde tus compras o tus ventas y estos circulan para todos</li>
         <li>Cobras cuando la venta se confirma — sin anticipos, sin sustos</li>
       </ul>
       <a href="#registro" class="perfil-cta pc-navy">Registrar mi Negocio →</a>
@@ -637,7 +657,7 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
       <div class="perfil-role">Eres Makia como</div>
       <div class="perfil-title">Domiciliario Makia</div>
       <ul class="perfil-gains">
-        <li>Cada domicilio real te deja Mi Liga — sin fiados, sin esperas</li>
+        <li>Cada domicilio real te deja ML's — sin fiados, sin esperas</li>
         <li>Más domicilios bien hechos → mejor reputación → más pedidos → más liga</li>
         <li>Trabaja con un negocio o por tu cuenta — tú decides</li>
         <li>Sin contratos, sin jefes, sin horarios fijos — ser Makia es ir a tu ritmo</li>
@@ -652,7 +672,7 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
         <li>Vende sin tener nada guardado — solo publicas en Multimarket y cobras</li>
         <li>Tú pones el precio, el proveedor despacha — tú no tocas nada</li>
         <li>Cobras cuando el cliente recibe — sin riesgos, sin fiados</li>
-        <li>Tu catálogo llega a toda la red Multimakia desde el primer día</li>
+        <li>Tu catálogo llega a toda la red MultiMakia desde el primer día</li>
       </ul>
       <a href="#registro" class="perfil-cta pc-purple">Entrar como Vendedor →</a>
     </div>
@@ -665,13 +685,14 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
 
     <!-- BLOQUE 1: EXPLICACIÓN SIMPLE -->
     <div class="reveal">
-      <div class="sec-tag gold">💰 Mi Liga (MLs)</div>
+      <div class="sec-tag gold">💰 Mi Ñapa (MLs)</div>
       
-      <h2 class="sec-title">Cada compra te deja algo. Eso es Mi Liga.</h2>
+      <h2 class="sec-title">Cómo funcionan los ML's</h2>
       
       <p class="sec-sub" style="margin-bottom:28px">
-        Cada vez que haces una compra, no solo recibes tu producto… también te queda algo más. Eso es <strong style="color:var(--navy)">Mi Liga</strong>.<br><br>
-        Es la ñapa digital que puedes usar en todo Multimakia — o aportar a causas reales con <strong style="color:var(--navy)">Multi+</strong>. Aquí siempre hay liga.
+        <strong style="color:var(--navy)">Compras → te queda la liga.</strong><br>
+        <strong style="color:var(--navy)">Recomiendas negocios → ganas una liga más grande.</strong><br><br>
+        En MultiMakia hacemos algo simple pero poderoso: juntamos la ñapa de muchos negocios y la convertimos en algo que puedes usar en toda la comunidad.
       </p>
 
       <div class="ml-visual">
@@ -679,9 +700,9 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
         <div class="ml-card">
           <div class="ml-card-icon" style="background:rgba(16,185,129,.1)">🎁</div>
           <div>
-            <div class="ml-card-title">Aquí siempre te queda liga</div>
+            <div class="ml-card-title">🛍️ Compras en cualquier negocio Makia y recibes ML's</div>
             <div class="ml-card-desc">
-              Como la ñapa de toda la vida — pero digital. Compras algo, y además del producto te queda Mi Liga. Siempre. Sin pedirla, sin buscarla.
+              Los ML's son esa ñapa digital que no se pierde, porque la puedes usar en otros negocios de la plataforma.
             </div>
           </div>
         </div>
@@ -689,9 +710,9 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
         <div class="ml-card">
           <div class="ml-card-icon" style="background:rgba(26,60,94,.08)">🌐</div>
           <div>
-            <div class="ml-card-title">Tu liga sirve en todo Multimakia</div>
+            <div class="ml-card-title">🏪 Recomiendas negocios y ganas</div>
             <div class="ml-card-desc">
-              No estás amarrado a un solo negocio. La liga que tienes la gastas en cualquier tienda, domicilio o servicio del ecosistema — o la aportas en Multi+.
+              Si traes un negocio a MultiMakia o invitas a alguien que compra, ganas una parte del movimiento que ese negocio genere. Entre más se mueva tu grupo, más beneficios obtienes.
             </div>
           </div>
         </div>
@@ -699,13 +720,19 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
         <div class="ml-card">
           <div class="ml-card-icon" style="background:rgba(245,158,11,.1)">⚡</div>
           <div>
-            <div class="ml-card-title">En Multimakia, nada se queda sin liga</div>
+            <div class="ml-card-title">🔄 Los ML's no se pierden, se mueven</div>
             <div class="ml-card-desc">
-              Tu liga no se queda quieta: paga productos, cubre domicilios o se convierte en impacto real a través de Multi+. Tu movimiento en la red siempre te deja algo.
+              Lo que antes era un sello en una tarjeta, una firma, un dulce ó incluso la puntica del salchichón; aquí la digitalizamos para que la puedas usar en toda una comunidad Makia.
             </div>
           </div>
         </div>
 
+        <div style="margin-top:8px;background:var(--white);border:1px solid var(--border);border-radius:14px;padding:16px 18px;font-size:13px;line-height:1.75;color:var(--text-light)">
+          "Antes la ñapa se quedaba en un solo negocio... aquí la juntas, la utilizas y la ves convertirse en obras
+          <a href="#ReMakia" style="color:var(--green-dark);font-weight:700;text-decoration:underline;text-underline-offset:2px">ReMakias</a>
+          que solo tú y tu comunidad pueden hacer posibles".<br>
+          Además, los referidos activos de tu grupo también generan movimiento real, y por eso tus ML's pueden crecer más rápido.
+        </div>
       </div>
     </div>
 
@@ -717,8 +744,8 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
           Cómo funciona en pocas palabras
         </div>
         <div class="ml-key-msg">
-          Los Mi Liga no se retira como efectivo…<br/>
-          <em>se gasta, se mueve y se convierte en impacto real. Así Multimakia le devuelve valor a quien participa.</em>
+          Los ML's no se retiran como efectivo…<br/>
+          <em>se gastan, se mueven y se convierten en impacto real. Así MultiMakia le devuelve valor a quien participa.</em>
         </div>
       </div>
 
@@ -729,7 +756,7 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
         </div>
 
         <div style="font-size:15px;color:var(--text-light);margin-bottom:18px">
-          Dentro de Multimakia, <strong style="color:var(--navy)">1 ML = 1 peso colombiano</strong>. Sin sorpresas, sin jueguitos.
+          Dentro de MultiMakia, <strong style="color:var(--navy)">1 ML = 1 peso colombiano</strong>. Sin sorpresas, sin jueguitos.
         </div>
 
         <div style="display:flex;flex-direction:column;gap:10px">
@@ -754,7 +781,7 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
 
           <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 14px;background:var(--white);border-radius:10px;border:1px solid var(--border)">
             <span style="font-size:13px;color:var(--text-light)">
-              Aportar a causas en Multi+ 💚
+              Aportar a causas en ReMakia 💚
             </span>
             <span style="font-size:14px;font-weight:800;color:var(--green)">
               $1 COP
@@ -780,15 +807,15 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
 <section class="red-section" id="red">
   <div class="red-inner">
     <div class="red-header reveal">
-      <div class="sec-tag">Economía Multimakia</div>
+      <div class="sec-tag">Economía MultiMakia</div>
       <h2 class="sec-title">Compras → ganas ML. Invitas → ganas más. Aportas → generas impacto.</h2>
-      <p class="sec-sub">Así funciona el ecosistema completo: cada movimiento real genera valor. Para ti, para tus referidos y para quien más lo necesita a través de Multi+.</p>
+      <p class="sec-sub">Así funciona el ecosistema completo: cada movimiento real genera valor. Para ti, para tus referidos y para quien más lo necesita a través de ReMakia.</p>
     </div>
     <div class="red-grid">
       <div class="red-card reveal d1">
         <div class="red-card-icon">🔗</div>
         <div class="red-card-title">¿Cómo te queda liga de tus Makias?</div>
-        <div class="red-card-desc">Alguien de tu grupo compra unas zapatillas. A ti te queda el 1% de esa compra en Mi Liga — sin hacer nada. Eso pasa con cada movimiento real del grupo. Aquí siempre hay liga.</div>
+        <div class="red-card-desc">Alguien de tu grupo compra unas zapatillas. A ti te queda el 1% de esa compra en ML's — sin hacer nada. Eso pasa con cada movimiento real del grupo. Aquí siempre hay liga.</div>
       </div>
       <div class="red-card reveal d2">
         <div class="red-card-icon">📊</div>
@@ -812,7 +839,8 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
   <div class="sec-center reveal">
     <div class="sec-tag">🇨🇴 Los 4 pilares del ecosistema</div>
     <h2 class="sec-title">Un solo ecosistema. Cuatro formas de que siempre te quede algo.</h2>
-    <p class="sec-sub">Multimarket para comprar y vender. Mi Liga pa' que siempre te quede algo. Multi+ para que ese algo genere impacto. Y Nivel Makia para crecer. Todo junto, todo simple, todo pa' el colombiano que madruga.</p>
+    <p class="sec-sub">Multimarket para comprar y vender. los ML's pa' que siempre tengas algo. ReMakia para que ese algo genere impacto. 
+      Y tu Nivel Makia para crecer. Todo junto, todo simple, todo pa' el colombiano que madruga.</p>
   </div>
   <div class="feat-grid">
     <div class="feat-card reveal d1">
@@ -822,18 +850,19 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
     </div>
     <div class="feat-card reveal d2">
       <div class="feat-icon">💰</div>
-      <h3 class="feat-title">💰 Mi Liga — aquí siempre te queda algo</h3>
-      <p class="feat-desc">Cada compra te deja Mi Liga. Cada Makia activo de tu grupo te deja el 1% de su movimiento. Esa liga sirve para comprar más, pagar domicilios o aportar a Multi+. Tu actividad siempre te deja algo.</p>
+      <h3 class="feat-title">💰 ML's — aquí siempre te queda algo</h3>
+      <p class="feat-desc">Cada compra te deja la Liga. Cada Makia activo de tu grupo te deja el 1% de su movimiento. Esa liga sirve para comprar más,
+        pagar domicilios o hacr un aporte ReMakia. Tu actividad siempre te deja algo.</p>
     </div>
     <div class="feat-card reveal d1">
       <div class="feat-icon">🚀</div>
-      <h3 class="feat-title">❤️ Multi+ — donde participar genera impacto</h3>
-      <p class="feat-desc">Una parte de lo que se mueve en Multimakia va directo a causas reales: comedores, mascotas rescatadas, familias rurales. Sin hacer nada extra — solo por ser Makia. Y si quieres aportar más Mi Liga, hazlo cuando quieras.</p>
+      <h3 class="feat-title">❤️ ReMakia — donde participar genera impacto</h3>
+      <p class="feat-desc">Una parte de lo que se mueve en MultiMakia va directo a causas reales: comedores, mascotas rescatadas, familias rurales. Sin hacer nada extra — solo por ser Makia. Y si quieres aportar más ML´s, hazlo cuando quieras.</p>
     </div>
     <div class="feat-card reveal d2">
       <div class="feat-icon">🔒</div>
       <h3 class="feat-title">📈 Nivel Makia — tu identidad en el ecosistema</h3>
-      <p class="feat-desc">Compras, vendes, sumas Makias activos y aportas a Multi+. Todo eso sube tu Nivel Makia — de Semilla a Élite. A más Makia eres, más liga te queda y más beneficios recibes.</p>
+      <p class="feat-desc">Compras, vendes, sumas Makias activos y aportas a ReMakia. Todo eso sube tu Nivel Makia — de Semilla a Élite. A más Makia eres, más liga te queda y más beneficios recibes.</p>
     </div>
   </div>
 </section>
@@ -850,17 +879,19 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
       <div class="how-step reveal d1">
         <div class="step-num">1</div>
         <h3 class="step-title">Entras → ya eres Makia</h3>
-        <p class="step-desc">Registras gratis en 2 minutos, eliges tu forma de participar y listo. Ya eres parte del ecosistema. Los primeros arrancan en Nivel Makia Semilla con 32 personas activas garantizadas.</p>
+        <p class="step-desc">Te registras gratis en 2 minutos, eliges tu forma de participar y listo.
+           Ya eres parte del ecosistema. Los primeros arrancan en un Nivel Makia Se parte del 1%.</p>
       </div>
       <div class="how-step reveal d2">
         <div class="step-num">2</div>
-        <h3 class="step-title">Compras → siempre te queda liga</h3>
-        <p class="step-desc">Compra en Multimarket, vende sin bodega, haz domicilios o suma Makias activos. Multimakia te asigna los primeros 32 automáticamente — o los traes tú más rápido. Cada movimiento te deja algo.</p>
+        <h3 class="step-title">Compras → siempre te queda la liga</h3>
+        <p class="step-desc">Compra en Multimarket, vende sin bodega, haz domicilios o suma Makias activos. 
+          MultiMakia te asigna los primeros 32 automáticamente — o los traes tú más rápido... Cada movimiento te deja un beneficio real.</p>
       </div>
       <div class="how-step reveal d3">
         <div class="step-num">3</div>
         <h3 class="step-title">Tu liga crece → tu Nivel Makia sube</h3>
-        <p class="step-desc">Usas tu liga para ahorrar, comprar más o aportar a Multi+. Y tu Nivel Makia sube solo — Semilla, Activo, Fuerte, Mayor, Élite. Entre más participas, más liga generas. Tú decides hasta dónde llegar.</p>
+        <p class="step-desc">Usas tu liga para ahorrar, comprar más o aportar a ReMakia. Y tu Nivel Makia sube solo — Semilla, Activo, Fuerte, Mayor, Élite. Entre más participas, más liga generas. Tú decides hasta dónde llegar.</p>
       </div>
     </div>
   </div>
@@ -871,15 +902,17 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
   <div class="ap-inner">
     <div class="ap-header reveal">
       <div class="ap-icon">🔍</div>
-      <h2 class="ap-title">🤔 "¿Multimakia no será otro cuento?" — La respuesta honesta.</h2>
+      <h2 class="ap-title">🤔 "¿MultiMakia no será otro cuento?" — La respuesta honesta.</h2>
     </div>
-    <p class="ap-sub reveal">En Colombia nos han metido tanto cuento que ya uno desconfía — y con razón. Por eso Multimakia se la juega por la transparencia total: acá no te queda ni una liga por traer gente que no se mueva. Mi Liga se genera cuando alguien compra o vende de verdad en Multimarket. Punto.</p>
+    <p class="ap-sub reveal">En Colombia nos han metido tanto cuento que ya uno desconfía — y con razón. Por eso MultiMakia se la juega por la transparencia total: acá no se genera nada 
+      por traer gente que no se mueva en el ecosistema. los ML's se generan cuando alguien compra o vende de verdad en Multimarket. Punto. Sin enredos, sin presiones, sin cuentos. 
+      sorpresas.</p>
     <div class="ap-grid">
       <div class="ap-card reveal d1">
         <div class="ap-check no">✗</div>
         <div>
           <div class="ap-card-title">Sumar un Makia solo vale si ese Makia se mueve</div>
-          <div class="ap-card-desc">Si la persona que sumaste se queda quieta, no te queda ni una liga. Solo cuando compra, vende o hace un domicilio empieza a dejarte el 1% en Mi Liga. Sin actividad real, no hay nada que quedarse.</div>
+          <div class="ap-card-desc">Si la persona que sumaste se queda quieta, no te queda ni una liga. Solo cuando compra, vende o hace un domicilio empieza a dejarte el 1% en ML's. Sin actividad real, no hay nada que quedarse.</div>
         </div>
       </div>
       <div class="ap-card reveal d2">
@@ -892,49 +925,56 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
       <div class="ap-card reveal d1">
         <div class="ap-check no">✗</div>
         <div>
-          <div class="ap-card-title">Acá no hay "invierta y gane" — eso no existe en Multimakia</div>
-          <div class="ap-card-desc">Mi Liga no se retira como efectivo. No hay "pon $X y te devolvemos $Y". Acá la liga se genera participando: comprando, vendiendo, haciendo domicilios. Sin actividad real, no te queda nada.</div>
+          <div class="ap-card-title">Acá no hay "invierta y gane" — eso no existe en MultiMakia</div>
+          <div class="ap-card-desc">los ML's  no se retiran como efectivo. No hay "pon $X y te devolvemos $Y". Acá los ML's se generan participando: 
+            comprando, vendiendo, haciendo domicilios. Sin actividad real, no te queda nada. Porque los ML's son el resultado de la actividad real en el ecosistema.</div>
         </div>
       </div>
       <div class="ap-card reveal d2">
         <div class="ap-check yes">✓</div>
         <div>
-          <div class="ap-card-title">Multimakia crece cuando sus Makias se mueven — no por arte de magia</div>
-          <div class="ap-card-desc">La liga solo se genera cuando hay actividad real: compras, ventas, domicilios. Sin eso no hay Mi Liga, no hay comisiones, no hay nada. La economía que sí te deja algo — pero solo cuando algo pasa de verdad.</div>
+          <div class="ap-card-title">MultiMakia crece cuando sus Makias se mueven — no por arte de magia</div>
+          <div class="ap-card-desc">La liga solo se genera cuando hay actividad real: compras, ventas, domicilios. Sin eso no hay ML's, no hay comisiones, no hay nada. La economía que sí te deja algo — pero solo cuando algo pasa de verdad.</div>
         </div>
       </div>
     </div>
     <div class="ap-badge reveal">
-      ✓ &nbsp;Multimakia · Aquí siempre te queda liga · Transparente, colombiano, del barrio pa'l mundo 🇨🇴
+      ✓ &nbsp;MultiMakia · Aquí siempre te queda liga · Transparente, colombiano, del barrio pa'l mundo 🇨🇴
     </div>
   </div>
 </section>
 
-<!-- ══ MULTI+ ══════════════════════════════════════════ -->
-<section class="multimakia" id="multimakia">
+<!-- ══ ReMakia ══════════════════════════════════════════ -->
+<section class="ReMakia" id="ReMakia">
   <div class="mm-inner">
     <div class="mm-header">
       <div class="reveal">
-        <div class="mm-badge">❤️ Multi+ · El lado del impacto</div>
+        <div class="mm-badge">El lado ReMakia del impacto ❤️</div>
         
         <h2 class="mm-title">
-          Multi<em>+</em> — Donde el movimiento genera impacto
+          Porque la unica forma de ser <em>+</em> Makia... <br> es ser <em>ReMakia</em>
         </h2>
 
         <p class="mm-sub">
-          En el barrio siempre hubo alguien que tendió la mano.<br>
-          Multimakia no olvidó eso.<br><br>
+          Aquí todos ganan… y todos pueden ayudar.<br><br>
 
-          Una parte de lo que se mueve en Multimarket va directo a causas reales — comedores, mascotas rescatadas, familias rurales, adultos mayores.<br><br>
+          Desde que entras a MultiMakia, ya estás sumando.<br>
+          Y si quieres aportar más, puedes hacerlo cuando quieras — con los MLs que ya tienes.<br><br>
+
+          <b>Ser ReMakia es sencillo.</b><br>
+          Muévete dentro de MultiMakia, y automáticamente parte de eso llega a quien más lo necesita.
+        
+
+          Una parte de lo que se mueve en MultiMakia va directo a causas reales — comedores, mascotas rescatadas, Proyectos rurales, adultos mayores.<br><br>
 
           <b>Sin hacer nada extra.</b><br>
-          Con solo moverte en el ecosistema, ya estás aportando a Multi+. Y si quieres aportar más, hazlo con tus ML cuando quieras — sin presión, sin mínimos.
+          Con solo moverte en el ecosistema, ya estás siendo alguién ReMakia. Y si quieres aportar más, hazlo con tus ML cuando quieras — sin presión, sin mínimos.
         </p>
 
         <div class="mm-stats">
           <div class="mm-stat">
-            <div class="mm-stat-val">Liga</div>
-            <div class="mm-stat-label">aportada por<br/>los Makias</div>
+            <div class="mm-stat-val">ML's</div>
+            <div class="mm-stat-label">aportados por<br/>los Makias</div>
           </div>
           <div class="mm-stat">
             <div class="mm-stat-val">100%</div>
@@ -948,16 +988,16 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
       </div>
 
       <div class="mm-how reveal d2">
-        <div class="mm-how-title">¿Cómo funciona aportar con Multi+?</div>
+        <div class="mm-how-title">¿Cómo funciona aportar con ReMakia?</div>
 
         <div class="mm-how-steps">
 
           <div class="mm-how-step">
             <div class="mm-step-icon">⚡</div>
             <div>
-              <div class="mm-step-title">Te mueves y te queda liga</div>
+              <div class="mm-step-title">Un usuario activo genera un valor ReMakia</div>
               <div class="mm-step-desc">
-                Cada compra, venta o domicilio en Multimarket te deja Mi Liga — y parte de eso activa automáticamente el impacto Multi+.
+                Cada compra, venta o domicilio en MultiMakia asigna parte de eso automáticamente a un impacto ReMakia.
               </div>
             </div>
           </div>
@@ -965,9 +1005,9 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
           <div class="mm-how-step">
             <div class="mm-step-icon">❤️</div>
             <div>
-              <div class="mm-step-title">Tú decides cuánta liga aportar</div>
+              <div class="mm-step-title">Tú decides cuántos ML's aportar</div>
               <div class="mm-step-desc">
-                Puedes destinar parte de tu Mi Liga a causas activas en Multi+ cuando quieras. Sin presión, sin mínimos — solo tú decidiendo ser más Makia.
+                Puedes destinar parte de tu ML's a causas ReMakias cuando quieras. Sin presión, sin mínimos — solo tú decidiendo cuando ser más Makia.
               </div>
             </div>
           </div>
@@ -975,9 +1015,9 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
           <div class="mm-how-step">
             <div class="mm-step-icon">🚀</div>
             <div>
-              <div class="mm-step-title">Tu liga llega completa</div>
+              <div class="mm-step-title">Tus ML's llegan completos, sin intermediarios</div>
               <div class="mm-step-desc">
-                La liga que aportas llega completa a la causa. Sin comisiones ocultas, sin intermediarios. Todo visible dentro de Multimakia.
+                esa liga que aportas llega completa a la causa. Sin comisiones ocultas, sin intermediarios. Todo visible dentro de MultiMakia.
               </div>
             </div>
           </div>
@@ -1093,7 +1133,7 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
       </a>
       <p class="mm-cta-note">
         Desde que eres Makia, ya haces parte del impacto.<br/>
-        Y si quieres, destina parte de tu liga a Multi+ — cuando quieras, sin presión.
+        pero siempre puedes ser +Makia — cuando quieras, sin presión.
       </p>
     </div>
   </div>
@@ -1104,12 +1144,13 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
     <div class="dropi-text reveal">
       <div class="sec-tag">🛍️ Multimarket · Dropshipping</div>
       <h2 class="sec-title">Vende como los grandes — desde el barrio, con el celular</h2>
-      <p class="sec-sub">El módulo Multimarket te conecta con proveedores reales. Publicas, el proveedor despacha, y cobras cuando el cliente recibe. Sin bodega, sin plata por adelantado — y cada venta te deja Mi Liga.</p>
+      <p class="sec-sub">El módulo Multimarket te conecta con proveedores reales. Publicas, el proveedor despacha,
+         y cobras cuando el cliente recibe. Sin bodega, sin plata por adelantado — y con cada venta, crecemos juntos.</p>
       <ul class="dropi-list">
         <li>Accede a productos de miles de proveedores externos con un clic — sin inventario</li>
         <li>El proveedor despacha cuando el cliente compra — tú no tocas nada</li>
         <li>Tu comisión se acredita SOLO al confirmar la entrega — cero riesgo</li>
-        <li>Los pedidos se sincronizan automáticamente entre los proveedores y el ecosistema Multimakia</li>
+        <li>Los pedidos se sincronizan automáticamente entre los proveedores y el ecosistema MultiMakia</li>
       </ul>
       <div class="dropi-note">
         💡 <strong>Regla de oro:</strong> tu comisión nace con la entrega confirmada, no con el pago. Sin entrega real, no hay valor generado. Así protegemos a compradores y vendedores por igual.
@@ -1120,7 +1161,7 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
       <div class="flow">
         <div class="flow-node">
           <div class="flow-icon fi-blue">🛒</div>
-          <div><div class="flow-label">Cliente compra en Multimarket (módulo de Multimakia)</div><div class="flow-sub">Pago con Mi Liga o efectivo — verificado y seguro</div></div>
+          <div><div class="flow-label">Cliente compra en Multimarket (módulo de MultiMakia)</div><div class="flow-sub">Pago con ML's o efectivo — verificado y seguro</div></div>
         </div>
         <div class="flow-arrow">↓</div>
         <div class="flow-node">
@@ -1135,7 +1176,8 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
         <div class="flow-arrow">↓</div>
         <div class="flow-node">
           <div class="flow-icon" style="background:rgba(139,92,246,.1)">💰</div>
-          <div><div class="flow-label">Entrega confirmada → te queda liga</div><div class="flow-sub">Mi Liga al vendedor solo cuando algo real pasó — sin excepciones</div></div>
+          <div><div class="flow-label">Entrega confirmada → te queda la liga</div><div class="flow-sub">
+            solo cuando algo real pasó — sin excepciones</div></div>
         </div>
       </div>
     </div>
@@ -1145,11 +1187,14 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
 <!-- ══ APP ══════════════════════════════════════════ -->
 <section class="app" id="app">
   <div class="app-inner reveal">
-    <div class="app-badge">🚀 Muy pronto</div>
-    <h2 class="app-title">La app de Multimakia — todo en la palma de la mano 📱</h2>
-    <p class="app-sub">Multimarket para comprar y vender. Mi Liga para ahorrar. Multi+ para generar impacto. Y tu Nivel Makia para crecer. Todo en un solo lugar, desde el celular que ya tienes.</p>
-
-    
+    <div class="app-badge">🚀 Se viene lo bueno</div>
+    <h2 class="app-title">La app de MultiMakia <br> todo lo que necesitas en la palma de la mano 📱</h2>
+    <p class="app-sub">Aquí es donde todo cobra sentido.
+      <br><br>
+      Compras, vendes, ves tun ML's crecer, ayudas a otros… y entiendes cómo se mueve todo — en tiempo real.
+      <br><br>
+      Sin enredos. Sin letras pequeñas.
+      Solo tú, tu movimiento… y lo que vas construyendo dentro de Multimakia.</p>
     <div class="app-stores" style="display: flex; gap: 12px; font-family: sans-serif;">
   
       <!-- Botón App Store -->
@@ -1184,7 +1229,8 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
     <div class="sec-center reveal">
       <div class="sec-tag">Ser Makia 🇨🇴</div>
       <h2 class="sec-title">Reserva tu lugar — ser Makia es gratis</h2>
-      <p class="sec-sub">Dos minutos, sin tramitología, sin costos. Los primeros en entrar arrancan con Nivel Makia Semilla y 32 personas activas garantizadas por Multimakia.</p>
+      <p class="sec-sub">Dos minutos, sin tramitología, sin costos.
+        Los primeros en entrar arrancan con un Nivel Makia Semilla y en la comunidad MultiMakia.</p>
     </div>
     <div class="trust-badges reveal">
       <div class="trust-badge">🔒 Datos protegidos — Ley 1581</div>
@@ -1267,10 +1313,11 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
 <!-- ══ CTA FINAL ══════════════════════════════════════════ -->
 <section class="cta">
   <div class="cta-inner reveal">
-    <div class="sec-tag">🇨🇴 Multimakia — Del barrio pa'l mundo</div>
+    <div class="sec-tag">🇨🇴 MultiMakia — Del barrio pa'l mundo</div>
     <h2 class="sec-title">Esto empezó en un barrio colombiano. Ya es pa' todo el mundo.</h2>
-    <p class="cta-msg">"Aquí no solo compras… siempre te queda liga. Y esa liga puede convertirse en ahorro, en beneficios o en impacto real con Multi+. Del barrio pa'l mundo."</p>
-    <p class="sec-sub">Entra gratis, elige tu forma de participar y arranca. Multimakia ya tiene tus primeros 32 Makias activos esperándote — tú decides hasta dónde llegar.</p>
+    <p class="cta-msg">"Aquí no solo compras… siempre te queda liga. Y esa liga puede convertirse en ahorro, en beneficios o en impacto real con ReMakia. Del barrio pa'l mundo."</p>
+    <p class="sec-sub">Entra gratis, elige tu forma de participar y arranca. MultiMakia asignara gradualmente tus primeros 32 Makias activos.
+      <br><br>Pero tu decides el ritmo al que quieres crecer.</p>
     <div class="cta-btns" style="margin-top:32px">
       <a href="#registro" class="btn-primary">Ser Makia — gratis →</a>
       <a href="#perfiles" class="btn-dark">Ver cómo funciona →</a>
@@ -1282,8 +1329,8 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
 <footer>
   <div class="footer-grid">
     <div>
-      <div class="footer-brand">Multi<span>makia</span></div>
-      <p class="footer-desc">Aquí no solo compras — siempre te queda liga. Y esa liga genera impacto real con Multi+. Del barrio colombiano pa'l mundo. 🇨🇴</p>
+      <div class="footer-brand">Multi<span>Makia</span></div>
+      <p class="footer-desc">Aquí no solo compras — siempre te queda liga. Y esa liga genera impacto real con ReMakia. Del barrio colombiano pa'l mundo. 🇨🇴</p>
       <div class="footer-social">
         <a href="https://www.facebook.com/profile.php?id=100051651054025" target="_blank" rel="noopener" class="soc">📘</a>
         <a href="#" class="soc">📸</a>
@@ -1294,8 +1341,8 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
     <div>
       <div class="footer-col-title">Ecosistema</div>
       <ul class="footer-links">
-            <li><a href="#ml">Mi Liga</a></li>
-        <li><a href="#multimakia">Multi+</a></li>
+            <li><a href="#ml">Mi Ñapa</a></li>
+        <li><a href="#ReMakia">ReMakia</a></li>
         <li><a href="#perfiles">Nivel Makia</a></li>
         <li><a href="https://multimarket.com.co/web">Ingresar →</a></li>
       </ul>
@@ -1320,7 +1367,7 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
     </div>
   </div>
   <div class="footer-bottom">
-    <p>© 2026 Multimakia Company S.A.S. — Hecho en Colombia 🇨🇴 · Del barrio pa'l mundo · Multimakia · Multimarket · Mi Liga · Multi+</p>
+    <p>© 2026 MultiMakia Company S.A.S. — Hecho en Colombia 🇨🇴 · Del barrio pa'l mundo · MultiMakia · Multimarket · Mi Ñapa · ReMakia</p>
     <a href="https://multimarket.com.co/web">Admin ↗</a>
   </div>
 </footer>

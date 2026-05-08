@@ -24,7 +24,7 @@
 // ─── CONFIGURACIÓN ────────────────────────────────────────────────────────────
 const SPREADSHEET_ID   = "1w-QCmAlGSVEoSJMbkiZRkFuZBhrmLdeds6T_bbuAmzo";
 const SHEET_NAME       = "Leads";
-const NOTIFY_EMAIL     = "mlmultimarketcompany@gmail.com"; // notificación interna (deja "" para desactivar)
+const NOTIFY_EMAIL     = "multimakiacompany@gmail.com"; // notificación interna (deja "" para desactivar)
 const TURNSTILE_SECRET = "0x4AAAAAADFVV5HXysHr7UWah-LZ78tCDnQ"; // Secret Key de Cloudflare Turnstile
 const SEND_CLIENT_MAIL = true;                      // false para desactivar email al registrado
 // ──────────────────────────────────────────────────────────────────────────────

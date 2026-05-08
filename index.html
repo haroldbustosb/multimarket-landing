@@ -53,7 +53,7 @@ a{text-decoration:none;color:inherit}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(16,185,129,.13) 0%,transparent 60%);pointer-events:none}
 .hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:60px;background:linear-gradient(to top,var(--white),transparent);pointer-events:none}
 /* MOBILE FIRST: columna única */
-.hero-inner{max-width:600px;margin:0 auto;width:100%;display:flex;flex-direction:column;gap:28px;align-items:center;text-align:center;position:relative;z-index:1}
+.hero-inner{max-width:440px;margin:0 auto;width:100%;display:flex;flex-direction:column;gap:24px;align-items:center;text-align:center;position:relative;z-index:1}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(16,185,129,.15);border:1px solid rgba(16,185,129,.3);color:#6EE7B7;padding:6px 14px;border-radius:100px;font-size:12px;font-weight:600;white-space:normal;line-height:1.4}
 .hero-badge::before{content:'●';font-size:8px;animation:blink 2s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
@@ -70,8 +70,8 @@ a{text-decoration:none;color:inherit}
 .btn-ghost:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.4)}
 
 /* PHONE MOCKUP */
-.hero-phone{display:none;justify-content:center;align-items:center;position:relative}
-.phone{width:258px;height:520px;background:var(--navy-dark);border-radius:46px;border:8px solid rgba(255,255,255,.14);position:relative;box-shadow:0 40px 80px rgba(0,0,0,.5),inset 0 0 0 1px rgba(255,255,255,.08);overflow:hidden}
+.hero-phone{display:flex;justify-content:center;align-items:center;position:relative;padding:8px 0 0}
+.phone{width:220px;height:440px;background:var(--navy-dark);border-radius:40px;border:7px solid rgba(255,255,255,.14);position:relative;box-shadow:0 24px 60px rgba(0,0,0,.45),inset 0 0 0 1px rgba(255,255,255,.08);overflow:hidden}
 .phone-notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:88px;height:26px;background:var(--navy-dark);border-radius:0 0 18px 18px;z-index:2}
 .phone-screen{width:100%;height:100%;background:linear-gradient(180deg,#0D2137 0%,#1A3C5E 45%,#0d4f3c 100%);display:flex;flex-direction:column;padding:36px 14px 18px}
 .phone-status{display:flex;justify-content:space-between;color:rgba(255,255,255,.4);font-size:10px;margin-bottom:16px}
@@ -425,6 +425,7 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
   .hero-actions{justify-content:flex-start}
   .hero-actions a{width:auto}
   .hero-phone{display:flex;flex:0 0 auto}
+  .phone{width:258px;height:520px;border-radius:46px;border-width:8px}
   .hero-float{display:block}
 }
 
@@ -449,12 +450,16 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
 /* ── MOBILE (≤640px) ── */
 @media(max-width:640px){
   /* HERO MOBILE */
-  .hero{padding:76px 16px 44px}
-  .hero-inner{gap:20px}
-  .hero h1{font-size:clamp(24px,9vw,36px)}
+  .hero{padding:76px 16px 40px}
+  .hero-inner{gap:16px}
+  .hero h1{font-size:clamp(24px,9vw,34px)}
   .hero-sub{font-size:13px;line-height:1.65}
   .hero-bullets li{font-size:13px;gap:10px}
   .hero-actions a{font-size:14px;padding:14px 20px}
+  .phone{width:190px;height:380px;border-radius:34px;border-width:6px}
+  .phone-card-value{font-size:18px}
+  .phone-item-name{font-size:9px}
+  .phone-item-price{font-size:9px}
 
   /* GRIDS */
   .stats-inner{grid-template-columns:1fr}
@@ -543,18 +548,18 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
       </h1>
 
       <p class="hero-sub">
-        Cada vez que compras, te quedan ML's — como la ñapa, pero <strong style="color:#fff">de verdad y pa' usar en todo MultiMakia</strong>.
+        Cada vez que compras, te quedan ML's — como la ñapa, pero <strong style="color:#fff">esta vez la puedes guardar y usar en todo MultiMakia</strong>.
       </p>
 
       <ul class="hero-bullets">
         <li>Compras → te quedan ML's solos</li>
-        <li>Invitas gente activa → el 1% de lo que gastan también te queda</li>
-        <li>Usas tus ML's → compras más barato o aportas a ReMakia</li>
+        <li>Invitas gente Makia que se active → el 1% de lo que ellos gastan también te queda</li>
+        <li>Usas tus ML's → compras más barato o haces aportes a una que otra obra ReMakia</li>
       </ul>
 
       <div class="hero-actions">
         <a href="#registro" class="btn-primary" style="display:block;width:100%;max-width:340px;text-align:center;box-sizing:border-box">
-          Entrar gratis — quiero mis Lucas →
+          Entrar gratis — quiero incrementar mis Lucas →
         </a>
       </div>
     </div>
@@ -591,9 +596,9 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
           </div>
         </div>
       </div>
-      <div class="hero-float hero-float-1"><span class="fv">+lucas</span>por cada persona activa</div>
+      <div class="hero-float hero-float-1"><span class="fv">+LUCAS</span>por cada persona activa</div>
       <div class="hero-float hero-float-2"><span class="fv">1 ML</span>= 1 COP · siempre</div>
-      <div class="hero-float hero-float-3"><span class="fv">🇨🇴</span>De Colombia pa' el mundo</div>
+      <div class="hero-float hero-float-3"><span class="fv">🇨🇴</span>De Colombia pa'l mundo</div>
     </div>
   </div>
 </section>
@@ -603,15 +608,15 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
   <div class="stats-inner">
     <div class="stat reveal d1">
       <div class="stat-val"><em>1%</em></div>
-      <div class="stat-label">De lo que gasta tu gente<br/>te queda a ti en ML's — solo, sin hacer nada</div>
+      <div class="stat-label">De lo que gastan tus socios Makias <br/>te queda a ti en ML's — solo, sin hacer nada</div>
     </div>
     <div class="stat reveal d2">
       <div class="stat-val">+<em id="cnt">0</em></div>
       <div class="stat-label">Productos pa' vender<br/>sin tener nada guardado en casa</div>
     </div>
     <div class="stat reveal d3">
-      <div class="stat-val"><em>32</em></div>
-      <div class="stat-label">Personas activas que MultiMakia<br/>te asigna pa' arrancar — sin buscarlas tú</div>
+      <div class="stat-val"><em>32 Makias</em></div>
+      <div class="stat-label">que seran asignados gradualmente..<br/>Pero siempre puedes completar ese cupo a tu ritmo</div>
     </div>
   </div>
 </section>
@@ -620,7 +625,7 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
 <!-- ══ NIVELES DE RED ══════════════════════════════════════════ -->
 <div class="niveles">
   <div class="niveles-inner">
-    <div class="niveles-label">Arrancas con 32 personas activas que MultiMakia te asigna. Tú decides si quieres ir por más — o dejar que lleguen solas.</div>
+    <div class="niveles-label">Arrancas con un cupo de 32 Makias. Tú decides si quieres ir por más......</div>
     <div class="niveles-track">
       <div class="nivel activo">
         <div class="nivel-dot">🌱</div>
@@ -647,7 +652,9 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
       </div>      
     </div>
     <p class="niveles-note">
-      <strong>Entre más te muevas, más lucas te quedan.</strong> Compras, invitas gente activa, haces domicilios o aportas a ReMakia — todo suma. El que se mueve, gana. El que no, pues no.
+      <strong> Compras, invitas gente Makia, haces domicilios o haces aportes ReMakia's — todo suma. </strong>
+      <br>El que se mueve, gana. El que no, pues no.
+      <br>Todas estas membresias a partir de la plata, tienen un costo en ML's.
     </p>
   </div>
 </div>
@@ -662,23 +669,21 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
   <div class="perfiles-grid">
     <div class="perfil-card c1 reveal d1">
       <div class="perfil-icon pi-green">🛒</div>
-      <div class="perfil-role">Eres Makia como</div>
-      <div class="perfil-title">El que Compra</div>
+      <div class="perfil-title">El que Compra de forma Makia</div>
       <ul class="perfil-gains">
         <li>Cada compra te deja ML's — solos, sin pedirlos</li>
-        <li>Si invitas gente que compra, también te quedan lucas de lo que ellos gastan</li>
+        <li>Si invitas gente Makia que compra, también te quedan lucas de lo que ellos gastan</li>
         <li>También puedes vender sin tener nada guardado — desde el mismo perfil</li>
-        <li>Entre más se mueva tu gente, más ML's te quedan — así de simple</li>
+        <li>Entre más se mueva tu grupo, más ML's te quedan — así de simple</li>
       </ul>
       <a href="#registro" class="perfil-cta pc-green">Entrar como Comprador →</a>
     </div>
     <div class="perfil-card c2 reveal d2">
       <div class="perfil-icon pi-navy">🏪</div>
-      <div class="perfil-role">Eres Makia como</div>
-      <div class="perfil-title">El Negocio</div>
+      <div class="perfil-title">Tiene un Negocio Makia</div>
       <ul class="perfil-gains">
-        <li>Tu negocio aparece ante toda la gente de MultiMakia — sin pagar un peso en publicidad</li>
-        <li>Los pedidos llegan solos — tú haces lo tuyo, Multimarket hace el resto</li>
+        <li>Tu negocio aparece ante toda la comunidad de MultiMakia — sin pagar un peso en publicidad</li>
+        <li>Los pedidos llegan solos — tú haces lo tuyo, MultiMakia hace el resto</li>
         <li>Acepta ML's como pago — y esa plata digital sigue circulando pa' todos</li>
         <li>Cobras cuando el cliente recibe — sin anticipos, sin riesgos, sin sustos</li>
       </ul>
@@ -686,8 +691,7 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
     </div>
     <div class="perfil-card c3 reveal d1">
       <div class="perfil-icon pi-gold">🚚</div>
-      <div class="perfil-role">Eres Makia como</div>
-      <div class="perfil-title">El Domiciliario</div>
+      <div class="perfil-title">Eres un Domiciliario Makia</div>
       <ul class="perfil-gains">
         <li>Cada domicilio bien hecho te deja ML's — sin fiados, sin demoras</li>
         <li>Mejor reputación → más pedidos → más lucas. Así de directo.</li>
@@ -698,13 +702,12 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
     </div>
     <div class="perfil-card c4 reveal d2">
       <div class="perfil-icon pi-purple">💼</div>
-      <div class="perfil-role">Eres Makia como</div>
-      <div class="perfil-title">El Vendedor sin Bodega</div>
+      <div class="perfil-title">Eres el Vendedor Makia</div>
       <ul class="perfil-gains">
-        <li>Vendes sin tener nada en casa — publicas, el proveedor manda, tú cobras</li>
+        <li>Vendes sin tener nada en casa — publicas diferentes catalogos, el proveedor manda, tú cobras(DropShipping)</li>
         <li>Tú pones el precio, el proveedor despacha — tú ni te paras del sofá</li>
         <li>Cobras cuando el cliente recibe — sin riesgo, sin fiado, sin susto</li>
-        <li>Tu catálogo llega a toda la gente de MultiMakia desde el día uno</li>
+        <li>Ademas si tienes un catálogo personal, este le llega a toda la gente de MultiMakia desde el día uno</li>
       </ul>
       <a href="#registro" class="perfil-cta pc-purple">Entrar como Vendedor →</a>
     </div>
@@ -719,13 +722,13 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
     <div class="reveal">
       <div class="sec-tag gold">💰 ML's — tus lucas digitales</div>
       
-      <h2 class="sec-title">¿Qué son los ML's? — Fácil.</h2>
+      <h2 class="sec-title">¿Qué son los ML's ?<br> "Mis Lucas" Fácil.</h2>
       
       <p class="sec-sub" style="margin-bottom:28px">
         Compras algo. Además del producto, <strong style="color:var(--navy)">te quedan unos ML's</strong>.<br>
         Esos ML's los usas después — en cualquier negocio dentro de MultiMakia.<br><br>
         Son como la ñapa de toda la vida… pero en digital. Y que sí sirven pa' algo de verdad.<br><br>
-        <em style="color:var(--navy-mid)">Como dice la gente: "Puedo quedarme sin efectivo — pero siempre cuento con mis Lucas."</em>
+        <em style="color:var(--navy-mid)">ML's.... más efectivos que el efectivo!</em>
       </p>
 
       <div class="ml-visual">
@@ -733,9 +736,9 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
         <div class="ml-card">
           <div class="ml-card-icon" style="background:rgba(16,185,129,.1)">🎁</div>
           <div>
-            <div class="ml-card-title">Lo que antes era un dulce… ahora son tus lucas</div>
+            <div class="ml-card-title">Lo que antes era un dulce… ahora son tus ML's</div>
             <div class="ml-card-desc">
-              La ñapa que el tendero te daba antes — el dulce, el sello, la puntica del salchichón — en MultiMakia se convierte en Mis Lucas de verdad. Que no se pierden, que sirven, que puedes usar después.
+              La ñapa que el tendero te daba antes — el dulce, el sello, la puntica del salchichón — en MultiMakia se convierte en ML's que no se pierden, que sirven, que puedes usar después.
             </div>
           </div>
         </div>
@@ -745,7 +748,7 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
           <div>
             <div class="ml-card-title">Si tu gente compra, tú también te quedas con algo</div>
             <div class="ml-card-desc">
-              Invitas a alguien. Esa persona compra unas zapatillas. A ti te quedan el 1% de esas zapatillas en ML's — sin hacer nada. Compra con tus ML's… mucho más efectivos que el efectivo.
+              Invitas a alguien Makia. Esa persona compra unas zapatillas. A ti te queda el 1% de esas zapatillas en ML's — sin hacer nada. Compra con tus ML's… mucho más efectivos que el efectivo.
             </div>
           </div>
         </div>
@@ -755,15 +758,17 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
           <div>
             <div class="ml-card-title">Mis Lucas no se vencen ni se pierden</div>
             <div class="ml-card-desc">
-              No son puntos que caducan. No es un sello que se pierde. Son tus lucas — las tienes hasta que las usas. Y las usas donde quieras dentro de MultiMakia.
+              No son puntos que caducan. No es un sello que se pierde. Son tus lucas — las tienes hasta que las usas. Y las usas donde quieras dentro de MultiMakia...
+             <br>
+              <em style="color:var(--navy-mid)">En pocas palabras, siempre cuento con Mis Lucas pa´gastar!</em>
             </div>
           </div>
         </div>
 
         <div style="margin-top:8px;background:var(--white);border:1px solid var(--border);border-radius:14px;padding:16px 18px;font-size:13px;line-height:1.75;color:var(--text-light)">
-          "Antes la ñapa era un dulce que te comías ahí mismo. Acá la junta, la acumulas y la conviertes en algo útil — o en impacto real a través de
+          "Antes la ñapa era un dulce que te comías ahí mismo. Acá la junta, la acumulas y la conviertes en algo útil — o en impacto social
           <a href="#ReMakia" style="color:var(--green-dark);font-weight:700;text-decoration:underline;text-underline-offset:2px">ReMakia</a>.
-          Y lo mejor: la gente que invitas también mueve lucas — y parte de esas lucas te quedan a ti."
+          Y lo mejor: tus 32 Makias también mueven lucas — y parte de esas lucas te quedan a ti."
         </div>
       </div>
     </div>
@@ -826,7 +831,7 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
           👉 Mis Lucas nacen cuando algo real pasa — una compra, una venta, un domicilio.<br/>
           👉 Circulan entre todos y generan más valor mientras más se mueven.<br/>
           👉 Puedo quedarme sin efectivo — pero siempre cuento con Mis Lucas.<br/>
-          👉 <strong>Resumido: son plata digital que vale dentro de MultiMakia. Y que siempre te queda algo.</strong>
+          👉 <strong>Resumido: son plata digital que vale dentro de MultiMakia. Y que siempre te dan algo.</strong>
         </div>
 
       </div>
@@ -841,14 +846,16 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
   <div class="red-inner">
     <div class="red-header reveal">
       <div class="sec-tag">¿Cómo funciona exactamente?</div>
-      <h2 class="sec-title">Compras → te quedan lucas. Invitas → te quedan más. Aportas → cambia algo.</h2>
-      <p class="sec-sub">Simple: cada vez que algo pasa de verdad en MultiMakia, algo te queda a ti. Y lo que te queda lo usas, lo ahorras o lo conviertes en impacto con ReMakia.</p>
+      <h2 class="sec-title">Compras → te quedan lucas. tu grupo compra → te quedan más. Aportas → cambia algo.</h2>
+      <p class="sec-sub">Simple: cada vez que algo pasa de verdad en MultiMakia, algo te queda a ti. Y lo que te queda lo usas, lo ahorras o lo conviertes en un impacto           
+        <a href="#ReMakia" style="color:var(--green-dark);font-weight:700;text-decoration:underline;text-underline-offset:2px">ReMakia</a>.
+</p>
     </div>
     <div class="red-grid">
       <div class="red-card reveal d1">
         <div class="red-card-icon">🔗</div>
         <div class="red-card-title">¿Cómo me quedan lucas de lo que compra otro?</div>
-        <div class="red-card-desc">Fácil: tú invitas a alguien. Esa persona compra unas zapatillas de 100 mil. A ti te quedan mil pesos en ML's — sin hacer nada. Eso pasa con cada compra real de tu gente.</div>
+        <div class="red-card-desc">Fácil: tú invitas a alguien Makia. Esa persona compra unas zapatillas de 100 mil. A ti te quedan mil pesos en ML's — sin hacer nada. Eso pasa con cada compra real de tu gente.</div>
       </div>
       <div class="red-card reveal d2">
         <div class="red-card-icon">📊</div>
@@ -893,7 +900,7 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
     <div class="feat-card reveal d2">
       <div class="feat-icon">🔒</div>
       <h3 class="feat-title">📈 Nivel Makia — mientras más te mueves, más te queda</h3>
-      <p class="feat-desc">Compras, vendes, traes gente activa o aportas a ReMakia. Todo eso sube tu Nivel Makia — de Semilla a Élite. Y a mayor nivel, más ML's te quedan y más beneficios recibes. El que se mueve, gana.</p>
+      <p class="feat-desc">Compras, vendes, traes gente activa o aportas a ReMakia. Todo eso sube tu Nivel Makia — de Semilla a Diamante. Y a mayor nivel, más ML's te quedan y más beneficios recibes. El que se mueve, gana.</p>
     </div>
   </div>
 </section>
@@ -904,7 +911,7 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
     <div class="sec-center reveal">
       <div class="sec-tag">Así funciona — en tres pasos</div>
       <h2 class="sec-title">Más fácil que pedir un domicilio</h2>
-      <p class="sec-sub">Dos minutos, sin costos, sin inventario. Si alguna vez pediste algo por Rappi, esto lo puedes hacer tú también. Y encima te quedan lucas.</p>
+      <p class="sec-sub">Dos minutos, sin costos, esto lo puedes hacer tú también. Y encima te quedan lucas.</p>
     </div>
     <div class="how-steps">
       <div class="how-step reveal d1">
@@ -915,12 +922,14 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
       <div class="how-step reveal d2">
         <div class="step-num">2</div>
         <h3 class="step-title">Compras — te quedan lucas</h3>
-        <p class="step-desc">Compra lo que ya compras. Vende sin bodega. Haz domicilios. O invita gente activa. MultiMakia te asigna los primeros 32 sola — o los traes tú si quieres ir más rápido. Cada movimiento te deja ML's.</p>
+        <p class="step-desc">Compra lo que ya compras. Vende sin bodega. Haz domicilios. O invita gente activa. MultiMakia te asigna los primeros 32 ó los traes tú si quieres ir más rápido. Cada movimiento te deja ML's.</p>
       </div>
       <div class="how-step reveal d3">
         <div class="step-num">3</div>
         <h3 class="step-title">Tus lucas crecen — tú decides qué hacer con ellas</h3>
-        <p class="step-desc">Úsalas pa' comprar más barato, págate un domicilio o apóyale a una causa en ReMakia. Y tu nivel sube solo — Semilla, Activo, Fuerte, Mayor, Élite. Entre más te muevas, más te queda. El que se mueve, gana.</p>
+        <p class="step-desc">Úsalas pa' comprar más barato, págate un domicilio o apóya una causa 
+                    <a href="#ReMakia" style="color:var(--green-dark);font-weight:700;text-decoration:underline;text-underline-offset:2px">ReMakia</a>.
+ Y tu nivel sube solo — Semilla, plata, oro, Diamante, Entre más te muevas, más te queda. El que se mueve, gana.</p>
       </div>
     </div>
   </div>

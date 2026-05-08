@@ -13,7 +13,7 @@
  *
  * CLOUDFLARE TURNSTILE:
  * 1. Ve a dash.cloudflare.com → Turnstile → Add site
- * 2. Nombre: "Multimarket Landing", dominio: haroldbustosb.github.io
+ * 2. Nombre: "Multimakia Landing", dominio: haroldbustosb.github.io
  * 3. Copia el Site Key → pégalo en index.html (data-sitekey)
  * 4. Copia el Secret Key → pégalo en TURNSTILE_SECRET abajo
  *
@@ -236,9 +236,9 @@ function sendClientEmail(data) {
 
         '<p style="font-size:13px;color:#94A3B8;text-align:center;line-height:1.7;margin:0">' +
           '¿Tienes preguntas? Escríbenos a<br/>' +
-          '<a href="mailto:contacto@multimarket.com.co" ' +
+          '<a href="mailto:contacto@multimakia.com" ' +
              'style="color:#10B981;font-weight:700;text-decoration:none">' +
-            'contacto@multimarket.com.co' +
+            'contacto@multimakia.com' +
           '</a>' +
         '</p>' +
       '</div>' +
@@ -260,7 +260,7 @@ function sendClientEmail(data) {
     subject:  "¡Tu lugar en Multimarket está reservado, " + nombre + "!",
     htmlBody: html,
     name:     "Multimarket",
-    replyTo:  "contacto@multimarket.com.co",
+    replyTo:  "contacto@multimakia.com",
   });
 }
 

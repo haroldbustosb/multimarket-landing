@@ -99,7 +99,7 @@ function doPost(e) {
       try {
         MailApp.sendEmail({
           to:      NOTIFY_EMAIL,
-          subject: "Nuevo lead Multimarket: " + data.nombre,
+          subject: "Nuevo lead Multimakia: " + data.nombre,
           body:    buildAdminEmailBody(data, ss.getUrl()),
         });
       } catch (mailErr) {
@@ -122,7 +122,7 @@ function doGet(e) {
   return ContentService
     .createTextOutput(JSON.stringify({
       status:    "active",
-      app:       "Multimarket Lead Collector",
+      app:       "Multimakia Lead Collector",
       timestamp: new Date().toISOString()
     }))
     .setMimeType(ContentService.MimeType.JSON);
@@ -172,7 +172,7 @@ function sendClientEmail(data) {
       // Header
       '<div style="background:linear-gradient(135deg,#0D2137,#1A3C5E);padding:32px 36px;text-align:center">' +
         '<div style="font-size:26px;font-weight:900;color:#fff;letter-spacing:-.5px">' +
-          'Multi<span style="color:#10B981">market</span>' +
+          'Multi<span style="color:#10B981">makia</span>' +
         '</div>' +
         '<div style="font-size:12px;color:rgba(255,255,255,.55);margin-top:5px;letter-spacing:.5px">' +
           'Red de economía activa · Colombia' +
@@ -186,7 +186,7 @@ function sendClientEmail(data) {
         '</h1>' +
         '<p style="font-size:15px;color:#64748B;line-height:1.75;margin:0 0 28px">' +
           'Tu lugar en la red está reservado. Eres parte de los primeros usuarios que ' +
-          'construyen la base de Multimarket — y esa posición tiene <strong style="color:#1A3C5E">' +
+          'construyen la base de Multimakia — y esa posición tiene <strong style="color:#1A3C5E">' +
           'ventaja permanente.</strong>' +
         '</p>' +
 
@@ -226,7 +226,7 @@ function sendClientEmail(data) {
         '<div style="background:#1A3C5E;border-radius:12px;padding:18px 22px;' +
              'margin-bottom:28px;text-align:center">' +
           '<div style="font-size:13px;color:rgba(255,255,255,.6);margin-bottom:6px">' +
-            'Recuerda: en Multimarket' +
+            'Recuerda: en Multimakia' +
           '</div>' +
           '<div style="font-size:16px;font-weight:800;color:#fff;line-height:1.4">' +
             '1 ML = 1 COP · ' +
@@ -247,7 +247,7 @@ function sendClientEmail(data) {
       '<div style="background:#F8FAFC;padding:16px 40px;text-align:center;' +
            'border-top:1px solid #E2E8F0">' +
         '<p style="font-size:11px;color:#94A3B8;margin:0;line-height:1.7">' +
-          '© 2026 Multimarket S.A.S. · Colombia · Economía activa<br/>' +
+          '© 2026 Multimakia Company S.A.S. · Colombia · Economía activa<br/>' +
           'Este correo confirma tu registro anticipado.' +
         '</p>' +
       '</div>' +
@@ -257,9 +257,9 @@ function sendClientEmail(data) {
 
   MailApp.sendEmail({
     to:       sanitize(data.correo).toLowerCase(),
-    subject:  "¡Tu lugar en Multimarket está reservado, " + nombre + "!",
+    subject:  "¡Tu lugar en Multimakia está reservado, " + nombre + "!",
     htmlBody: html,
-    name:     "Multimarket",
+    name:     "Multimakia",
     replyTo:  "contacto@multimakia.com",
   });
 }
@@ -283,7 +283,7 @@ function isValidEmail(email) {
 
 function buildAdminEmailBody(data, sheetUrl) {
   return [
-    "Nuevo lead registrado en Multimarket",
+    "Nuevo lead registrado en Multimakia",
     "─────────────────────────────",
     "Nombre:  " + data.nombre,
     "Correo:  " + data.correo,

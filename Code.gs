@@ -22,7 +22,7 @@
  */
 
 // ─── CONFIGURACIÓN ────────────────────────────────────────────────────────────
-const SPREADSHEET_ID   = "1w-QCmAlGSVEoSJMbkiZRkFuZBhrmLdeds6T_bbuAmzo";
+const SPREADSHEET_ID   = "11Zv8Nq2EfVOJJ_6nvdg33jSImF9um_tBE1w2o8FfhCA";
 const SHEET_NAME       = "Leads";
 const NOTIFY_EMAIL     = "multimakiacompany@gmail.com"; // notificación interna (deja "" para desactivar)
 const TURNSTILE_SECRET = "0x4AAAAAADFVV5HXysHr7UWah-LZ78tCDnQ"; // Secret Key de Cloudflare Turnstile

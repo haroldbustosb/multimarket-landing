@@ -5,6 +5,12 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <meta name="description" content="MultiMakia — Aquí no solo compras… siempre te queda liga. La ñapa digital que se convierte en impacto. Del barrio colombiano pa'l mundo."/>
 <title>MultiMakia — Compra, vende y siempre te quedan ML's 🇨🇴</title>
+<link rel="icon" href="assets/favicon.ico" sizes="any"/>
+<link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64.png"/>
+<link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48.png"/>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png"/>
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png"/>
 <!-- Cloudflare Turnstile -->
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -25,13 +31,34 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;color:var(--text);background:var(--white);line-height:1.6;overflow-x:hidden;-webkit-text-size-adjust:100%}
-*{word-break:break-word;overflow-wrap:break-word}
+p,li,.sec-sub,.sec-title,.hero-sub,.hero-bullets li,.stat-label,.perfil-gains li,.feat-desc,.ml-card-desc{overflow-wrap:break-word;word-break:break-word}
+.hero h1,.hero h1 em,.nav-logo,.brand-lockup,.brand-name,.brand-tagline,.btn-primary,.btn-dark,.nav-cta{word-break:normal;overflow-wrap:normal}
 a{text-decoration:none;color:inherit}
 
 /* ── NAV ── */
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 24px;height:68px;display:flex;align-items:center;justify-content:space-between;background:rgba(13,33,55,.9);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,.08);transition:background .3s}
-.nav-logo{font-size:22px;font-weight:900;color:#fff;letter-spacing:-.5px}
-.nav-logo span{color:var(--green)}
+.nav-logo{display:flex;align-items:center}
+.brand-lockup{display:flex;flex-direction:column;align-items:center;gap:5px;text-decoration:none;color:inherit}
+.brand-icon{display:block;height:auto;object-fit:contain;background:transparent}
+.brand-name{
+  display:block;font-size:clamp(13px,1.1vw,17px);font-weight:800;letter-spacing:-.03em;line-height:1;
+  color:#82C0C0;text-transform:lowercase;text-align:center
+}
+.brand-tagline{
+  display:block;max-width:11.5rem;text-align:center;line-height:1.25;
+  font-size:clamp(7px,.75vw,9px);font-weight:600;letter-spacing:.02em;
+  color:rgba(255,255,255,.88)
+}
+.brand-lockup-nav .brand-tagline,.brand-lockup-footer .brand-tagline{color:#fff;mix-blend-mode:difference}
+.brand-lockup-nav .brand-icon{width:52px;filter:drop-shadow(0 2px 8px rgba(0,0,0,.4))}
+.brand-lockup-nav .brand-name{font-size:15px}
+.brand-lockup-phone{gap:3px}
+.brand-lockup-phone .brand-icon{width:44px;filter:none}
+.brand-lockup-phone .brand-name{font-size:10px;color:#82C0C0}
+.brand-lockup-phone .brand-tagline{max-width:100%;font-size:7px;line-height:1.25;color:rgba(255,255,255,.85);mix-blend-mode:normal;text-shadow:none}
+.brand-lockup-footer .brand-icon{width:64px;filter:drop-shadow(0 2px 10px rgba(0,0,0,.4))}
+.brand-lockup-footer .brand-name{font-size:16px}
+.brand-lockup-footer .brand-tagline{max-width:12rem;font-size:8px}
 .nav-links{display:flex;gap:28px;list-style:none;align-items:center}
 .nav-links a{color:rgba(255,255,255,.75);font-size:14px;font-weight:500;transition:color .2s}
 .nav-links a:hover{color:#fff}
@@ -49,7 +76,7 @@ a{text-decoration:none;color:inherit}
 .fomo-bar a{color:#fff;text-decoration:underline;text-underline-offset:2px;margin-left:12px;font-weight:700}
 
 /* ── HERO ── */
-.hero{background:linear-gradient(135deg,var(--navy-dark) 0%,var(--navy) 55%,#1a5276 100%);display:flex;align-items:center;padding:96px 20px 56px;position:relative;overflow:clip;min-height:100svh}
+.hero{background:linear-gradient(135deg,var(--navy-dark) 0%,var(--navy) 55%,#1a5276 100%);display:flex;align-items:center;padding:96px 20px 56px;position:relative;overflow:visible;min-height:100svh}
 .hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(16,185,129,.13) 0%,transparent 60%);pointer-events:none}
 .hero::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:60px;background:linear-gradient(to top,var(--white),transparent);pointer-events:none}
 /* MOBILE FIRST: columna única */
@@ -57,7 +84,9 @@ a{text-decoration:none;color:inherit}
 .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(16,185,129,.15);border:1px solid rgba(16,185,129,.3);color:#6EE7B7;padding:6px 14px;border-radius:100px;font-size:12px;font-weight:600;white-space:normal;line-height:1.4}
 .hero-badge::before{content:'●';font-size:8px;animation:blink 2s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-.hero-text{width:100%}.hero h1{font-size:clamp(26px,8vw,56px);font-weight:900;color:#fff;line-height:1.1;letter-spacing:-0.5px;margin-bottom:16px}
+.hero-text{width:100%;min-width:0}
+.hero h1{font-size:clamp(26px,8vw,56px);font-weight:900;color:#fff;line-height:1.15;letter-spacing:-0.5px;margin-bottom:16px;max-width:22ch}
+.hero h1 em{display:block;margin-top:.15em}
 .hero h1 em{font-style:normal;color:var(--green)}
 .hero-sub{font-size:16px;color:rgba(255,255,255,.8);max-width:100%;margin-bottom:20px;line-height:1.7}
 .hero-bullets{list-style:none;display:flex;flex-direction:column;gap:10px;margin-bottom:28px;width:100%;text-align:left}
@@ -70,33 +99,56 @@ a{text-decoration:none;color:inherit}
 .btn-ghost:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.4)}
 
 /* PHONE MOCKUP */
-.hero-phone{display:flex;justify-content:center;align-items:center;position:relative;padding:8px 0 0}
-.phone{width:220px;height:440px;background:var(--navy-dark);border-radius:40px;border:7px solid rgba(255,255,255,.14);position:relative;box-shadow:0 24px 60px rgba(0,0,0,.45),inset 0 0 0 1px rgba(255,255,255,.08);overflow:hidden}
-.phone-notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:88px;height:26px;background:var(--navy-dark);border-radius:0 0 18px 18px;z-index:2}
-.phone-screen{width:100%;height:100%;background:linear-gradient(180deg,#0D2137 0%,#1A3C5E 45%,#0d4f3c 100%);display:flex;flex-direction:column;padding:36px 14px 18px}
-.phone-status{display:flex;justify-content:space-between;color:rgba(255,255,255,.4);font-size:10px;margin-bottom:16px}
-.phone-logo{font-size:14px;font-weight:900;color:#fff;text-align:center;margin-bottom:12px}
-.phone-logo span{color:var(--green)}
-.phone-card{background:rgba(255,255,255,.09);border-radius:14px;padding:13px;margin-bottom:9px;border:1px solid rgba(255,255,255,.1)}
-.phone-card-label{color:rgba(255,255,255,.5);font-size:9px;margin-bottom:3px;text-transform:uppercase;letter-spacing:.5px}
-.phone-card-value{color:#fff;font-size:21px;font-weight:900}
-.phone-card-value span{color:var(--green);font-size:12px;font-weight:600}
-.phone-items{display:flex;flex-direction:column;gap:7px}
-.phone-item{background:rgba(255,255,255,.05);border-radius:10px;padding:8px 11px;display:flex;align-items:center;gap:9px;border:1px solid rgba(255,255,255,.07)}
-.phone-item-icon{width:30px;height:30px;border-radius:8px;background:rgba(16,185,129,.18);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
-.phone-item-name{color:rgba(255,255,255,.8);font-size:10px;font-weight:600}
-.phone-item-price{color:var(--green);font-size:10px;font-weight:700;margin-top:1px}
-.phone-coming{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(to top,rgba(13,33,55,.98) 60%,transparent);padding:16px 14px 12px;text-align:center}
+.hero-phone{display:flex;justify-content:center;width:100%;margin:0 auto;padding:8px max(24px,6vw) 0;overflow:visible}
+.hero-phone-stage{
+  position:relative;display:grid;place-items:center;
+  width:220px;height:440px;margin:0 auto;overflow:visible
+}
+.hero-phone-stage>.phone{grid-area:1/1}
+.hero-phone-stage>.hero-floats{grid-area:1/1}
+.phone{width:100%;height:100%;background:var(--navy-dark);border-radius:40px;border:7px solid rgba(255,255,255,.14);position:relative;z-index:2;box-shadow:0 24px 60px rgba(0,0,0,.45),inset 0 0 0 1px rgba(255,255,255,.08);overflow:hidden}
+.phone-notch{position:absolute;top:0;left:50%;transform:translateX(-50%);width:88px;height:26px;background:var(--navy-dark);border-radius:0 0 18px 18px;z-index:5}
+.phone-screen{
+  position:relative;z-index:4;width:100%;height:100%;
+  background:linear-gradient(180deg,#0D2137 0%,#1A3C5E 45%,#0d4f3c 100%);
+  display:flex;flex-direction:column;padding:32px 12px 72px;overflow:hidden;
+  mix-blend-mode:normal
+}
+.phone-screen *{mix-blend-mode:normal;-webkit-font-smoothing:antialiased}
+.phone-status{display:flex;justify-content:space-between;color:rgba(255,255,255,.4);font-size:10px;margin-bottom:8px;flex-shrink:0}
+.phone-logo{display:flex;justify-content:center;margin-bottom:8px;flex-shrink:0}
+.phone-logo .brand-lockup{margin:0}
+.phone-card{background:rgba(255,255,255,.09);border-radius:12px;padding:10px 12px;margin-bottom:8px;border:1px solid rgba(255,255,255,.1);flex-shrink:0}
+.phone-card-label{display:block;color:rgba(255,255,255,.65);font-size:7px;margin-bottom:5px;text-transform:uppercase;letter-spacing:.35px;line-height:1.2;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.phone-card-row{display:flex;align-items:baseline;gap:5px;flex-wrap:nowrap;line-height:1}
+.phone-card-num{color:#fff;font-size:20px;font-weight:900;line-height:1;white-space:nowrap}
+.phone-card-unit{color:var(--green);font-size:11px;font-weight:700;flex-shrink:0;line-height:1}
+.phone-items{display:flex;flex-direction:column;gap:6px;flex:1;min-height:0;overflow:hidden}
+.phone-item{background:rgba(255,255,255,.05);border-radius:10px;padding:7px 10px;display:flex;align-items:center;gap:8px;border:1px solid rgba(255,255,255,.07);flex-shrink:0}
+.phone-item-icon{width:28px;height:28px;border-radius:8px;background:rgba(16,185,129,.18);display:flex;align-items:center;justify-content:center;font-size:12px;flex-shrink:0}
+.phone-item-body{min-width:0;flex:1}
+.phone-item-name{color:#fff;font-size:9px;font-weight:600;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.phone-item-price{color:var(--green);font-size:9px;font-weight:700;margin-top:2px;line-height:1.2;white-space:nowrap}
+.phone-coming{position:absolute;bottom:0;left:0;right:0;z-index:5;background:linear-gradient(to top,rgba(13,33,55,.98) 60%,transparent);padding:14px 12px 10px;text-align:center}
 .phone-coming-label{color:rgba(255,255,255,.5);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:7px}
 .phone-store-row{display:flex;gap:5px;justify-content:center}
 .phone-store{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:4px 9px;color:rgba(255,255,255,.55);font-size:9px;font-weight:700}
-.hero-float{position:absolute;background:rgba(255,255,255,.09);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.14);border-radius:14px;padding:10px 15px;color:#fff;font-size:13px;font-weight:600;animation:floaty 4s ease-in-out infinite}
-.hero-float{pointer-events:none}
-.hero-float-1{top:14%;right:-12px;animation-delay:0s}
-.hero-float-2{bottom:24%;right:-20px;animation-delay:1.6s}
-.hero-float-3{top:42%;left:-20px;animation-delay:.9s}
-@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-.fv{color:var(--green);font-size:18px;display:block;line-height:1.2}
+/* Flotantes pegadas al marco — fuera del contenido del mockup */
+.hero-floats{position:relative;width:100%;height:100%;z-index:8;pointer-events:none;overflow:visible}
+.hero-float{position:absolute;width:max-content;max-width:138px;pointer-events:none}
+.hero-float-body{
+  background:rgba(13,33,55,.98);border:1px solid rgba(255,255,255,.22);border-radius:12px;
+  padding:12px 14px;color:#fff;font-size:12px;font-weight:600;line-height:1.35;text-align:center;
+  box-shadow:0 8px 22px rgba(0,0,0,.45);animation:floaty 4s ease-in-out infinite
+}
+.hero-float-1{top:4%;right:0;transform:translateX(calc(100% - 12px))}
+.hero-float-2{bottom:20%;right:0;transform:translateX(calc(100% - 12px))}
+.hero-float-3{bottom:20%;left:0;transform:translateX(calc(-100% + 12px))}
+.hero-float-1 .hero-float-body{animation-delay:0s}
+.hero-float-2 .hero-float-body{animation-delay:1.6s}
+.hero-float-3 .hero-float-body{animation-delay:.9s}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.fv{color:var(--green);font-size:15px;display:block;line-height:1.15;margin-bottom:4px;font-weight:800}
 
 /* ── STATS ── */
 .stats{background:var(--white);padding:60px 24px;border-bottom:1px solid var(--border)}
@@ -133,7 +185,7 @@ a{text-decoration:none;color:inherit}
 .niveles-label{text-align:center;font-size:11px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:2px;margin-bottom:32px}
 .niveles-track{display:flex;align-items:center}
 .nivel{flex:1;text-align:center}
-.nivel-dot{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px;margin:0 auto 10px;border:2px solid rgba(255,255,255,.18);background:rgba(255,255,255,.05)}
+.nivel-dot{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;line-height:1;margin:0 auto 10px;border:2px solid rgba(255,255,255,.18);background:rgba(255,255,255,.05)}
 .nivel.activo .nivel-dot{border-color:var(--green);background:rgba(16,185,129,.18)}
 .nivel-name{font-size:12px;font-weight:800;color:rgba(255,255,255,.7);margin-bottom:3px;text-transform:uppercase;letter-spacing:.5px}
 .nivel.activo .nivel-name{color:var(--green)}
@@ -361,8 +413,7 @@ a{text-decoration:none;color:inherit}
 /* ── FOOTER ── */
 footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255,.6)}
 .footer-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:44px;margin-bottom:44px}
-.footer-brand{font-size:22px;font-weight:900;color:#fff;margin-bottom:11px}
-.footer-brand span{color:var(--green)}
+.footer-brand{display:inline-flex;align-items:center;margin-bottom:11px}
 .footer-desc{font-size:13px;line-height:1.8;max-width:260px;margin-bottom:18px}
 .footer-social{display:flex;gap:9px}
 .soc{width:36px;height:36px;background:rgba(255,255,255,.07);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:14px;transition:background .2s}
@@ -416,17 +467,25 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
     text-align:left;
     align-items:center;
   }
-  .hero-text{flex:1}
+  .hero-text{flex:1 1 340px;min-width:min(100%,340px);max-width:560px;position:relative;z-index:2}
   .hero-badge{font-size:13px}
-  .hero h1{font-size:clamp(36px,4vw,56px)}
+  .hero h1{font-size:clamp(36px,4vw,56px);max-width:none}
   .hero-sub{font-size:17px;max-width:500px}
   .hero-bullets{max-width:none;margin-bottom:36px}
   .hero-bullets li{font-size:15px}
   .hero-actions{justify-content:flex-start}
   .hero-actions a{width:auto}
-  .hero-phone{display:flex;flex:0 0 auto}
-  .phone{width:258px;height:520px;border-radius:46px;border-width:8px}
-  .hero-float{display:block}
+  .hero-phone{flex:0 0 auto;width:auto;padding:8px max(32px,7vw) 0}
+  .hero-phone-stage{width:258px;height:520px}
+  .hero-float{max-width:162px}
+  .hero-float-body{max-width:162px;font-size:13px;padding:12px 16px;line-height:1.4}
+  .hero-float-1{transform:translateX(calc(100% - 14px))}
+  .hero-float-2{transform:translateX(calc(100% - 14px))}
+  .hero-float-3{transform:translateX(calc(-100% + 14px))}
+  .hero-float .fv{font-size:18px}
+  .brand-lockup-phone .brand-icon{width:48px}
+  .brand-lockup-phone .brand-name{font-size:11px}
+  .brand-lockup-phone .brand-tagline{font-size:6.5px}
 }
 
 /* ── TABLET/MOBILE (≤960px) ── */
@@ -445,21 +504,36 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
   .form-card{padding:32px 20px}
   .mm-header{grid-template-columns:1fr;gap:32px}
   .mm-events{grid-template-columns:1fr 1fr}
+  .hero-float{max-width:128px}
+  .hero-float-body{max-width:128px;font-size:12px;padding:11px 13px}
+  .hero-float .fv{font-size:15px}
 }
 
 /* ── MOBILE (≤640px) ── */
 @media(max-width:640px){
   /* HERO MOBILE */
   .hero{padding:76px 16px 40px}
+  .brand-lockup-nav .brand-icon{width:46px}
+  .brand-lockup-nav .brand-name{font-size:13px}
+  .brand-lockup-nav .brand-tagline{font-size:7px;max-width:10rem}
+  .brand-lockup-phone .brand-icon{width:38px}
+  .brand-lockup-phone .brand-name{font-size:9px}
+  .brand-lockup-phone .brand-tagline{font-size:5.5px}
   .hero-inner{gap:16px}
-  .hero h1{font-size:clamp(24px,9vw,34px)}
+  .hero h1{font-size:clamp(24px,9vw,34px);max-width:none}
   .hero-sub{font-size:13px;line-height:1.65}
   .hero-bullets li{font-size:13px;gap:10px}
   .hero-actions a{font-size:14px;padding:14px 20px}
-  .phone{width:190px;height:380px;border-radius:34px;border-width:6px}
-  .phone-card-value{font-size:18px}
-  .phone-item-name{font-size:9px}
-  .phone-item-price{font-size:9px}
+  .hero-phone-stage{width:190px;height:380px}
+  .phone{border-radius:34px;border-width:6px}
+  .phone-screen{padding:28px 10px 64px}
+  .phone-card-num{font-size:17px}
+  .hero-float{max-width:122px}
+  .hero-float-body{max-width:122px;font-size:11px;padding:10px 12px;line-height:1.35}
+  .hero-float-1{transform:translateX(calc(100% - 10px))}
+  .hero-float-2{transform:translateX(calc(100% - 10px))}
+  .hero-float-3{transform:translateX(calc(-100% + 10px))}
+  .hero-float .fv{font-size:14px}
 
   /* GRIDS */
   .stats-inner{grid-template-columns:1fr}
@@ -503,6 +577,7 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
   .form-card{padding:24px 16px}
   /* footer */
   .footer-grid{padding:0 0 20px}
+  .brand-lockup-footer .brand-icon{width:54px}
 }
 </style>
 </head>
@@ -510,7 +585,13 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
 
 <!-- ══ NAV ══════════════════════════════════════════ -->
 <nav class="nav" id="nav">
-  <div class="nav-logo">Multi<span>Makia</span></div>
+  <div class="nav-logo">
+    <a class="brand-lockup brand-lockup-nav" href="#" aria-label="MultiMakia — inicio">
+      <img class="brand-icon" src="assets/logo-icon.png" alt=""/>
+      <span class="brand-name">multimakia</span>
+      <span class="brand-tagline">convierte tus gastos en ingresos</span>
+    </a>
+  </div>
   <ul class="nav-links">
     <li><a href="#ml">Tu ñapa digital</a></li>
     <li><a href="#red">Cómo ganas dinero</a></li>
@@ -564,27 +645,46 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
       </div>
     </div>
     <div class="hero-phone">
+      <div class="hero-phone-stage">
       <div class="phone">
         <div class="phone-notch"></div>
         <div class="phone-screen">
           <div class="phone-status"><span>9:41</span><span>●●●</span></div>
-          <div class="phone-logo">Multi<span>Makia</span></div>
+          <div class="phone-logo">
+            <div class="brand-lockup brand-lockup-phone" aria-hidden="true">
+              <img class="brand-icon" src="assets/logo-icon.png" alt=""/>
+              <span class="brand-name">multimakia</span>
+              <span class="brand-tagline">convierte tus gastos en ingresos</span>
+            </div>
+          </div>
           <div class="phone-card">
-            <div class="phone-card-label">Tus ML's disponibles</div>
-            <div class="phone-card-value">2,400 <span>ML</span></div>
+            <div class="phone-card-label">Saldo disponible</div>
+            <div class="phone-card-row">
+              <span class="phone-card-num">2,400</span>
+              <span class="phone-card-unit">ML</span>
+            </div>
           </div>
           <div class="phone-items">
             <div class="phone-item">
               <div class="phone-item-icon">👟</div>
-              <div><div class="phone-item-name">Zapatillas Sport</div><div class="phone-item-price">89,000 ML</div></div>
+              <div class="phone-item-body">
+                <div class="phone-item-name">Zapatillas Sport</div>
+                <div class="phone-item-price">89,000 ML</div>
+              </div>
             </div>
             <div class="phone-item">
               <div class="phone-item-icon">⌚</div>
-              <div><div class="phone-item-name">Smartwatch Pro</div><div class="phone-item-price">120,000 ML</div></div>
+              <div class="phone-item-body">
+                <div class="phone-item-name">Smartwatch Pro</div>
+                <div class="phone-item-price">120,000 ML</div>
+              </div>
             </div>
             <div class="phone-item">
               <div class="phone-item-icon">💄</div>
-              <div><div class="phone-item-name">Kit Belleza</div><div class="phone-item-price">45,000 ML</div></div>
+              <div class="phone-item-body">
+                <div class="phone-item-name">Kit Belleza</div>
+                <div class="phone-item-price">45,000 ML</div>
+              </div>
             </div>
           </div>
         </div>
@@ -596,9 +696,12 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
           </div>
         </div>
       </div>
-      <div class="hero-float hero-float-1"><span class="fv">+LUCAS</span>por cada persona activa</div>
-      <div class="hero-float hero-float-2"><span class="fv">1 ML</span>= 1 COP · siempre</div>
-      <div class="hero-float hero-float-3"><span class="fv">🇨🇴</span>De Colombia pa'l mundo</div>
+      <div class="hero-floats">
+        <div class="hero-float hero-float-1"><div class="hero-float-body"><span class="fv">+LUCAS</span>por cada persona activa</div></div>
+        <div class="hero-float hero-float-2"><div class="hero-float-body"><span class="fv">1 ML</span>= 1 COP · siempre</div></div>
+        <div class="hero-float hero-float-3"><div class="hero-float-body"><span class="fv">🇨🇴</span>De Colombia pa'l mundo</div></div>
+      </div>
+      </div>
     </div>
   </div>
 </section>
@@ -628,25 +731,25 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
     <div class="niveles-label">Arrancas con un cupo de 32 Makias. Tú decides si quieres ir por más......</div>
     <div class="niveles-track">
       <div class="nivel activo">
-        <div class="nivel-dot">🌱</div>
+        <div class="nivel-dot" aria-hidden="true">🌱</div>
         <div class="nivel-name">Makia Semilla</div>
         <div class="nivel-count">Hasta 32 Makias</div>
       </div>
       <div class="nivel-line done"></div>
       <div class="nivel">
-        <div class="nivel-dot">🔥</div>
+        <div class="nivel-dot" aria-hidden="true">🥈</div>
         <div class="nivel-name">Makia PLATA</div>
         <div class="nivel-count">Hasta 64 Makias</div>
       </div>
       <div class="nivel-line"></div>
       <div class="nivel">
-        <div class="nivel-dot">⚡</div>
+        <div class="nivel-dot" aria-hidden="true">👑</div>
         <div class="nivel-name">Makia ORO</div>
         <div class="nivel-count">Hasta 128 Makias</div>
       </div>
       <div class="nivel-line"></div>
       <div class="nivel">
-        <div class="nivel-dot">🌟</div>
+        <div class="nivel-dot" aria-hidden="true">💎</div>
         <div class="nivel-name">Makia DIAMANTE</div>
         <div class="nivel-count">Hasta 256 Makias</div>
       </div>      
@@ -1256,8 +1359,8 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
   <div class="registro-inner">
     <div class="sec-center reveal">
       <div class="sec-tag">Ser Makia 🇨🇴</div>
-      <h2 class="sec-title">Entra gratis — y empieza a quedarte con lucas</h2>
-      <p class="sec-sub">Dos minutos. Sin costos, sin tramitología, sin letra pequeña. Los primeros en entrar arrancan con ventaja — y MultiMakia ya tiene tus primeros 32 personas activas esperándote.</p>
+      <h2 class="sec-title">Entra gratis — y empieza a quedarte con tus ML's</h2>
+      <p class="sec-sub">Dos minutos. Sin costos, sin tramitología, sin letra pequeña. Los primeros en entrar arrancan con ventaja — y MultiMakia te facilita llegar a tus primeros 32 usuarios activos.</p>
     </div>
     <div class="trust-badges reveal">
       <div class="trust-badge">🔒 Datos protegidos — Ley 1581</div>
@@ -1355,7 +1458,13 @@ footer{background:var(--navy-dark);padding:60px 24px 28px;color:rgba(255,255,255
 <footer>
   <div class="footer-grid">
     <div>
-      <div class="footer-brand">Multi<span>Makia</span></div>
+      <div class="footer-brand">
+        <div class="brand-lockup brand-lockup-footer">
+          <img class="brand-icon" src="assets/logo-icon.png" alt="Multimakia"/>
+          <span class="brand-name">multimakia</span>
+          <span class="brand-tagline">convierte tus gastos en ingresos</span>
+        </div>
+      </div>
       <p class="footer-desc">Compras → te quedan ML's. Los gastas, los ahorras o los conviertes en impacto con ReMakia. Del barrio colombiano pa'l mundo. 🇨🇴</p>
       <div class="footer-social">
         <a href="https://www.facebook.com/profile.php?id=100051651054025" target="_blank" rel="noopener" class="soc">📘</a>

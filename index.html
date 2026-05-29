@@ -220,13 +220,30 @@ a{text-decoration:none;color:inherit}
 .hero-benefits{display:none}
 
 /* ── STATS ── */
-.stats{background:var(--white);padding:60px 24px;border-bottom:1px solid var(--border)}
-.stats-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.stat{text-align:center;padding:28px 20px;border-radius:var(--radius);background:var(--bg);border:1px solid var(--border);transition:transform .2s,box-shadow .2s}
+.stats{
+  position:relative;z-index:2;
+  background:var(--white);padding:60px 24px;border-bottom:1px solid var(--border);
+  width:100%
+}
+.stats-inner{
+  max-width:900px;width:100%;min-width:0;margin:0 auto;
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px
+}
+.stat{
+  min-width:0;width:100%;text-align:center;padding:28px 20px;border-radius:var(--radius);
+  background:var(--bg);border:1px solid var(--border);
+  transition:transform .2s,box-shadow .2s
+}
 .stat:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
-.stat-val{font-size:40px;font-weight:900;color:var(--navy);letter-spacing:-1px;line-height:1}
-.stat-val em{font-style:normal;color:var(--accent)}
-.stat-label{color:var(--text-light);font-size:13px;margin-top:7px;font-weight:500;line-height:1.5}
+.stat-val{
+  font-size:clamp(28px,6vw,40px);font-weight:900;color:var(--navy);
+  letter-spacing:-1px;line-height:1.1;overflow-wrap:break-word
+}
+.stat-val em{font-style:normal;color:var(--accent);white-space:normal}
+.stat-label{
+  color:var(--text-light);font-size:clamp(13px,3.6vw,15px);margin-top:10px;
+  font-weight:500;line-height:1.55;max-width:28ch;margin-left:auto;margin-right:auto
+}
 
 /* ── SHARED SECTION STYLES ── */
 .sec-tag{display:inline-block;background:var(--green-pale);color:var(--green-dark);font-size:11px;font-weight:700;padding:5px 14px;border-radius:100px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:14px}
@@ -746,6 +763,9 @@ footer{background:#071421;padding:60px 24px 28px;color:var(--text-muted)}
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
 .reveal.in{opacity:1;transform:translateY(0)}
 .reveal.d1{transition-delay:.1s}.reveal.d2{transition-delay:.2s}.reveal.d3{transition-delay:.3s}
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+}
 
 /* ── RESPONSIVE ── */
 /* ── TABLET (≤1024px) ── */
@@ -820,6 +840,10 @@ footer{background:#071421;padding:60px 24px 28px;color:var(--text-muted)}
   .impact-spotlight::after{background:linear-gradient(180deg,rgba(255,248,245,.95) 0%,rgba(255,243,238,.84) 42%,rgba(255,243,238,.52) 100%)}
   .impact-copy{text-align:center}
   .impact-copy p{margin-left:auto;margin-right:auto}
+  .stats{padding:52px 20px}
+  .stats-inner{grid-template-columns:1fr;gap:14px;max-width:560px}
+  .stat{padding:24px 20px}
+  .stat-label{max-width:none}
 }
 
 /* ── MOBILE (≤640px) ── */
@@ -849,8 +873,12 @@ footer{background:#071421;padding:60px 24px 28px;color:var(--text-muted)}
   .como-premium{padding:56px 16px 64px}
   .impact-spotlight{padding:56px 16px}
   .impact-visual{min-height:280px}
-  .stat-val{font-size:36px}
-  .stat-label{font-size:14px}
+  .stats{padding:44px 16px}
+  .stats-inner{gap:12px;max-width:100%}
+  .stat{padding:22px 18px;border-radius:14px;box-shadow:var(--shadow)}
+  .stat-val{font-size:clamp(30px,9vw,38px)}
+  .stat-label{font-size:14px;line-height:1.6}
+  .stat:hover{transform:none;box-shadow:var(--shadow)}
   .perfiles-grid{grid-template-columns:1fr}
   .ganas-grid{grid-template-columns:1fr}
   .ap-grid{grid-template-columns:1fr}
@@ -1480,7 +1508,7 @@ footer{background:#071421;padding:60px 24px 28px;color:var(--text-muted)}
         <h2 class="rm-title"><span class="rm-line">Porque la unica forma de ser <em>+</em> Makia... </span><span class="rm-line"> es siendo <em>ReMakia.</em></span>
           
         </h2>
-        <p class="rm-sub">En MultiMakia, el <strong>1% de cada compra</strong> se mueve automáticamente a una causa ReMakia para impulsar causas reales.</p>
+        <p class="rm-sub">En MultiMakia, el <strong>1% de cada compra</strong> se mueve automáticamente a una causa ReMakia para impulsar acciones reales.</p>
         <p class="rm-sub" style="margin-top:-8px;font-size:14px">Y si alguna acción conecta contigo… <em style="font-style:normal;color:var(--rm-cyan-bright)">siempre puedes aportar más con tus ML's.</em></p>
       </div>
       <div class="rm-hero-visual reveal d2">
@@ -1909,21 +1937,23 @@ footer{background:#071421;padding:60px 24px 28px;color:var(--text-muted)}
     entries.forEach(function(e) {
       if (e.isIntersecting) { e.target.classList.add('in'); ro.unobserve(e.target); }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
   document.querySelectorAll('.reveal').forEach(function(el) { ro.observe(el); });
 
   var countDone = false;
   var co = new IntersectionObserver(function(entries) {
     if (entries[0].isIntersecting && !countDone) {
       countDone = true;
+      entries[0].target.querySelectorAll('.reveal').forEach(function(el) { el.classList.add('in'); });
       var el = document.getElementById('cnt'), n = 0;
+      if (!el) return;
       var t = setInterval(function() {
         n = Math.min(n + 28, 1200);
         el.textContent = n.toLocaleString('es-CO');
         if (n >= 1200) clearInterval(t);
       }, 18);
     }
-  }, { threshold: 0.5 });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
   var statsEl = document.querySelector('.stats');
   if (statsEl) co.observe(statsEl);
 

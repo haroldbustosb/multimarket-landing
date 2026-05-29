@@ -183,19 +183,33 @@ a{text-decoration:none;color:inherit}
 .como-card-desc{font-size:13px;color:var(--text-light);line-height:1.6}
 
 /* ── IMPACTO SPOTLIGHT (ReMakia preview) ── */
-.impact-spotlight{background:linear-gradient(180deg,#FFF8F5 0%,#FFF3EE 100%);padding:80px 24px}
-.impact-spotlight-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.impact-spotlight{position:relative;padding:80px 24px;overflow:hidden;isolation:isolate}
+.impact-spotlight::before{
+  content:'';position:absolute;inset:0;z-index:0;
+  background:url(assets/impact-spotlight.png) no-repeat center/cover;
+  background-position:76% 44%
+}
+.impact-spotlight::after{
+  content:'';position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(90deg,
+    rgba(255,248,245,.97) 0%,
+    rgba(255,243,238,.91) 26%,
+    rgba(255,243,238,.72) 42%,
+    rgba(255,243,238,.45) 54%,
+    rgba(255,243,238,.16) 68%,
+    rgba(255,255,255,0) 82%)
+}
+.impact-spotlight-inner{position:relative;z-index:2;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
 .impact-copy .sec-tag.red{background:#FCEAE4;color:#C8623F}
 .impact-copy h2{font-size:clamp(26px,3.2vw,38px);font-weight:800;color:var(--navy);line-height:1.15;margin-bottom:14px;letter-spacing:-.5px}
 .impact-copy h2 em{font-style:normal;color:#C8623F}
 .impact-copy p{color:var(--text-light);font-size:15px;line-height:1.7;margin-bottom:22px;max-width:420px}
-.impact-visual{position:relative;border-radius:24px;min-height:340px;background:linear-gradient(145deg,#FFD4C4 0%,#F5B89A 40%,#E8A088 100%);overflow:hidden;display:flex;align-items:flex-end;justify-content:center;padding:24px}
-.impact-visual::before{content:'🐾';position:absolute;top:18%;left:50%;transform:translateX(-50%);font-size:72px;opacity:.25}
-.impact-card{position:relative;z-index:2;width:100%;max-width:300px;background:#fff;border-radius:16px;padding:18px;box-shadow:0 16px 40px rgba(200,98,63,.18);border:1px solid rgba(200,98,63,.12)}
+.impact-visual{position:relative;min-height:340px;display:flex;align-items:center;justify-content:center;padding:12px 8px}
+.impact-card{width:100%;max-width:300px;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);border-radius:16px;padding:18px;box-shadow:0 16px 40px rgba(200,98,63,.2);border:1px solid rgba(255,255,255,.65)}
 .impact-card-tag{font-size:10px;font-weight:700;color:#C8623F;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px}
 .impact-card-title{font-size:14px;font-weight:800;color:var(--navy);margin-bottom:10px;line-height:1.35}
 .impact-bar{height:6px;background:#FCEAE4;border-radius:99px;overflow:hidden;margin-bottom:6px}
-.impact-bar-fill{height:100%;width:72%;background:linear-gradient(90deg,#C8623F,#E05D44);border-radius:99px}
+.impact-bar-fill{height:100%;width:1.8%;background:linear-gradient(90deg,#C8623F,#E05D44);border-radius:99px}
 .impact-meta{font-size:11px;color:var(--text-light);margin-bottom:12px}
 .impact-btn{display:block;text-align:center;background:#C8623F;color:#fff;font-weight:700;font-size:13px;padding:10px;border-radius:10px;transition:opacity .2s}
 .impact-btn:hover{opacity:.9}
@@ -796,6 +810,8 @@ footer{background:#071421;padding:60px 24px 28px;color:var(--text-muted)}
   .como-cards{grid-template-columns:1fr;gap:16px}
   .como-cards::before{display:none}
   .impact-spotlight-inner{grid-template-columns:1fr;gap:32px}
+  .impact-spotlight::before{background-position:center 40%}
+  .impact-spotlight::after{background:linear-gradient(180deg,rgba(255,248,245,.95) 0%,rgba(255,243,238,.84) 42%,rgba(255,243,238,.52) 100%)}
   .impact-copy{text-align:center}
   .impact-copy p{margin-left:auto;margin-right:auto}
 }
@@ -1040,7 +1056,7 @@ footer{background:#071421;padding:60px 24px 28px;color:var(--text-muted)}
 </section>
 
 <!-- ══ IMPACTO SPOTLIGHT ═════════════════════════════ -->
-<section class="impact-spotlight">
+<section class="impact-spotlight" aria-label="ReMakia — voluntario con camiseta Estoy para servirte">
   <div class="impact-spotlight-inner">
     <div class="impact-copy reveal">
       <div class="sec-tag red">ReMakia</div>
